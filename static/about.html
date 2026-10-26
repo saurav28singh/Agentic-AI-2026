@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About the Workshop &middot; Agentic AI Workshop 2026</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>try{var t=localStorage.getItem("aaiw-theme");if(t){document.documentElement.classList.add("t-"+t);}}catch(e){}</script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="mark" href="index.html">
+      <img class="crest crest-red" src="photos/iitd-crest-red.png" alt="" width="160" height="160">
+      <img class="crest crest-white" src="photos/iitd-crest-white.png" alt="" width="160" height="160">
+      <span class="mark-text">
+        <b>Agentic AI Workshop <i>2026</i></b>
+        <span>Indian Institute of Technology Delhi</span>
+        <span>Yardi School of Artificial Intelligence</span>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Pages">
+      <a href="about.html" aria-current="page">About</a>
+      <a href="programme.html">Programme</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="tutorials.html">Tutorials</a>
+      <a href="venue.html">Venue</a>
+      <a href="organisers.html">Organisers</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+    </button>
+    <a class="btn btn-sm head-cta" href="register.html">Register</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="crumb"><a href="index.html">Home</a> &rarr; About</p>
+      <p class="eyebrow" style="margin-top:16px">About the workshop</p>
+      <h1>Why agentic AI, and why now?</h1>
+      <p class="lede">Where autonomous AI agents meet healthcare, science and entrepreneurship.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band-grid">
+      <div class="band-head">
+        <p class="eyebrow">Why this workshop</p>
+        <h2>From answering to acting</h2>
+        <p>The shift that makes this the right moment.</p>
+      </div>
+      <div>
+        <div class="prose">
+          <p>AI systems are moving from answering questions to <strong>taking actions</strong>: planning multi-step tasks, using tools, collaborating with people and with other agents, and learning from feedback. The shift opens real opportunities and raises hard questions about reliability, safety and accountability.</p>
+          <p>The Agentic AI Workshop 2026 brings researchers, practitioners, founders and investors to IIT Delhi to take stock of where agentic AI stands, where it is heading, and how it can create real impact in healthcare, scientific discovery and entrepreneurship.</p>
+          <p><strong>Agentic AI</strong> describes systems that pursue goals with a degree of autonomy. Rather than producing a single response, an agent runs a loop, usually with a large language model as its reasoning engine, combined with memory, tool use and human oversight.</p>
+          <ol class="loop">
+            <li><div class="n">01</div><h4>Perceive</h4><p>Takes in the goal and its surroundings: requests, documents, sensor data, tool output.</p></li>
+            <li><div class="n">02</div><h4>Reason</h4><p>Works out what the goal requires and what it still needs to know.</p></li>
+            <li><div class="n">03</div><h4>Plan</h4><p>Breaks the goal into a sequence of steps it can carry out.</p></li>
+            <li><div class="n">04</div><h4>Act</h4><p>Calls tools and APIs, writes to systems, or delegates to other agents.</p></li>
+            <li><div class="n">05</div><h4>Reflect</h4><p>Checks the outcome against the goal and revises before trying again.</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="run-trace">
+    <div class="wrap band-grid">
+      <div class="band-head">
+        <p class="eyebrow">A run, step by step</p>
+        <h2>What one task actually costs</h2>
+        <p>An illustrative trace of a single question moving through the pipeline.</p>
+      </div>
+      <div>
+        <div class="trace-head">
+          <p class="eyebrow">Worked example</p>
+          <q>Which papers since 2024 report agents running wet-lab experiments?</q>
+        </div>
+        <ol class="trace">
+          <li><span class="n">01</span><span class="who">orchestrator</span><span class="msg">Splits the question into <b>retrieve &rarr; draft &rarr; verify</b>, and sets the rule that every claim carries a citation.</span><span class="state run">planned</span></li>
+          <li><span class="n">02</span><span class="who">retriever</span><span class="msg">Queries arXiv, PubMed and bioRxiv, de-duplicates and ranks what comes back.</span><span class="state ok">38 hits</span></li>
+          <li><span class="n">03</span><span class="who">reasoner</span><span class="msg">Drafts a six-paragraph summary, each claim tagged to the source it came from.</span><span class="state ok">drafted</span></li>
+          <li><span class="n">04</span><span class="who">verifier</span><span class="msg">Re-reads every cited paper against the claim made about it. Two claims are not supported by their source.</span><span class="state warn">2 failed</span></li>
+          <li class="redo"><span class="n">05</span><span class="who">orchestrator</span><span class="msg">Keeps the eighteen claims that held. Re-queries only the two that did not, instead of starting again.</span><span class="state warn">revise</span></li>
+          <li><span class="n">06</span><span class="who">retriever</span><span class="msg">Finds a genuine source for one claim. For the other there is nothing to find.</span><span class="state warn">1 of 2</span></li>
+          <li><span class="n">07</span><span class="who">reasoner</span><span class="msg">Rewrites one paragraph and drops the claim that nothing supports.</span><span class="state ok">redrafted</span></li>
+          <li><span class="n">08</span><span class="who">verifier</span><span class="msg">Every remaining claim now matches its source.</span><span class="state ok">passed</span></li>
+          <li><span class="n">09</span><span class="who">orchestrator</span><span class="msg">Returns the summary, the citations, and a note saying what was dropped and why.</span><span class="state ok">done</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt">
+    <div class="wrap band-grid">
+      <div class="band-head">
+        <p class="eyebrow">Audience</p>
+        <h2>Who is in the room</h2>
+        <p>The room is deliberately mixed.</p>
+      </div>
+      <div>
+        <div class="cards">
+          <div><h4>Researchers &amp; faculty</h4><p>Share and discover advances in agents, planning and multi-agent systems.</p></div>
+          <div><h4>Students</h4><p>Learn hands-on in tutorials, meet mentors, and present a poster.</p></div>
+          <div><h4>Industry practitioners</h4><p>See what works in production and connect with research teams.</p></div>
+          <div><h4>Startups &amp; founders</h4><p>Showcase your product at the kiosks and meet collaborators.</p></div>
+          <div><h4>Investors</h4><p>Spot emerging agentic AI ventures and the talent behind them.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band-grid">
+      <div class="band-head">
+        <p class="eyebrow">Two days</p>
+        <h2>Six ways in</h2>
+        <p>Six formats across 15 and 16 December.</p>
+      </div>
+      <div>
+        <div class="cards">
+          <a href="speakers.html"><h4>Invited talks</h4><p>Keynotes and talks from leading academic and industry voices.</p></a>
+          <a href="speakers.html#panels"><h4>Panel discussions</h4><p>Debates on the opportunities, risks and the road ahead.</p></a>
+          <a href="tutorials.html"><h4>Tutorials</h4><p>Hands-on sessions on building and evaluating agents.</p></a>
+          <a href="tutorials.html#demos"><h4>Live demos</h4><p>Agents in action, from research labs and companies.</p></a>
+          <a href="partners.html"><h4>Industry kiosks</h4><p>Meet companies showcasing agentic technology.</p></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="crest crest-red foot-crest" src="photos/iitd-crest-red.png" alt="Indian Institute of Technology Delhi" width="160" height="160">
+        <img class="crest crest-white foot-crest" src="photos/iitd-crest-white.png" alt="Indian Institute of Technology Delhi" width="160" height="160">
+        <div class="brand">Agentic AI Workshop 2026</div>
+        <p>Bringing together academia and industry through expert talks, panel discussions, tutorials, live demonstrations and a poster session.</p>
+        <p class="mono" style="margin-top:16px;font-size:13px">15&ndash;16 December 2026<br>IIT Delhi, Hauz Khas, New Delhi</p>
+      </div>
+      <div>
+        <h4>Programme</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programme.html">Schedule</a></li>
+          <li><a href="speakers.html">Speakers</a></li>
+          <li><a href="tutorials.html">Tutorials &amp; demos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visiting</h4>
+        <ul>
+          <li><a href="venue.html">Venue &amp; travel</a></li>
+          <li><a href="venue.html#stay">Where to stay</a></li>
+          <li><a href="register.html">Registration</a></li>
+          <li><a href="organisers.html">Organisers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="register.html">Register to attend</a></li>
+          <li><a href="register.html#posters">Present a poster</a></li>
+          <li><a href="partners.html">Partners &amp; sponsors</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>&copy; 2026 IIT Delhi &middot; Yardi School of Artificial Intelligence</span>
+      <span>Enquiries: <span class="tba" data-contact>e-mail address to be announced</span></span>
+    </div>
+  </div>
+</footer>
+<script src="config.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
