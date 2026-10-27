@@ -288,14 +288,37 @@
   var btn = document.getElementById('menuBtn');
   var nav = document.getElementById('nav');
   if (btn && nav) {
-    btn.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
+    function setMenuState(open) {
+      nav.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', String(open));
+      var txt = btn.querySelector('.menu-btn-text');
+      if (txt) {
+        txt.textContent = open ? 'Close' : 'Menu';
+      }
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var willOpen = !nav.classList.contains('open');
+      setMenuState(willOpen);
     });
+
     nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
+      if (e.target.tagName === 'A' || e.target.closest('a')) {
+        setMenuState(false);
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+        setMenuState(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        setMenuState(false);
+        btn.focus();
       }
     });
   }

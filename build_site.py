@@ -40,13 +40,19 @@ def header(current):
     </a>
     <nav class="nav" id="nav" aria-label="Pages">
 %s
+      <div class="nav-mobile-cta">
+        <a class="btn btn-sm" href="register.html">Register to attend</a>
+      </div>
     </nav>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
     </button>
     <a class="btn btn-sm head-cta" href="register.html">Register</a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Toggle navigation menu">
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="menu-btn-text">Menu</span>
+    </button>
   </div>
 </header>""" % "\n".join(links)
 
@@ -95,7 +101,7 @@ FOOTER = """<footer class="foot">
   </div>
 </footer>
 <script src="config.js"></script>
-<script src="site.js"></script>"""
+<script src="site.js?v=2"></script>"""
 
 
 SPEAKERS = [
@@ -320,6 +326,7 @@ VENUE_MAP_BAND = """  <section class="band">
       </div>
       <div>
         <div class="map-wrap">
+          <div class="map-scroll-hint" aria-hidden="true"><span>&larr;</span> Swipe map to explore transit routes <span>&rarr;</span></div>
           <svg class="map" viewBox="0 0 860 520" role="img" aria-label="Transit-style map of routes to IIT Delhi from the airport, the railway stations and the Yellow and Magenta metro lines.">
             <g class="compass" transform="translate(792 76)">
               <circle cx="0" cy="0" r="18"/><path d="M0 -13 L5 3 L0 -1 L-5 3 Z" fill="currentColor" stroke="none" style="fill:var(--ink-soft)"/>
@@ -907,15 +914,17 @@ pages["organisers.html"] = ("Organisers", "organisers.html",
 def write_page(fname, title, current, body):
     head_html = header(current)
     if fname == "index.html":
-        doc = ('<title>%s</title>\n'
+        doc = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+               '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                '<meta name="claude:viewport-fit-sides" content="cover">\n'
-               '%s\n<link rel="stylesheet" href="styles.css">\n%s\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n'
+               '<title>%s</title>\n%s\n'
+               '<link rel="stylesheet" href="styles.css?v=2">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
                % (title, FONTS, EARLY_THEME, head_html, body, FOOTER))
     else:
         doc = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
                '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                '<title>%s &middot; Agentic AI Workshop 2026</title>\n%s\n'
-               '<link rel="stylesheet" href="styles.css">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
+               '<link rel="stylesheet" href="styles.css?v=2">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
                % (title, FONTS, EARLY_THEME, head_html, body, FOOTER))
     io.open(os.path.join(OUT, fname), "w", encoding="utf-8").write(doc)
     return len(doc)
