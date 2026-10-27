@@ -6,6 +6,7 @@ import io, os
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 
 NAV = [
+    ("index.html", "Home"),
     ("about.html", "About"),
     ("programme.html", "Programme"),
     ("speakers.html", "Speakers"),
@@ -33,7 +34,6 @@ def header(current):
       <img class="crest crest-red" src="photos/iitd-crest-red.png" alt="" width="160" height="160">
       <img class="crest crest-white" src="photos/iitd-crest-white.png" alt="" width="160" height="160">
       <span class="mark-text">
-        <b>Agentic AI Workshop <i>2026</i></b>
         <span>Indian Institute of Technology Delhi</span>
         <span>Yardi School of Artificial Intelligence</span>
       </span>
@@ -80,7 +80,6 @@ FOOTER = """<footer class="foot">
         <h4>Visiting</h4>
         <ul>
           <li><a href="venue.html">Venue &amp; travel</a></li>
-          <li><a href="venue.html#stay">Where to stay</a></li>
           <li><a href="register.html">Registration</a></li>
           <li><a href="organisers.html">Organisers</a></li>
         </ul>
@@ -110,7 +109,8 @@ SPEAKERS = [
     ("prashant", "Dr. Prashant Warier"), ("patra", "Dr. Arijit Patra"),
     ("nitish", "Dr. Nitish Naik"), ("kartik", "Prof. Karthik Raman"),
     ("raghu", "Prof. Raghunathan Rengaswamy"), ("deepak", "Dr. Deepak N. Subramani"),
-    ("ashutosh", "Prof. Ashutosh Modi"),
+    ("ashutosh", "Prof. Ashutosh Modi"), ("aparna", "Aparna Taneja"),
+    ("dinesh", "Dinesh Raghu"), ("nitendra", "Nitendra Rajput"),
 ]
 
 
@@ -128,13 +128,11 @@ def orbit_block(hint):
             <div class="ring">
 %s
             </div>
-            <div class="orbit-core" aria-hidden="true"><b>11</b><span>Speakers</span></div>
           </div>
           <div class="orbit-panel" aria-live="polite">
             <h3 id="orbName">Prof. Surya Ganguli</h3>
             <p class="role" id="orbRole">Associate Professor of Applied Physics</p>
             <p class="org" id="orbOrg">Stanford University</p>
-            <div class="orbit-tags" id="orbTags"><span>Academia</span></div>
             <p class="orbit-hint">%s</p>
           </div>
         </div>""" % ("\n".join(orbs), hint)
@@ -311,7 +309,7 @@ LOOP_BAND = """  <section class="band alt">
           <p>A goal arrives and an <strong>orchestrator</strong> decides what the work actually is: which steps are needed, which specialist handles each one, what to do when one of them fails. Retrieval, reasoning and verification run as separate agents with separate prompts, separate tools and separate failure modes, writing to a <strong>shared memory</strong> the next step can read.</p>
           <p>The interesting edge is the return path. A verifier that rejects a draft sends it back with reasons, and the orchestrator re-plans rather than re-rolls. That is what separates an agentic pipeline from a long prompt: it can notice it was wrong and spend more compute instead of shipping the first plausible answer.</p>
           <p>It is also where the hard problems live. Every extra hop multiplies the ways a run can drift, tool calls have real consequences, and a trace nobody can audit is not a system anyone should deploy in a hospital or a lab. Reliability, evaluation and human oversight run through the whole programme.</p>
-          <p class="note"><a href="about.html#run-trace">Read the full step-by-step trace of this run &rarr;</a></p>
+          <p class="note"><a href="#run-trace">Read the full step-by-step trace of this run &darr;</a></p>
         </div>
       </div>
     </div>
@@ -418,7 +416,6 @@ PARTICIPATE_BAND = """  <section class="band alt" id="take-part">
       <div>
         <div class="take-grid">
           <article class="take">
-            <div class="take-art"><img class="take-img img-day" src="photos/attend-day.webp" alt="Attendees talking between sessions" width="880" height="550" loading="lazy"><img class="take-img img-night" src="photos/attend-night.webp" alt="Attendees talking between sessions" width="880" height="550" loading="lazy"></div>
             <div class="take-body">
               <h3>Attend</h3>
               <p>Talks, panels, tutorials and live demos across two days. Free, with places confirmed by the committee.</p>
@@ -426,7 +423,6 @@ PARTICIPATE_BAND = """  <section class="band alt" id="take-part">
             </div>
           </article>
           <article class="take">
-            <div class="take-art"><img class="take-img img-day" src="photos/poster-day.webp" alt="A researcher presenting a poster" width="880" height="550" loading="lazy"><img class="take-img img-night" src="photos/poster-night.webp" alt="A researcher presenting a poster" width="880" height="550" loading="lazy"></div>
             <div class="take-body">
               <h3>Present a poster</h3>
               <p>arXiv preprints and papers under submission, on the broader theme of agentic AI.</p>
@@ -434,9 +430,8 @@ PARTICIPATE_BAND = """  <section class="band alt" id="take-part">
             </div>
           </article>
           <article class="take">
-            <div class="take-art"><img class="take-img img-day" src="photos/exhibit-day.webp" alt="An exhibitor booth at the workshop" width="880" height="550" loading="lazy"><img class="take-img img-night" src="photos/exhibit-night.webp" alt="An exhibitor booth at the workshop" width="880" height="550" loading="lazy"></div>
             <div class="take-body">
-              <h3>Exhibit or sponsor</h3>
+              <h3>Industry kiosk</h3>
               <p>A kiosk puts your products, prototypes and open roles in front of the room across both days.</p>
               <a class="btn btn-go" data-link="kiosk" href="partners.html">Request a kiosk</a>
             </div>
@@ -448,8 +443,8 @@ PARTICIPATE_BAND = """  <section class="band alt" id="take-part">
 
 SPONSOR_BAND = """  <section class="band sponsor-strip" id="sponsors">
     <div class="wrap sponsor-strip-in">
-      <p class="sponsor-eyebrow"><i></i>Title sponsor<i></i></p>
-      <div class="sponsor-card"><img class="sponsor-logo" src="photos/infoorigin-logo.png" alt="InfoOrigin" width="344" height="160" loading="lazy"></div>
+      <p class="sponsor-eyebrow"><i></i>Organising Industry Partner<i></i></p>
+      <div class="sponsor-card"><img class="sponsor-logo" src="photos/infoorigin-logo.png" alt="InfoOrigin" width="1024" height="365" loading="lazy"></div>
       <p class="sponsor-note">Presented in partnership with <b>InfoOrigin</b> &middot; <a href="partners.html">Partners &amp; sponsors &rarr;</a></p>
     </div>
   </section>"""
@@ -479,26 +474,39 @@ pages = {}
 pages["index.html"] = ("Agentic AI Workshop 2026", None, """  <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
-      <div>
+      <div class="hero-copy">
         <h1>Agentic&nbsp;AI<br>Workshop <em>2026</em></h1>
-        <p class="lede">An invite-only gathering of academia and industry, through expert talks, panel discussions, tutorials and live demonstrations.</p>
-        <div class="hero-cta">
-          <a class="btn" href="register.html">Register to attend</a>
-          <a class="btn btn-ghost" href="programme.html">See the programme</a>
+        <p class="hero-meta"><strong>15&ndash;16 December 2026</strong> <span class="hero-sep">|</span> <strong>Venue: IIT Delhi, Hauz Khas, New Delhi 110016</strong></p>
+        <p class="hero-desc">Bringing together Academia and Industry leaders to explore Agentic AI innovations in Healthcare, Enterprise AI, and AI for Science.</p>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-panel-head">
+          <p class="hero-eyebrow">PARTICIPATE</p>
+          <h2>Three ways in</h2>
+        </div>
+        <div class="hero-cards">
+          <div class="hero-card">
+            <h3>Attend</h3>
+            <p>Talks, panels, tutorials and live demos across two days. Free, with places confirmed by the committee.</p>
+            <a class="hero-card-btn" href="https://forms.gle/HHtuspnAUSAGpwxS9" target="_blank" rel="noopener noreferrer">Register to attend &rarr;</a>
+          </div>
+          <div class="hero-card">
+            <h3>Present a poster</h3>
+            <p>arXiv preprints and papers under submission, on the broader theme of agentic AI.</p>
+            <a class="hero-card-btn" href="https://forms.gle/W6U7YbLqxAHPparc8" target="_blank" rel="noopener noreferrer">Submit a poster &rarr;</a>
+          </div>
+          <div class="hero-card">
+            <h3>Industry kiosk</h3>
+            <p>A kiosk puts your products, prototypes and open roles in front of the room across both days.</p>
+            <a class="hero-card-btn" href="partners.html">Request a kiosk &rarr;</a>
+          </div>
         </div>
       </div>
-      <dl class="facts">
-        <div class="fact"><dt>Dates</dt><dd><b>15&ndash;16 December 2026</b><br>Tuesday &amp; Wednesday, 09:00&ndash;21:30 IST</dd></div>
-        <div class="fact"><dt>Venue</dt><dd>IIT Delhi, Hauz Khas, New Delhi 110016<br><span class="muted">Hall to be announced</span></dd></div>
-        <div class="fact"><dt>Fee</dt><dd>Free to attend. Places are limited and confirmed by the organising committee.</dd></div>
-        <div class="fact"><dt>Speakers</dt><dd>11 confirmed, from academia and industry</dd></div>
-        <div class="fact"><dt>Format</dt><dd>Talks &middot; Panels &middot; Tutorials &middot; Demos &middot; Posters &middot; Kiosks</dd></div>
-      </dl>
     </div>
     <p class="hero-credit">IIT Delhi, Hauz Khas</p>
   </section>
 
-""" + PARTICIPATE_BAND + "\n\n" + SPONSOR_BAND + "\n\n" + band("Speakers", "Eleven, and counting",
+""" + SPONSOR_BAND + "\n\n" + band("Speakers", "Eleven, and counting",
                 "Eleven confirmed across universities, corporate research labs, hospitals and startups. More to come, and two panel discussions on the way.",
                 orbit_block("The ring moves through all eleven speakers. Hover or tap any portrait to hold it there.")
                 + '\n        <p class="note"><a href="speakers.html">Full profiles and the panel discussions &rarr;</a></p>')
@@ -519,7 +527,6 @@ pages["index.html"] = ("Agentic AI Workshop 2026", None, """  <section class="he
           </div></article>
         </div>
         <p class="note"><a href="about.html">Read how the three themes shape the programme &rarr;</a></p>""", bid="themes")
-+ "\n\n" + LOOP_BAND
 + "\n\n" + band("Registration", "Save your seat",
                 "Free, and it takes about two minutes. Every registration is reviewed by the organising committee.",
                 """        <div class="reg-box">
@@ -549,9 +556,10 @@ pages["about.html"] = ("About the Workshop", "about.html",
             <li><div class="n">05</div><h4>Reflect</h4><p>Checks the outcome against the goal and revises before trying again.</p></li>
           </ol>
         </div>""")
+    + "\n\n" + LOOP_BAND
     + "\n\n" + band("A run, step by step", "What one task actually costs",
                     "An illustrative trace of a single question moving through the pipeline.",
-                    '''%s''' % TRACE, alt=True, bid="run-trace")
+                    '''%s''' % TRACE, bid="run-trace")
     + "\n\n" + band("Audience", "Who is in the room", "The room is deliberately mixed.",
                     """        <div class="cards">
           <div><h4>Researchers &amp; faculty</h4><p>Share and discover advances in agents, planning and multi-agent systems.</p></div>
@@ -716,6 +724,36 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="bio-copy pending">Biography to follow.</p>
             </div>
           </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/aparna.webp" alt="Aparna Taneja" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Aparna Taneja</h3>
+              <p class="role">Senior Research Scientist</p>
+              <p class="org">Google DeepMind</p>
+              <div class="orbit-tags"><span>Industry</span></div>
+              <p class="bio-copy pending">Biography to follow.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/dinesh.webp" alt="Dinesh Raghu" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Dinesh Raghu</h3>
+              <p class="role">Senior Researcher and Manager, Agentic AI</p>
+              <p class="org">IBM</p>
+              <div class="orbit-tags"><span>Industry</span></div>
+              <p class="bio-copy pending">Biography to follow.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/nitendra.webp" alt="Nitendra Rajput" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Nitendra Rajput</h3>
+              <p class="role">Vice President and Head of AI Garage Center</p>
+              <p class="org">Mastercard</p>
+              <div class="orbit-tags"><span>Industry</span></div>
+              <p class="bio-copy pending">Biography to follow.</p>
+            </div>
+          </article>
         </div>''')
     + "\n\n" + band("Panels", "Two arguments worth having",
                     "Academia and industry on where agents are heading.",
@@ -760,22 +798,6 @@ pages["venue.html"] = ("Venue & Travel", "venue.html",
           <div class="route"><dt>Campus entry</dt><dd>IIT Delhi is a secured campus. Bring a valid government photo ID and the registration ID e-mailed to you. The exact hall, entry gate and visitor-pass details are posted here and e-mailed before the workshop.</dd></div>
         </dl>
         <p class="note"><a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Indian%20Institute%20of%20Technology%20Delhi%2C%20Hauz%20Khas%2C%20New%20Delhi" target="_blank" rel="noopener">Open in Google Maps</a></p>""")
-    + "\n\n" + band("Where to stay", "Somewhere to sleep",
-                    "Accommodation is not included in registration unless announced otherwise.",
-                    """        <dl class="routes">
-          <div class="route"><dt>IIT Delhi guest house</dt><dd>On campus. A limited number of rooms may be available for speakers and outstation participants on request. Contact the organisers.</dd></div>
-          <div class="route"><dt>Hauz Khas, Green Park, Safdarjung Enclave</dt><dd>2&ndash;5&nbsp;km. Many hotels and guest houses a short cab or metro ride away.</dd></div>
-          <div class="route"><dt>Saket &amp; Malviya Nagar</dt><dd>3&ndash;6&nbsp;km. Mid-range hotels, restaurants and malls on the Yellow Line.</dd></div>
-          <div class="route"><dt>Aerocity</dt><dd>About 15&nbsp;km. Business hotels beside the airport, convenient for short visits.</dd></div>
-        </dl>""", alt=True, bid="stay")
-    + "\n\n" + band("Local notes", "Delhi in December",
-                    "A few practical things worth knowing in December.",
-                    """        <div class="cards">
-          <div><h4>Pack a light jacket</h4><p>December is cool, with chilly mornings and evenings.</p></div>
-          <div><h4>Air quality</h4><p>Winter air quality can be poor. Bring a mask if you are sensitive to pollution.</p></div>
-          <div><h4>Getting around</h4><p>App cabs and the Delhi Metro are the easiest ways to move through the city.</p></div>
-          <div><h4>Nearby</h4><p>Hauz Khas Village, Deer Park and the Qutub Minar are all a short ride from campus.</p></div>
-        </div>"""))
 
 pages["register.html"] = ("Registration", "register.html",
     page_head("Registration", "Registration", "Save your seat",
@@ -826,7 +848,7 @@ pages["register.html"] = ("Registration", "register.html",
           <details><summary>When will the detailed schedule be available?</summary><p>The draft schedule is already on the <a href="programme.html">programme page</a>. Session titles and speakers are filled in as they confirm, and registered attendees get the final version by e-mail.</p></details>
           <details><summary>What should I bring to the tutorials?</summary><p>A laptop for most of them. Software and account prerequisites are published with each tutorial once the line-up is final.</p></details>
           <details><summary>Will the talks be recorded?</summary><p>Selected slides and recordings may be shared on this site after the event, with each speaker's permission.</p></details>
-          <details><summary>Is accommodation provided?</summary><p>Not unless announced otherwise. The <a href="venue.html#stay">venue page</a> lists areas close to campus, and a limited number of guest-house rooms may be available on request.</p></details>
+          <details><summary>Is accommodation provided?</summary><p>Not unless announced otherwise. The <a href="venue.html">venue page</a> gives directions and campus entry details, and a limited number of guest-house rooms may be available on request.</p></details>
           <details><summary>How can my company exhibit or sponsor?</summary><p>See <a href="partners.html">partners and sponsors</a> for the tiers, or write to the organisers and we will talk it through.</p></details>
         </div>""", alt=True))
 
@@ -858,7 +880,7 @@ pages["partners.html"] = ("Partners & Sponsors", "partners.html",
           <p>An industry kiosk gives your team a space to show what you are building with agents: products, research prototypes and the roles you are hiring for. Kiosks run alongside the talks on both days, with traffic concentrated around the breaks and the poster session.</p>
         </div>
         <div class="sponsor-strip-in" style="align-items:flex-start;text-align:left;margin-top:22px;gap:16px">
-          <div class="sponsor-card"><img class="sponsor-logo" src="photos/infoorigin-logo.png" alt="InfoOrigin" width="344" height="160" loading="lazy"></div>
+          <div class="sponsor-card"><img class="sponsor-logo" src="photos/infoorigin-logo.png?v=2" alt="InfoOrigin" width="344" height="160" loading="lazy"></div>
           <p class="sponsor-note"><b>InfoOrigin</b> is the title sponsor of the Agentic AI Workshop 2026. Further partners and exhibitors will be listed here as agreements are signed.</p>
         </div>""", alt=True)
     + "\n\n" + band("Get in touch", "Become a partner",
@@ -933,6 +955,7 @@ def write_page(fname, title, current, body):
 os.makedirs(OUT, exist_ok=True)
 total = 0
 for fname, (title, current, body) in pages.items():
+    if fname == "index.html": continue
     n = write_page(fname, title, current, body)
     total += n
     print("%-20s %6d bytes" % (fname, n))

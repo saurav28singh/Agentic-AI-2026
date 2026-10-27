@@ -16,7 +16,7 @@
 
 window.AAIW_LINKS = {
   register: "https://forms.gle/HHtuspnAUSAGpwxS9",
-  poster:   "https://forms.gle/W6U7YbLqxAHPparc8",
-  kiosk:    "",
-  contact:  ""
+  poster: "https://forms.gle/W6U7YbLqxAHPparc8",
+  kiosk: "",
+  contact: ""
 };

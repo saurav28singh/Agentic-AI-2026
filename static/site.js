@@ -52,7 +52,7 @@
                 window.top.open(url, '_blank', 'noopener,noreferrer');
                 return;
               }
-            } catch (err) {}
+            } catch (err) { }
             window.open(url, '_blank', 'noopener,noreferrer');
           }
         });
@@ -74,7 +74,7 @@
   try {
     reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  } catch (e) {}
+  } catch (e) { }
   if (reduced || !fine) return;
 
   var rows = [].slice.call(list.querySelectorAll('.fact'));
@@ -111,7 +111,7 @@
   try {
     reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  } catch (e) {}
+  } catch (e) { }
   if (reduced || !fine) return;
   var h1 = hero.querySelector('h1');
   if (!h1) return;
@@ -148,7 +148,7 @@
     var next = current() === 'dark' ? 'light' : 'dark';
     root.classList.remove('t-dark', 't-light');
     root.classList.add('t-' + next);
-    try { localStorage.setItem('aaiw-theme', next); } catch (e) {}
+    try { localStorage.setItem('aaiw-theme', next); } catch (e) { }
   });
 })();
 
@@ -168,7 +168,7 @@
     time: document.getElementById('stTime')
   };
   var reduced = false;
-  try { reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  try { reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { }
 
   // node, edges to light, log line, tone, added calls, added tokens, added seconds, run state
   var steps = [
@@ -325,62 +325,281 @@
 })();
 
 (function () {
-  var people = [
-    ['Prof. Surya Ganguli', 'Associate Professor of Applied Physics', 'Stanford University', '', 'Academia'],
-    ['Prof. Manik Varma', 'Technical Fellow & Corporate Vice President', 'Microsoft Research India', '', 'Industry'],
-    ['Dr. Nanda Kishore Kambhatla', 'Head of Lab', 'Adobe Research, India', 'Enterprise', 'Industry'],
-    ['Dr. Balaji Vasan Srinivasan', 'Principal Scientist', 'Adobe Research, India', 'Enterprise', 'Industry'],
-    ['Dr. Prashant Warier', 'Co-Founder & Chief Executive Officer', 'Qure.ai', 'Healthcare', 'Industry'],
-    ['Dr. Arijit Patra', 'Senior Principal Scientist', 'UCB Pharma', 'Healthcare', 'Industry'],
-    ['Dr. Nitish Naik', 'Professor of Cardiology', 'AIIMS, New Delhi', 'Healthcare', 'Academia'],
-    ['Prof. Karthik Raman', 'Professor, Data Science and AI, and Biotechnology', 'IIT Madras', 'Scientific Discovery', 'Academia'],
-    ['Prof. Raghunathan Rengaswamy', 'Professor, Data Science and AI, and Chemical Engineering', 'IIT Madras', '', 'Academia'],
-    ['Dr. Deepak N. Subramani', 'Associate Professor, Computational and Data Sciences', 'IISc Bangalore', 'Scientific Discovery', 'Academia'],
-    ['Prof. Ashutosh Modi', 'Associate Professor, Computer Science and Engineering', 'IIT Kanpur', '', 'Academia']
-  ];
-  var orbit = document.getElementById('orbit');
-  var name = document.getElementById('orbName');
-  var role = document.getElementById('orbRole');
-  var org = document.getElementById('orbOrg');
-  var tags = document.getElementById('orbTags');
-  if (!orbit || !name) return;
-  var faces = orbit.querySelectorAll('.face');
+  var carousel = document.getElementById('spkCarousel');
+  if (!carousel) return;
 
-  function show(i) {
-    var p = people[i];
-    if (!p) return;
-    name.textContent = p[0];
-    role.textContent = p[1];
-    org.textContent = p[2];
-    var html = '';
-    if (p[3]) { html += '<span class="track">' + p[3] + '</span>'; }
-    html += '<span>' + p[4] + '</span>';
-    tags.innerHTML = html;
-    for (var k = 0; k < faces.length; k++) {
-      faces[k].setAttribute('aria-current', String(k === i));
+  var track = document.getElementById('spkTrack');
+  var viewport = document.getElementById('spkViewport');
+  var prevBtn = document.getElementById('spkPrev');
+  var nextBtn = document.getElementById('spkNext');
+  var dotsContainer = document.getElementById('spkDots');
+  var cards = track ? track.querySelectorAll('.spk-card') : [];
+  var total = cards.length;
+  if (!track || total === 0) return;
+
+  var currentIndex = 0;
+  var timer = null;
+  var autoAdvanceInterval = 5500;
+  var isHovered = false;
+  var isFocused = false;
+
+  function getVisibleCount() {
+    var w = window.innerWidth;
+    if (w <= 560) return 1;
+    if (w <= 768) return 2;
+    if (w <= 1024) return 3;
+    if (w <= 1380) return 4;
+    return 5;
+  }
+
+  function getCenterOffset(v) {
+    return Math.floor(v / 2);
+  }
+
+  function getMaxIndex() {
+    var v = getVisibleCount();
+    return Math.max(0, total - v);
+  }
+
+  function updateActiveStates() {
+    var v = getVisibleCount();
+    var centerOffset = getCenterOffset(v);
+    var centerIndex = Math.min(currentIndex + centerOffset, total - 1);
+
+    for (var i = 0; i < total; i++) {
+      if (i === centerIndex) {
+        cards[i].classList.add('is-center');
+        cards[i].setAttribute('aria-current', 'true');
+      } else {
+        cards[i].classList.remove('is-center');
+        cards[i].removeAttribute('aria-current');
+      }
+    }
+
+    if (dotsContainer) {
+      var dots = dotsContainer.querySelectorAll('.spk-dot');
+      for (var d = 0; d < dots.length; d++) {
+        if (d === currentIndex) {
+          dots[d].classList.add('is-active');
+          dots[d].setAttribute('aria-selected', 'true');
+        } else {
+          dots[d].classList.remove('is-active');
+          dots[d].setAttribute('aria-selected', 'false');
+        }
+      }
     }
   }
 
-  var cur = 0, timer = null;
-  function step() { cur = (cur + 1) % people.length; show(cur); }
-  function start() { if (!timer) { timer = setInterval(step, 2800); } }
-  function stop() { clearInterval(timer); timer = null; }
+  function renderDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    var maxIdx = getMaxIndex();
+    var numPositions = maxIdx + 1;
 
-  for (var k = 0; k < faces.length; k++) {
-    (function (btn, i) {
-      btn.addEventListener('mouseenter', function () { cur = i; show(i); });
-      btn.addEventListener('focus', function () { cur = i; show(i); });
-      btn.addEventListener('click', function () { cur = i; show(i); });
-    })(faces[k], parseInt(faces[k].getAttribute('data-i'), 10));
+    for (var i = 0; i < numPositions; i++) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'spk-dot' + (i === currentIndex ? ' is-active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Go to speaker slide ' + (i + 1));
+      dot.setAttribute('aria-selected', String(i === currentIndex));
+      (function (idx) {
+        dot.addEventListener('click', function () {
+          goTo(idx);
+          restartTimer();
+        });
+      })(i);
+      dotsContainer.appendChild(dot);
+    }
   }
-  orbit.addEventListener('mouseenter', stop);
-  orbit.addEventListener('mouseleave', start);
-  orbit.addEventListener('focusin', stop);
-  orbit.addEventListener('focusout', start);
-  orbit.addEventListener('touchstart', stop, { passive: true });
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) { stop(); } else { start(); }
+
+  function getStep() {
+    if (!cards[0]) return 0;
+    var cardRect = cards[0].getBoundingClientRect();
+    var gap = parseFloat(window.getComputedStyle(track).gap) || 16;
+    return cardRect.width + gap;
+  }
+
+  function updateTransform(animate) {
+    if (animate === false) {
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform .45s cubic-bezier(.22, 1, .36, 1)';
+    }
+    var step = getStep();
+    var offset = currentIndex * step;
+    track.style.transform = 'translate3d(-' + offset + 'px, 0, 0)';
+    if (animate === false) {
+      // Force reflow and restore transition
+      track.offsetHeight;
+      track.style.transition = 'transform .45s cubic-bezier(.22, 1, .36, 1)';
+    }
+    updateActiveStates();
+  }
+
+  function goTo(index, animate) {
+    var maxIdx = getMaxIndex();
+    if (index < 0) {
+      index = maxIdx;
+    } else if (index > maxIdx) {
+      index = 0;
+    }
+    currentIndex = index;
+    updateTransform(animate);
+  }
+
+  function next() {
+    goTo(currentIndex + 1);
+  }
+
+  function prev() {
+    goTo(currentIndex - 1);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function () {
+      prev();
+      restartTimer();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () {
+      next();
+      restartTimer();
+    });
+  }
+
+  for (var k = 0; k < total; k++) {
+    (function (idx) {
+      cards[idx].addEventListener('click', function () {
+        var v = getVisibleCount();
+        var centerOffset = getCenterOffset(v);
+        var targetIndex = idx - centerOffset;
+        var maxIdx = getMaxIndex();
+        targetIndex = Math.max(0, Math.min(targetIndex, maxIdx));
+        goTo(targetIndex);
+        restartTimer();
+      });
+    })(k);
+  }
+
+  if (viewport) {
+    var startX = 0;
+    var currentX = 0;
+    var isSwiping = false;
+    var threshold = 35;
+
+    viewport.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      startX = e.clientX;
+      currentX = e.clientX;
+      isSwiping = true;
+      stopTimer();
+    }, { passive: true });
+
+    window.addEventListener('pointermove', function (e) {
+      if (!isSwiping) return;
+      currentX = e.clientX;
+    }, { passive: true });
+
+    window.addEventListener('pointerup', function (e) {
+      if (!isSwiping) return;
+      isSwiping = false;
+      var deltaX = currentX - startX;
+      if (deltaX < -threshold) {
+        next();
+      } else if (deltaX > threshold) {
+        prev();
+      }
+      startTimer();
+    }, { passive: true });
+
+    window.addEventListener('pointercancel', function () {
+      if (isSwiping) {
+        isSwiping = false;
+        startTimer();
+      }
+    }, { passive: true });
+  }
+
+  carousel.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prev();
+      restartTimer();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      next();
+      restartTimer();
+    }
   });
-  show(0);
-  start();
+
+  function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function startTimer() {
+    if (timer || prefersReducedMotion()) return;
+    timer = setInterval(function () {
+      if (!isHovered && !isFocused && !document.hidden) {
+        next();
+      }
+    }, autoAdvanceInterval);
+  }
+
+  function stopTimer() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function restartTimer() {
+    stopTimer();
+    startTimer();
+  }
+
+  carousel.addEventListener('pointerenter', function () {
+    isHovered = true;
+    stopTimer();
+  });
+  carousel.addEventListener('pointerleave', function () {
+    isHovered = false;
+    startTimer();
+  });
+  carousel.addEventListener('focusin', function () {
+    isFocused = true;
+    stopTimer();
+  });
+  carousel.addEventListener('focusout', function () {
+    isFocused = false;
+    startTimer();
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      stopTimer();
+    } else {
+      startTimer();
+    }
+  });
+
+  var resizeTimeout;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function () {
+      var maxIdx = getMaxIndex();
+      if (currentIndex > maxIdx) {
+        currentIndex = maxIdx;
+      }
+      renderDots();
+      updateTransform(false);
+    }, 100);
+  });
+
+  renderDots();
+  goTo(0, false);
+  startTimer();
 })();
+
