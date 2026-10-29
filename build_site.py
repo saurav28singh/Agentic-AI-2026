@@ -968,6 +968,20 @@ pages["organisers.html"] = ("Organisers", "organisers.html",
           </div>
         </div>
         <div class="org-group">
+          <h3>Collaborating Partner</h3>
+          <div class="org-grid">
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/anurag-tripathi.jpg" alt="Anurag Tripathi" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Anurag Tripathi</h4>
+                <p class="org-card-affil">Info Origin</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="org-group">
           <h3>Volunteers</h3>
           <div class="org-list">
             <div class="org"><b>Joining us soon</b><span>Want to help run the workshop? Write to the organisers.</span></div>
