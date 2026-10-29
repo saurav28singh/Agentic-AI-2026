@@ -288,6 +288,15 @@
   var btn = document.getElementById('menuBtn');
   var nav = document.getElementById('nav');
   if (btn && nav) {
+    var backdrop = document.getElementById('navBackdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.id = 'navBackdrop';
+      backdrop.className = 'nav-backdrop';
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(backdrop);
+    }
+
     function setMenuState(open) {
       nav.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', String(open));
@@ -295,6 +304,10 @@
       if (txt) {
         txt.textContent = open ? 'Close' : 'Menu';
       }
+      if (backdrop) {
+        backdrop.classList.toggle('open', open);
+      }
+      document.body.classList.toggle('menu-open', open);
     }
 
     btn.addEventListener('click', function (e) {
@@ -302,6 +315,12 @@
       var willOpen = !nav.classList.contains('open');
       setMenuState(willOpen);
     });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', function () {
+        setMenuState(false);
+      });
+    }
 
     nav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A' || e.target.closest('a')) {
@@ -486,14 +505,18 @@
 
   if (viewport) {
     var startX = 0;
+    var startY = 0;
     var currentX = 0;
+    var currentY = 0;
     var isSwiping = false;
     var threshold = 35;
 
     viewport.addEventListener('pointerdown', function (e) {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       startX = e.clientX;
+      startY = e.clientY;
       currentX = e.clientX;
+      currentY = e.clientY;
       isSwiping = true;
       stopTimer();
     }, { passive: true });
@@ -501,16 +524,20 @@
     window.addEventListener('pointermove', function (e) {
       if (!isSwiping) return;
       currentX = e.clientX;
+      currentY = e.clientY;
     }, { passive: true });
 
     window.addEventListener('pointerup', function (e) {
       if (!isSwiping) return;
       isSwiping = false;
       var deltaX = currentX - startX;
-      if (deltaX < -threshold) {
-        next();
-      } else if (deltaX > threshold) {
-        prev();
+      var deltaY = currentY - startY;
+      if (Math.abs(deltaX) > threshold && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+        if (deltaX < 0) {
+          next();
+        } else {
+          prev();
+        }
       }
       startTimer();
     }, { passive: true });

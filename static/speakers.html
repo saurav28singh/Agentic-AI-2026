@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=5">
   <script>try { var t = localStorage.getItem("aaiw-theme"); if (t) { document.documentElement.classList.add("t-" + t); } } catch (e) { }</script>
 </head>
 
@@ -16,13 +16,11 @@
 
   <header class="site-head">
     <div class="wrap head-in">
-      <a class="mark" href="index.html">
-        <img class="crest crest-red" src="photos/iitd-crest-red.png" alt="" width="160" height="160">
-        <img class="crest crest-white" src="photos/iitd-crest-white.png" alt="" width="160" height="160">
-        <span class="mark-text">
-          <span>Indian Institute of Technology Delhi</span>
-          <span>Yardi School of Artificial Intelligence</span>
-        </span>
+      <a class="mark" href="index.html" aria-label="IIT Delhi &middot; ScAI Home">
+        <img class="crest crest-red" src="photos/iitd-crest-red.png" alt="IIT Delhi" width="160" height="160">
+        <img class="crest crest-white" src="photos/iitd-crest-white.png" alt="IIT Delhi" width="160" height="160">
+        <span class="mark-divider" aria-hidden="true"></span>
+        <img class="scai-logo" src="photos/scai-logo.png" alt="Yardi School of Artificial Intelligence, Indian Institute of Technology Delhi" width="520" height="38">
       </a>
       <nav class="nav" id="nav" aria-label="Pages">
         <a href="index.html">Home</a>
@@ -83,8 +81,7 @@
                 <h3>Prof. Surya Ganguli</h3>
                 <p class="role">Associate Professor of Applied Physics</p>
                 <p class="org">Stanford University</p>
-                <div class="orbit-tags"><span>Academia</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <p class="bio-copy">Bridges theoretical physics, neuroscience, and machine learning at Stanford. His research investigates the mathematical foundations of deep neural networks, neural dynamics, and scaling laws to understand biological and artificial intelligence.</p>
               </div>
             </article>
             <article class="bio">
@@ -94,8 +91,7 @@
                 <h3>Prof. Manik Varma</h3>
                 <p class="role">Technical Fellow &amp; Corporate Vice President</p>
                 <p class="org">Microsoft Research India</p>
-                <div class="orbit-tags"><span>Industry</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <p class="bio-copy">Technical Fellow at Microsoft Research India and Adjunct Professor at IIT Delhi. He pioneered extreme multi-label classification, developing scalable machine learning algorithms widely deployed in global web search and recommendation systems.</p>
               </div>
             </article>
             <article class="bio">
@@ -103,10 +99,10 @@
                   height="520" loading="lazy"></div>
               <div class="bio-text">
                 <h3>Dr. Nanda Kishore Kambhatla</h3>
-                <p class="role">Head of Lab</p>
+                <p class="role">Head of Adobe Research Lab</p>
                 <p class="org">Adobe Research, India</p>
-                <div class="orbit-tags"><span class="track">Enterprise</span><span>Industry</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <!-- <div class="orbit-tags"><span class="track">Enterprise</span></div> -->
+                <p class="bio-copy">Heads Adobe Research India, driving research in natural language processing, conversational AI, and content intelligence. He previously led machine learning and dialogue systems initiatives at IBM Research for IBM Watson.</p>
               </div>
             </article>
             <article class="bio">
@@ -116,8 +112,8 @@
                 <h3>Dr. Balaji Vasan Srinivasan</h3>
                 <p class="role">Principal Scientist</p>
                 <p class="org">Adobe Research, India</p>
-                <div class="orbit-tags"><span class="track">Enterprise</span><span>Industry</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <!-- <div class="orbit-tags"><span class="track">Enterprise</span></div> -->
+                <p class="bio-copy">Principal Scientist at Adobe Research India specializing in multimodal artificial intelligence, generative models, and computer vision. His work advances text-to-image synthesis, automated layout generation, and AI-assisted creative workflows.</p>
               </div>
             </article>
             <article class="bio">
@@ -127,8 +123,8 @@
                 <h3>Dr. Prashant Warier</h3>
                 <p class="role">Co-Founder &amp; Chief Executive Officer</p>
                 <p class="org">Qure.ai</p>
-                <div class="orbit-tags"><span class="track">Healthcare</span><span>Industry</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <!-- <div class="orbit-tags"><span class="track">Healthcare</span></div> -->
+                <p class="bio-copy">Co-Founder and CEO of Qure.ai and an IIT Delhi alumnus. He develops deep learning diagnostic algorithms for medical imaging, deploying automated screening solutions for tuberculosis, stroke, and lung cancer across over 100 countries.</p>
               </div>
             </article>
             <article class="bio">
@@ -138,8 +134,8 @@
                 <h3>Dr. Arijit Patra</h3>
                 <p class="role">Senior Principal Scientist</p>
                 <p class="org">UCB Pharma</p>
-                <div class="orbit-tags"><span class="track">Healthcare</span><span>Industry</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <!-- <div class="orbit-tags"><span class="track">Healthcare</span></div> -->
+                <p class="bio-copy">Senior Principal Scientist at UCB Pharma and Rhodes Scholar from Oxford. He focuses on artificial intelligence for biomedical imaging, non-clinical drug safety workflows, and machine learning pipelines that accelerate therapeutic discovery.</p>
               </div>
             </article>
             <article class="bio">
@@ -149,8 +145,8 @@
                 <h3>Dr. Nitish Naik</h3>
                 <p class="role">Professor of Cardiology</p>
                 <p class="org">AIIMS, New Delhi</p>
-                <div class="orbit-tags"><span class="track">Healthcare</span><span>Academia</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <!-- <div class="orbit-tags"><span class="track">Healthcare</span></div> -->
+                <p class="bio-copy">Professor of Cardiology at AIIMS, New Delhi, and Padma Shri recipient. His work encompasses interventional cardiology, cardiovascular diagnostics, and the rigorous, clinically validated translation of artificial intelligence technologies into patient care.</p>
               </div>
             </article>
             <article class="bio">
@@ -160,8 +156,8 @@
                 <h3>Prof. Karthik Raman</h3>
                 <p class="role">Professor, Data Science and AI, and Biotechnology</p>
                 <p class="org">IIT Madras</p>
-                <div class="orbit-tags"><span class="track">Scientific Discovery</span><span>Academia</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <!-- <div class="orbit-tags"><span class="track">Scientific Discovery</span></div> -->
+                <p class="bio-copy">Professor at IIT Madras across Data Science and Biotechnology, and coordinator of IBSE. His research integrates computational systems biology, metabolic modeling, and biological network analysis to investigate complex disease mechanisms.</p>
               </div>
             </article>
             <article class="bio">
@@ -171,8 +167,7 @@
                 <h3>Prof. Raghunathan Rengaswamy</h3>
                 <p class="role">Professor, Data Science and AI, and Chemical Engineering</p>
                 <p class="org">IIT Madras</p>
-                <div class="orbit-tags"><span>Academia</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <p class="bio-copy">Marti Mannariah Gurunath Chair Professor at IIT Madras. His research focuses on process systems engineering, fault detection and diagnosis, reinforcement learning, and combining first-principles physical models with data-driven analytics.</p>
               </div>
             </article>
             <article class="bio">
@@ -182,8 +177,8 @@
                 <h3>Dr. Deepak N. Subramani</h3>
                 <p class="role">Associate Professor, Computational and Data Sciences</p>
                 <p class="org">IISc Bangalore</p>
-                <div class="orbit-tags"><span class="track">Scientific Discovery</span><span>Academia</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <!-- <div class="orbit-tags"><span class="track">Scientific Discovery</span></div> -->
+                <p class="bio-copy">Associate Professor at IISc Bangalore and MIT alumnus leading the QUEST Lab. His research focuses on physics-informed machine learning, autonomous robotic navigation, ocean forecasting, and Bayesian uncertainty quantification.</p>
               </div>
             </article>
             <article class="bio">
@@ -193,8 +188,7 @@
                 <h3>Prof. Ashutosh Modi</h3>
                 <p class="role">Associate Professor, Computer Science and Engineering</p>
                 <p class="org">IIT Kanpur</p>
-                <div class="orbit-tags"><span>Academia</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <p class="bio-copy">Associate Professor of Computer Science at IIT Kanpur. He specializes in natural language processing, affective computing, multimodal dialogue systems, and legal AI, developing models for machine comprehension and emotion recognition.</p>
               </div>
             </article>
             <article class="bio">
@@ -204,8 +198,7 @@
                 <h3>Aparna Taneja</h3>
                 <p class="role">Senior Research Scientist</p>
                 <p class="org">Google DeepMind</p>
-                <div class="orbit-tags"><span>Industry</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <p class="bio-copy">Senior Research Scientist at Google DeepMind India. She leads research in artificial intelligence for social impact, developing restless multi-armed bandits and predictive machine learning models to improve maternal and public health.</p>
               </div>
             </article>
             <article class="bio">
@@ -215,8 +208,7 @@
                 <h3>Dinesh Raghu</h3>
                 <p class="role">Senior Researcher and Manager, Agentic AI</p>
                 <p class="org">IBM</p>
-                <div class="orbit-tags"><span>Industry</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <p class="bio-copy">Senior Researcher and Manager in Agentic AI at IBM Research India. He leads research on autonomous agents, function calling in IBM Granite foundation models, multi-turn reasoning, and task-oriented conversational workflows.</p>
               </div>
             </article>
             <article class="bio">
@@ -226,8 +218,7 @@
                 <h3>Nitendra Rajput</h3>
                 <p class="role">Vice President and Head of AI Garage Center</p>
                 <p class="org">Mastercard</p>
-                <div class="orbit-tags"><span>Industry</span></div>
-                <p class="bio-copy pending">Biography to follow.</p>
+                <p class="bio-copy">Vice President and Head of the AI Garage at Mastercard, and ACM Distinguished Scientist. He directs global AI research and deployment in financial security, fraud prevention, risk mitigation, and emerging agentic commerce.</p>
               </div>
             </article>
           </div>

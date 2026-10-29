@@ -30,13 +30,11 @@ def header(current):
         links.append('      <a href="%s"%s>%s</a>' % (href, cur, label))
     return """<header class="site-head">
   <div class="wrap head-in">
-    <a class="mark" href="index.html">
-      <img class="crest crest-red" src="photos/iitd-crest-red.png" alt="" width="160" height="160">
-      <img class="crest crest-white" src="photos/iitd-crest-white.png" alt="" width="160" height="160">
-      <span class="mark-text">
-        <span>Indian Institute of Technology Delhi</span>
-        <span>Yardi School of Artificial Intelligence</span>
-      </span>
+    <a class="mark" href="index.html" aria-label="IIT Delhi &middot; ScAI Home">
+      <img class="crest crest-red" src="photos/iitd-crest-red.png" alt="IIT Delhi" width="160" height="160">
+      <img class="crest crest-white" src="photos/iitd-crest-white.png" alt="IIT Delhi" width="160" height="160">
+      <span class="mark-divider" aria-hidden="true"></span>
+      <img class="scai-logo" src="photos/scai-logo.png" alt="Yardi School of Artificial Intelligence, Indian Institute of Technology Delhi" width="520" height="38">
     </a>
     <nav class="nav" id="nav" aria-label="Pages">
 %s
@@ -95,7 +93,7 @@ FOOTER = """<footer class="foot">
     </div>
     <div class="colophon">
       <span>&copy; 2026 IIT Delhi &middot; Yardi School of Artificial Intelligence</span>
-      <span>Enquiries: <span class="tba" data-contact>e-mail address to be announced</span></span>
+      <span>Enquiries: <span class="tba" data-contact>agenticai.iitd@gmail.com</span></span>
     </div>
   </div>
 </footer>
@@ -226,7 +224,7 @@ LOOP_BAND = """  <section class="band alt">
       <div class="band-head">
         <p class="eyebrow">What is an agentic system?</p>
         <h2>Plan, delegate, verify, repeat</h2>
-        <p>Not one model answering a question. A pipeline of them, arguing with its own output until it holds up.</p>
+        <p>An agentic system brings together specialized AI agents that collaborate, exchange information, and iteratively refine their outputs to accomplish complex tasks.</p>
       </div>
       <div>
         <div class="demo-bar">
@@ -580,7 +578,7 @@ pages["about.html"] = ("About the Workshop", "about.html",
 
 pages["programme.html"] = ("Programme", "programme.html",
     page_head("Programme", "Programme", "From the first gavel to the last demo",
-              "15&ndash;16 December 2026 at IIT Delhi. All times are IST. This is the draft schedule: sessions and timings may change, and speakers are added as they confirm.")
+              "Join us on 15&ndash;16 December 2026 at IIT Delhi for two days of insightful discussions, expert talks, and exploration of the future of Agentic AI.")
     + "\n\n" + band("Schedule", "Hour by hour",
                     "Session titles, rooms and speakers appear here as they are confirmed.",
                     '        <h3 class="day-title">Day 1 &middot; Tuesday, 15 December</h3>\n'
@@ -609,8 +607,8 @@ pages["programme.html"] = ("Programme", "programme.html",
         </div>""", alt=True))
 
 pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
-    page_head("Speakers", "Speakers", "Eleven, and counting",
-              "Eleven researchers, practitioners and founders building agentic AI across universities, corporate research labs, hospitals and startups. More names land as they accept.")
+    page_head("Speakers", "Speakers", "Distinguished Speakers",
+              "Fourteen researchers, practitioners and founders building agentic AI across universities, corporate research labs, hospitals and startups.")
     + "\n\n" + band("Profiles", "Who is speaking",
                     "Each profile fills in as speakers send their talk titles and biographies.",
                     '''        <div class="bios">
@@ -620,8 +618,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Prof. Surya Ganguli</h3>
               <p class="role">Associate Professor of Applied Physics</p>
               <p class="org">Stanford University</p>
-              <div class="orbit-tags"><span>Academia</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Bridges theoretical physics, neuroscience, and machine learning at Stanford. His research investigates the mathematical foundations of deep neural networks, neural dynamics, and scaling laws to understand biological and artificial intelligence.</p>
             </div>
           </article>
           <article class="bio">
@@ -630,18 +627,16 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Prof. Manik Varma</h3>
               <p class="role">Technical Fellow &amp; Corporate Vice President</p>
               <p class="org">Microsoft Research India</p>
-              <div class="orbit-tags"><span>Industry</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Technical Fellow at Microsoft Research India and Adjunct Professor at IIT Delhi. He pioneered extreme multi-label classification, developing scalable machine learning algorithms widely deployed in global web search and recommendation systems.</p>
             </div>
           </article>
           <article class="bio">
             <div class="bio-photo"><img src="photos/nanda.webp" alt="Dr. Nanda Kishore Kambhatla" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
               <h3>Dr. Nanda Kishore Kambhatla</h3>
-              <p class="role">Head of Lab</p>
+              <p class="role">Head of Adobe Research Lab</p>
               <p class="org">Adobe Research, India</p>
-              <div class="orbit-tags"><span class="track">Enterprise</span><span>Industry</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Heads Adobe Research India, driving research in natural language processing, conversational AI, and content intelligence. He previously led machine learning and dialogue systems initiatives at IBM Research for IBM Watson.</p>
             </div>
           </article>
           <article class="bio">
@@ -650,8 +645,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Dr. Balaji Vasan Srinivasan</h3>
               <p class="role">Principal Scientist</p>
               <p class="org">Adobe Research, India</p>
-              <div class="orbit-tags"><span class="track">Enterprise</span><span>Industry</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Principal Scientist at Adobe Research India specializing in multimodal artificial intelligence, generative models, and computer vision. His work advances text-to-image synthesis, automated layout generation, and AI-assisted creative workflows.</p>
             </div>
           </article>
           <article class="bio">
@@ -660,8 +654,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Dr. Prashant Warier</h3>
               <p class="role">Co-Founder &amp; Chief Executive Officer</p>
               <p class="org">Qure.ai</p>
-              <div class="orbit-tags"><span class="track">Healthcare</span><span>Industry</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Co-Founder and CEO of Qure.ai and an IIT Delhi alumnus. He develops deep learning diagnostic algorithms for medical imaging, deploying automated screening solutions for tuberculosis, stroke, and lung cancer across over 100 countries.</p>
             </div>
           </article>
           <article class="bio">
@@ -670,8 +663,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Dr. Arijit Patra</h3>
               <p class="role">Senior Principal Scientist</p>
               <p class="org">UCB Pharma</p>
-              <div class="orbit-tags"><span class="track">Healthcare</span><span>Industry</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Senior Principal Scientist at UCB Pharma and Rhodes Scholar from Oxford. He focuses on artificial intelligence for biomedical imaging, non-clinical drug safety workflows, and machine learning pipelines that accelerate therapeutic discovery.</p>
             </div>
           </article>
           <article class="bio">
@@ -680,8 +672,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Dr. Nitish Naik</h3>
               <p class="role">Professor of Cardiology</p>
               <p class="org">AIIMS, New Delhi</p>
-              <div class="orbit-tags"><span class="track">Healthcare</span><span>Academia</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Professor of Cardiology at AIIMS, New Delhi, and Padma Shri recipient. His work encompasses interventional cardiology, cardiovascular diagnostics, and the rigorous, clinically validated translation of artificial intelligence technologies into patient care.</p>
             </div>
           </article>
           <article class="bio">
@@ -690,8 +681,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Prof. Karthik Raman</h3>
               <p class="role">Professor, Data Science and AI, and Biotechnology</p>
               <p class="org">IIT Madras</p>
-              <div class="orbit-tags"><span class="track">Scientific Discovery</span><span>Academia</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Professor at IIT Madras across Data Science and Biotechnology, and coordinator of IBSE. His research integrates computational systems biology, metabolic modeling, and biological network analysis to investigate complex disease mechanisms.</p>
             </div>
           </article>
           <article class="bio">
@@ -700,8 +690,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Prof. Raghunathan Rengaswamy</h3>
               <p class="role">Professor, Data Science and AI, and Chemical Engineering</p>
               <p class="org">IIT Madras</p>
-              <div class="orbit-tags"><span>Academia</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Marti Mannariah Gurunath Chair Professor at IIT Madras. His research focuses on process systems engineering, fault detection and diagnosis, reinforcement learning, and combining first-principles physical models with data-driven analytics.</p>
             </div>
           </article>
           <article class="bio">
@@ -710,8 +699,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Dr. Deepak N. Subramani</h3>
               <p class="role">Associate Professor, Computational and Data Sciences</p>
               <p class="org">IISc Bangalore</p>
-              <div class="orbit-tags"><span class="track">Scientific Discovery</span><span>Academia</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Associate Professor at IISc Bangalore and MIT alumnus leading the QUEST Lab. His research focuses on physics-informed machine learning, autonomous robotic navigation, ocean forecasting, and Bayesian uncertainty quantification.</p>
             </div>
           </article>
           <article class="bio">
@@ -720,8 +708,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Prof. Ashutosh Modi</h3>
               <p class="role">Associate Professor, Computer Science and Engineering</p>
               <p class="org">IIT Kanpur</p>
-              <div class="orbit-tags"><span>Academia</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Associate Professor of Computer Science at IIT Kanpur. He specializes in natural language processing, affective computing, multimodal dialogue systems, and legal AI, developing models for machine comprehension and emotion recognition.</p>
             </div>
           </article>
           <article class="bio">
@@ -730,8 +717,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Aparna Taneja</h3>
               <p class="role">Senior Research Scientist</p>
               <p class="org">Google DeepMind</p>
-              <div class="orbit-tags"><span>Industry</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Senior Research Scientist at Google DeepMind India. She leads research in artificial intelligence for social impact, developing restless multi-armed bandits and predictive machine learning models to improve maternal and public health.</p>
             </div>
           </article>
           <article class="bio">
@@ -740,8 +726,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Dinesh Raghu</h3>
               <p class="role">Senior Researcher and Manager, Agentic AI</p>
               <p class="org">IBM</p>
-              <div class="orbit-tags"><span>Industry</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Senior Researcher and Manager in Agentic AI at IBM Research India. He leads research on autonomous agents, function calling in IBM Granite foundation models, multi-turn reasoning, and task-oriented conversational workflows.</p>
             </div>
           </article>
           <article class="bio">
@@ -750,8 +735,7 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <h3>Nitendra Rajput</h3>
               <p class="role">Vice President and Head of AI Garage Center</p>
               <p class="org">Mastercard</p>
-              <div class="orbit-tags"><span>Industry</span></div>
-              <p class="bio-copy pending">Biography to follow.</p>
+              <p class="bio-copy">Vice President and Head of the AI Garage at Mastercard, and ACM Distinguished Scientist. He directs global AI research and deployment in financial security, fraud prevention, risk mitigation, and emerging agentic commerce.</p>
             </div>
           </article>
         </div>''')
@@ -797,7 +781,7 @@ pages["venue.html"] = ("Venue & Travel", "venue.html",
           <div class="route"><dt>By road</dt><dd>The campus sits in Hauz Khas, South Delhi. App cabs and autos are widely available; allow extra time at peak hours. Visitor parking on campus is limited.</dd></div>
           <div class="route"><dt>Campus entry</dt><dd>IIT Delhi is a secured campus. Bring a valid government photo ID and the registration ID e-mailed to you. The exact hall, entry gate and visitor-pass details are posted here and e-mailed before the workshop.</dd></div>
         </dl>
-        <p class="note"><a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Indian%20Institute%20of%20Technology%20Delhi%2C%20Hauz%20Khas%2C%20New%20Delhi" target="_blank" rel="noopener">Open in Google Maps</a></p>""")
+        <p class="note"><a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Indian%20Institute%20of%20Technology%20Delhi%2C%20Hauz%20Khas%2C%20New%20Delhi" target="_blank" rel="noopener">Open in Google Maps</a></p>"""))
 
 pages["register.html"] = ("Registration", "register.html",
     page_head("Registration", "Registration", "Save your seat",
@@ -895,25 +879,92 @@ pages["partners.html"] = ("Partners & Sponsors", "partners.html",
 
 pages["organisers.html"] = ("Organisers", "organisers.html",
     page_head("Organisers", "The team", "Organisers",
-              "The Agentic AI Workshop 2026 is organised by the Indian Institute of Technology Delhi and the Yardi School of Artificial Intelligence (ScAI), IIT Delhi.")
+              "The Agentic AI Workshop 2026 is organised by the Yardi School of Artificial Intelligence (ScAI), IIT Delhi.</p>\n        <p>Our Industry Partner &mdash; Info Origin")
     + "\n\n" + band("The team", "The people running it",
                     "Faculty organisers, student organisers and volunteers.",
                     """        <div class="org-group">
-          <h3>Faculty organisers</h3>
-          <div class="org-list">
-            <div class="org"><b>Prof. Sandeep Kumar</b><span>IIT Delhi</span></div>
-            <div class="org"><b>Prof. Mausam</b><span>IIT Delhi</span></div>
-            <div class="org"><b>Prof. Parag Singla</b><span>IIT Delhi</span></div>
-            <div class="org"><b>Prof. Tanmoy Chakraborty</b><span>IIT Delhi</span></div>
-            <div class="org"><b>Prof. Souvik Chakraborty</b><span>IIT Delhi</span></div>
+          <h3>Faculty Organisers</h3>
+          <div class="org-grid">
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/sandeep-kumar.jpg" alt="Prof. Sandeep Kumar" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Prof. Sandeep Kumar</h4>
+                <p class="org-card-affil">IIT Delhi</p>
+              </div>
+            </article>
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/souvik-chakraborty.jpg" alt="Prof. Souvik Chakraborty" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Prof. Souvik Chakraborty</h4>
+                <p class="org-card-affil">IIT Delhi</p>
+              </div>
+            </article>
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/tanmoy-chakraborty.jpg" alt="Prof. Tanmoy Chakraborty" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Prof. Tanmoy Chakraborty</h4>
+                <p class="org-card-affil">IIT Delhi</p>
+              </div>
+            </article>
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/parag-singla.jpg" alt="Prof. Parag Singla" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Prof. Parag Singla</h4>
+                <p class="org-card-affil">IIT Delhi</p>
+              </div>
+            </article>
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/mausam.jpg" alt="Prof. Mausam" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Prof. Mausam</h4>
+                <p class="org-card-affil">IIT Delhi</p>
+              </div>
+            </article>
           </div>
         </div>
         <div class="org-group">
-          <h3>Student organisers</h3>
-          <div class="org-list">
-            <div class="org"><b>Abhishek Gupta</b><span>PhD scholar, Yardi School of AI, IIT Delhi</span></div>
-            <div class="org"><b>Aditya Shahane</b><span>PhD scholar, Electrical Engineering, IIT Delhi</span></div>
-            <div class="org"><b>Ajit Kumar Singh</b><span>PhD scholar, Electrical Engineering, IIT Delhi</span></div>
+          <h3>Student Organisers</h3>
+          <div class="org-grid">
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/abhishek-gupta.jpg" alt="Abhishek Gupta" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Abhishek Gupta</h4>
+                <p class="org-card-role">PhD Scholar,</p>
+                <p class="org-card-affil">Yardi School of AI,<br>IIT Delhi</p>
+              </div>
+            </article>
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/aditya-shahane.jpg" alt="Aditya Shahane" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Aditya Shahane</h4>
+                <p class="org-card-role">PhD Scholar,</p>
+                <p class="org-card-affil">Electrical Engineering,<br>IIT Delhi</p>
+              </div>
+            </article>
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/ajeet-singh.jpg" alt="Ajeet Kumar Singh" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Ajeet Kumar Singh</h4>
+                <p class="org-card-role">PhD Scholar,</p>
+                <p class="org-card-affil">School of Interdisciplinary<br>Research, IIT Delhi</p>
+              </div>
+            </article>
           </div>
         </div>
         <div class="org-group">
@@ -927,9 +978,9 @@ pages["organisers.html"] = ("Organisers", "organisers.html",
                     """        <div class="reg-box">
           <div>
             <h3>Contact the committee</h3>
-            <p>An official workshop e-mail address is being set up and will be published here.</p>
+            <p>For workshop-related queries, collaborations, and general enquiries, please contact the organising committee.</p>
           </div>
-          <span class="tba" data-contact>E-mail address to be announced</span>
+          <span class="tba" data-contact>agenticai.iitd@gmail.com</span>
         </div>""", alt=True))
 
 
@@ -952,11 +1003,16 @@ def write_page(fname, title, current, body):
     return len(doc)
 
 
-os.makedirs(OUT, exist_ok=True)
-total = 0
-for fname, (title, current, body) in pages.items():
-    if fname == "index.html": continue
-    n = write_page(fname, title, current, body)
-    total += n
-    print("%-20s %6d bytes" % (fname, n))
-print("total", total)
+if __name__ == '__main__':
+    import sys
+    if '--build' not in sys.argv:
+        print("Safety guard: To regenerate static HTML files from build_site.py, run with '--build'.")
+        sys.exit(0)
+    os.makedirs(OUT, exist_ok=True)
+    total = 0
+    for fname, (title, current, body) in pages.items():
+        if fname == "index.html": continue
+        n = write_page(fname, title, current, body)
+        total += n
+        print("%-20s %6d bytes" % (fname, n))
+    print("total", total)
