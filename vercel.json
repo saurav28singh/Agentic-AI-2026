@@ -1,11 +1,4 @@
 {
-    "cleanUrls": false,
-    "trailingSlash": false,
-    "outputDirectory": "static",
-    "rewrites": [
-        {
-            "source": "/",
-            "destination": "/index.html"
-        }
-    ]
+  "framework": null,
+  "outputDirectory": "static"
 }
