@@ -447,12 +447,12 @@ HOME_FAQ = """  <section class="band" id="faq">
       </div>
       <div>
         <div class="faq">
-          <details open><summary>Who can attend?</summary><p>Researchers, faculty, students, industry practitioners, startups and investors working on or around agentic AI. Places are limited, so every registration is reviewed and confirmed by the organising committee.</p></details>
-          <details><summary>Is there a registration fee?</summary><p>No. Attendance is free. If any fees are introduced for particular categories, they will be announced on the website.</p></details>
-          <details><summary>Will I know my registration went through?</summary><p>Yes. Submitting the form sends you a copy of your responses immediately, and a separate e-mail from the committee confirms whether a place is available.</p></details>
-          <details><summary>Can I present my work?</summary><p>The poster session is open to arXiv preprints and papers under submission on the broader theme of agentic AI. Answer &ldquo;Yes&rdquo; to the poster question when you register.</p></details>
-          <details><summary>What should I bring to the tutorials?</summary><p>A laptop for most of them. Software and account prerequisites are published with each session once the <a href="tutorials.html">line-up</a> is final.</p></details>
-          <details><summary>How do I get to campus?</summary><p>IIT Delhi is in Hauz Khas, South Delhi, about 15&nbsp;km from the airport and a short ride from the IIT and Hauz Khas metro stations. See <a href="venue.html">venue and travel</a>.</p></details>
+          <details open><summary>Who Can Attend the Workshop?</summary><p>The workshop welcomes researchers, faculty members, students, industry professionals, entrepreneurs, and anyone interested in agentic AI and its applications in healthcare, scientific discovery, and entrepreneurship.</p></details>
+          <details><summary>Is There a Registration Fee?</summary><p>No, participation in the workshop is free of charge. However, registration is required, and attendance is subject to confirmation by the organising committee.</p></details>
+          <details><summary>How Will I Know If My Registration Is Confirmed?</summary><p>You will receive an acknowledgement after submitting the registration form. Further details regarding your registration status and participation will be communicated by the organising committee.</p></details>
+          <details><summary>Can I Present My Research or Work at the Workshop?</summary><p>Yes. Participants are welcome to submit their relevant research and project work for consideration. Accepted papers, arXiv preprints, and papers currently under review are welcome. Presentation opportunities and submission guidelines will be communicated through the official workshop channels.</p></details>
+          <details><summary>What Should I Bring to the Tutorials?</summary><p>Please bring your laptop and ensure that it is fully charged. Any additional software, tools, datasets, or setup instructions will be shared by the tutorial organisers, if required.</p></details>
+          <details><summary>How Can I Reach the IIT Delhi Campus?</summary><p>The workshop will take place at IIT Delhi, Hauz Khas, New Delhi. Participants can reach the campus by metro, taxi, or other local transport. Detailed venue and entry instructions will be shared with registered participants before the event.</p></details>
         </div>
       </div>
     </div>
