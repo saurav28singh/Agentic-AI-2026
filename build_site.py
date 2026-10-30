@@ -38,15 +38,11 @@ def header(current):
     </a>
     <nav class="nav" id="nav" aria-label="Pages">
 %s
-      <div class="nav-mobile-cta">
-        <a class="btn btn-sm" href="register.html">Register to attend</a>
-      </div>
     </nav>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
     </button>
-    <a class="btn btn-sm head-cta" href="register.html">Register</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Toggle navigation menu">
       <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
       <span class="menu-btn-text">Menu</span>
@@ -78,15 +74,12 @@ FOOTER = """<footer class="foot">
         <h4>Visiting</h4>
         <ul>
           <li><a href="venue.html">Venue &amp; travel</a></li>
-          <li><a href="register.html">Registration</a></li>
           <li><a href="organisers.html">Organisers</a></li>
         </ul>
       </div>
       <div>
         <h4>Get involved</h4>
         <ul>
-          <li><a href="register.html">Register to attend</a></li>
-          <li><a href="register.html#posters">Present a poster</a></li>
           <li><a href="partners.html">Partners &amp; sponsors</a></li>
         </ul>
       </div>
@@ -455,13 +448,12 @@ HOME_FAQ = """  <section class="band" id="faq">
       <div>
         <div class="faq">
           <details open><summary>Who can attend?</summary><p>Researchers, faculty, students, industry practitioners, startups and investors working on or around agentic AI. Places are limited, so every registration is reviewed and confirmed by the organising committee.</p></details>
-          <details><summary>Is there a registration fee?</summary><p>No. Attendance is free. If any fees are introduced for particular categories, they will be announced on the <a href="register.html">registration page</a>.</p></details>
+          <details><summary>Is there a registration fee?</summary><p>No. Attendance is free. If any fees are introduced for particular categories, they will be announced on the website.</p></details>
           <details><summary>Will I know my registration went through?</summary><p>Yes. Submitting the form sends you a copy of your responses immediately, and a separate e-mail from the committee confirms whether a place is available.</p></details>
           <details><summary>Can I present my work?</summary><p>The poster session is open to arXiv preprints and papers under submission on the broader theme of agentic AI. Answer &ldquo;Yes&rdquo; to the poster question when you register.</p></details>
           <details><summary>What should I bring to the tutorials?</summary><p>A laptop for most of them. Software and account prerequisites are published with each session once the <a href="tutorials.html">line-up</a> is final.</p></details>
           <details><summary>How do I get to campus?</summary><p>IIT Delhi is in Hauz Khas, South Delhi, about 15&nbsp;km from the airport and a short ride from the IIT and Hauz Khas metro stations. See <a href="venue.html">venue and travel</a>.</p></details>
         </div>
-        <p class="note">More on fees, deadlines and accommodation in the <a href="register.html#faq">full FAQ</a>.</p>
       </div>
     </div>
   </section>"""
@@ -532,7 +524,6 @@ pages["index.html"] = ("Agentic AI Workshop 2026", None, """  <section class="he
             <h3>Workshop registration</h3>
             <p>Free &middot; limited places &middot; open until seats are filled</p>
           </div>
-          <a class="btn" href="register.html">How registration works</a>
         </div>
         <p class="note">Submitting the form sends you a copy of your responses straight away; the committee confirms your place by e-mail afterwards.</p>""", alt=True)
 + "\n\n" + HOME_FAQ)
@@ -601,7 +592,6 @@ pages["programme.html"] = ("Programme", "programme.html",
     + "\n\n" + band("Plan your visit", "Before you set off", "Everything needed for the trip.",
                     """        <div class="cards">
           <a href="venue.html"><h4>Venue &amp; travel</h4><p>Maps, directions from the airport and stations, and places to stay.</p></a>
-          <a href="register.html"><h4>Registration</h4><p>Free, reviewed by the committee. Save your seat.</p></a>
           <a href="tutorials.html"><h4>Tutorials &amp; demos</h4><p>Levels, prerequisites and materials for the hands-on sessions.</p></a>
           <a href="speakers.html"><h4>Speakers</h4><p>Who is speaking, their talks and the panels.</p></a>
         </div>""", alt=True))
@@ -613,12 +603,66 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
                     "Each profile fills in as speakers send their talk titles and biographies.",
                     '''        <div class="bios">
           <article class="bio">
-            <div class="bio-photo"><img src="photos/ganguli.webp" alt="Prof. Surya Ganguli" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/aparna.webp" alt="Aparna Taneja" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Prof. Surya Ganguli</h3>
-              <p class="role">Associate Professor of Applied Physics</p>
-              <p class="org">Stanford University</p>
-              <p class="bio-copy">Bridges theoretical physics, neuroscience, and machine learning at Stanford. His research investigates the mathematical foundations of deep neural networks, neural dynamics, and scaling laws to understand biological and artificial intelligence.</p>
+              <h3>Aparna Taneja</h3>
+              <p class="role">Senior Research Scientist</p>
+              <p class="org">Google DeepMind</p>
+              <p class="bio-copy">Senior Research Scientist at Google DeepMind India. She leads research in artificial intelligence for social impact, developing restless multi-armed bandits and predictive machine learning models to improve maternal and public health.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/patra.webp" alt="Dr. Arijit Patra" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Dr. Arijit Patra</h3>
+              <p class="role">Senior Principal Scientist</p>
+              <p class="org">UCB Pharma</p>
+              <p class="bio-copy">Senior Principal Scientist at UCB Pharma and Rhodes Scholar from Oxford. He focuses on artificial intelligence for biomedical imaging, non-clinical drug safety workflows, and machine learning pipelines that accelerate therapeutic discovery.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/ashutosh.webp" alt="Prof. Ashutosh Modi" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Prof. Ashutosh Modi</h3>
+              <p class="role">Associate Professor, Computer Science and Engineering</p>
+              <p class="org">IIT Kanpur</p>
+              <p class="bio-copy">Associate Professor of Computer Science at IIT Kanpur. He specializes in natural language processing, affective computing, multimodal dialogue systems, and legal AI, developing models for machine comprehension and emotion recognition.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/balaji.webp" alt="Dr. Balaji Vasan Srinivasan" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Dr. Balaji Vasan Srinivasan</h3>
+              <p class="role">Principal Scientist</p>
+              <p class="org">Adobe Research, India</p>
+              <p class="bio-copy">Principal Scientist at Adobe Research India specializing in multimodal artificial intelligence, generative models, and computer vision. His work advances text-to-image synthesis, automated layout generation, and AI-assisted creative workflows.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/deepak.webp" alt="Dr. Deepak N. Subramani" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Dr. Deepak N. Subramani</h3>
+              <p class="role">Associate Professor, Computational and Data Sciences</p>
+              <p class="org">IISc Bangalore</p>
+              <p class="bio-copy">Associate Professor at IISc Bangalore and MIT alumnus leading the QUEST Lab. His research focuses on physics-informed machine learning, autonomous robotic navigation, ocean forecasting, and Bayesian uncertainty quantification.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/dinesh.webp" alt="Dinesh Raghu" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Dinesh Raghu</h3>
+              <p class="role">Senior Researcher and Manager, Agentic AI</p>
+              <p class="org">IBM</p>
+              <p class="bio-copy">Senior Researcher and Manager in Agentic AI at IBM Research India. He leads research on autonomous agents, function calling in IBM Granite foundation models, multi-turn reasoning, and task-oriented conversational workflows.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/kartik.webp" alt="Prof. Karthik Raman" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Prof. Karthik Raman</h3>
+              <p class="role">Professor, Data Science and AI, and Biotechnology</p>
+              <p class="org">IIT Madras</p>
+              <p class="bio-copy">Professor at IIT Madras across Data Science and Biotechnology, and coordinator of IBSE. His research integrates computational systems biology, metabolic modeling, and biological network analysis to investigate complex disease mechanisms.</p>
             </div>
           </article>
           <article class="bio">
@@ -640,30 +684,12 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/balaji.webp" alt="Dr. Balaji Vasan Srinivasan" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/nitendra.webp" alt="Nitendra Rajput" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Dr. Balaji Vasan Srinivasan</h3>
-              <p class="role">Principal Scientist</p>
-              <p class="org">Adobe Research, India</p>
-              <p class="bio-copy">Principal Scientist at Adobe Research India specializing in multimodal artificial intelligence, generative models, and computer vision. His work advances text-to-image synthesis, automated layout generation, and AI-assisted creative workflows.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/prashant.webp" alt="Dr. Prashant Warier" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Dr. Prashant Warier</h3>
-              <p class="role">Co-Founder &amp; Chief Executive Officer</p>
-              <p class="org">Qure.ai</p>
-              <p class="bio-copy">Co-Founder and CEO of Qure.ai and an IIT Delhi alumnus. He develops deep learning diagnostic algorithms for medical imaging, deploying automated screening solutions for tuberculosis, stroke, and lung cancer across over 100 countries.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/patra.webp" alt="Dr. Arijit Patra" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Dr. Arijit Patra</h3>
-              <p class="role">Senior Principal Scientist</p>
-              <p class="org">UCB Pharma</p>
-              <p class="bio-copy">Senior Principal Scientist at UCB Pharma and Rhodes Scholar from Oxford. He focuses on artificial intelligence for biomedical imaging, non-clinical drug safety workflows, and machine learning pipelines that accelerate therapeutic discovery.</p>
+              <h3>Nitendra Rajput</h3>
+              <p class="role">Vice President and Head of AI Garage Center</p>
+              <p class="org">Mastercard</p>
+              <p class="bio-copy">Vice President and Head of the AI Garage at Mastercard, and ACM Distinguished Scientist. He directs global AI research and deployment in financial security, fraud prevention, risk mitigation, and emerging agentic commerce.</p>
             </div>
           </article>
           <article class="bio">
@@ -676,12 +702,12 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/kartik.webp" alt="Prof. Karthik Raman" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/prashant.webp" alt="Dr. Prashant Warier" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Prof. Karthik Raman</h3>
-              <p class="role">Professor, Data Science and AI, and Biotechnology</p>
-              <p class="org">IIT Madras</p>
-              <p class="bio-copy">Professor at IIT Madras across Data Science and Biotechnology, and coordinator of IBSE. His research integrates computational systems biology, metabolic modeling, and biological network analysis to investigate complex disease mechanisms.</p>
+              <h3>Dr. Prashant Warier</h3>
+              <p class="role">Co-Founder &amp; Chief Executive Officer</p>
+              <p class="org">Qure.ai</p>
+              <p class="bio-copy">Co-Founder and CEO of Qure.ai and an IIT Delhi alumnus. He develops deep learning diagnostic algorithms for medical imaging, deploying automated screening solutions for tuberculosis, stroke, and lung cancer across over 100 countries.</p>
             </div>
           </article>
           <article class="bio">
@@ -694,48 +720,12 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/deepak.webp" alt="Dr. Deepak N. Subramani" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/ganguli.webp" alt="Prof. Surya Ganguli" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Dr. Deepak N. Subramani</h3>
-              <p class="role">Associate Professor, Computational and Data Sciences</p>
-              <p class="org">IISc Bangalore</p>
-              <p class="bio-copy">Associate Professor at IISc Bangalore and MIT alumnus leading the QUEST Lab. His research focuses on physics-informed machine learning, autonomous robotic navigation, ocean forecasting, and Bayesian uncertainty quantification.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/ashutosh.webp" alt="Prof. Ashutosh Modi" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Prof. Ashutosh Modi</h3>
-              <p class="role">Associate Professor, Computer Science and Engineering</p>
-              <p class="org">IIT Kanpur</p>
-              <p class="bio-copy">Associate Professor of Computer Science at IIT Kanpur. He specializes in natural language processing, affective computing, multimodal dialogue systems, and legal AI, developing models for machine comprehension and emotion recognition.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/aparna.webp" alt="Aparna Taneja" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Aparna Taneja</h3>
-              <p class="role">Senior Research Scientist</p>
-              <p class="org">Google DeepMind</p>
-              <p class="bio-copy">Senior Research Scientist at Google DeepMind India. She leads research in artificial intelligence for social impact, developing restless multi-armed bandits and predictive machine learning models to improve maternal and public health.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/dinesh.webp" alt="Dinesh Raghu" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Dinesh Raghu</h3>
-              <p class="role">Senior Researcher and Manager, Agentic AI</p>
-              <p class="org">IBM</p>
-              <p class="bio-copy">Senior Researcher and Manager in Agentic AI at IBM Research India. He leads research on autonomous agents, function calling in IBM Granite foundation models, multi-turn reasoning, and task-oriented conversational workflows.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/nitendra.webp" alt="Nitendra Rajput" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Nitendra Rajput</h3>
-              <p class="role">Vice President and Head of AI Garage Center</p>
-              <p class="org">Mastercard</p>
-              <p class="bio-copy">Vice President and Head of the AI Garage at Mastercard, and ACM Distinguished Scientist. He directs global AI research and deployment in financial security, fraud prevention, risk mitigation, and emerging agentic commerce.</p>
+              <h3>Prof. Surya Ganguli</h3>
+              <p class="role">Associate Professor of Applied Physics</p>
+              <p class="org">Stanford University</p>
+              <p class="bio-copy">Bridges theoretical physics, neuroscience, and machine learning at Stanford. His research investigates the mathematical foundations of deep neural networks, neural dynamics, and scaling laws to understand biological and artificial intelligence.</p>
             </div>
           </article>
         </div>''')
@@ -764,7 +754,7 @@ pages["tutorials.html"] = ("Tutorials & Demos", "tutorials.html",
           <h3>Demo list coming soon</h3>
           <p>Teams and companies demonstrating agents live will be listed here.</p>
         </div>
-        <p class="note">Showing something you have built? Write to the organisers, or mention it when you <a href="register.html">register</a>.</p>""",
+        <p class="note">Showing something you have built? Write to the organisers.</p>""",
                     alt=True, bid="demos"))
 
 pages["venue.html"] = ("Venue & Travel", "venue.html",
@@ -782,60 +772,6 @@ pages["venue.html"] = ("Venue & Travel", "venue.html",
           <div class="route"><dt>Campus entry</dt><dd>IIT Delhi is a secured campus. Bring a valid government photo ID and the registration ID e-mailed to you. The exact hall, entry gate and visitor-pass details are posted here and e-mailed before the workshop.</dd></div>
         </dl>
         <p class="note"><a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Indian%20Institute%20of%20Technology%20Delhi%2C%20Hauz%20Khas%2C%20New%20Delhi" target="_blank" rel="noopener">Open in Google Maps</a></p>"""))
-
-pages["register.html"] = ("Registration", "register.html",
-    page_head("Registration", "Registration", "Save your seat",
-              "Free to attend, and it takes about two minutes. Places are limited, so every registration is reviewed and confirmed by the organising committee.")
-    + "\n\n" + band("How it works", "Three steps, two minutes", "One form covers attendance and the poster session.",
-                    """        <div class="steps">
-          <article class="step"><div>
-            <h3>Fill in the registration form</h3>
-            <p>Name, e-mail, institution and what you do, then your interests and logistics. The same form asks whether you want to present a poster, so one submission covers both.</p>
-          </div></article>
-          <article class="step"><div>
-            <h3>You get an acknowledgement straight away</h3>
-            <p>A copy of your responses arrives by e-mail the moment you submit, so you have a record of what you entered. If it does not appear within a few minutes, check your spam folder before writing to us.</p>
-          </div></article>
-          <article class="step"><div>
-            <h3>The committee confirms your place</h3>
-            <p>Registrations are reviewed in batches. You will hear by e-mail whether we can offer you a place, along with the hall, the schedule and campus entry instructions.</p>
-          </div></article>
-        </div>
-        <div class="reg-box">
-          <div>
-            <h3>Workshop registration</h3>
-            <p>Free &middot; limited places &middot; about two minutes</p>
-          </div>
-          <a class="btn" data-link="register" href="#">Open the registration form</a>
-        </div>""")
-    + "\n\n" + band("Who registers", "Who comes, and what it costs",
-                    "Attendance is free; any fees would be announced here first.",
-                    """        <dl class="routes">
-          <div class="route"><dt>You are a&hellip;</dt><dd>Student &middot; Researcher or postdoc &middot; Faculty &middot; Industry practitioner &middot; Startup founder or team &middot; Investor &middot; Other</dd></div>
-          <div class="route"><dt>Students</dt><dd class="tba">Fee to be announced</dd></div>
-          <div class="route"><dt>Academia &amp; researchers</dt><dd class="tba">Fee to be announced</dd></div>
-          <div class="route"><dt>Industry &amp; startups</dt><dd class="tba">Fee to be announced</dd></div>
-          <div class="route"><dt>Workshop deadline</dt><dd class="tba">To be announced</dd></div>
-        </dl>""", alt=True)
-    + "\n\n" + band("Posters", "Bring your research",
-                    "The poster session runs over lunch on Day 1.",
-                    """        <div class="prose">
-          <p>The poster session is open to arXiv preprints and papers currently under submission, on the broader theme of agentic AI. To present, answer &ldquo;Yes&rdquo; to the poster question in the registration form and give your title and abstract.</p>
-        </div>
-        <p style="margin-top:18px"><a class="btn" data-link="poster" href="#">Submit a poster</a></p>
-        <p class="note">Posters are displayed during the lunch and poster session, 13:15&ndash;15:00 on Tuesday, 15 December.</p>""", bid="posters")
-    + "\n\n" + band("FAQ", "Questions, answered", "Anything else, write to the organisers.",
-                    """        <div class="faq">
-          <details open><summary>Who can attend?</summary><p>Researchers, faculty, students, industry practitioners, startups and investors working on or around agentic AI. Places are limited, so registrations are reviewed and confirmed by the organising committee.</p></details>
-          <details><summary>Is there a registration fee?</summary><p>Attendance is free. If any fees are introduced for particular categories, they will be announced on this page.</p></details>
-          <details><summary>Will I know my registration went through?</summary><p>Yes. Submitting the form sends you a copy of your responses immediately. A separate e-mail from the committee confirms whether a place is available.</p></details>
-          <details><summary>When will the detailed schedule be available?</summary><p>The draft schedule is already on the <a href="programme.html">programme page</a>. Session titles and speakers are filled in as they confirm, and registered attendees get the final version by e-mail.</p></details>
-          <details><summary>What should I bring to the tutorials?</summary><p>A laptop for most of them. Software and account prerequisites are published with each tutorial once the line-up is final.</p></details>
-          <details><summary>Will the talks be recorded?</summary><p>Selected slides and recordings may be shared on this site after the event, with each speaker's permission.</p></details>
-          <details><summary>Is accommodation provided?</summary><p>Not unless announced otherwise. The <a href="venue.html">venue page</a> gives directions and campus entry details, and a limited number of guest-house rooms may be available on request.</p></details>
-          <details><summary>How can my company exhibit or sponsor?</summary><p>See <a href="partners.html">partners and sponsors</a> for the tiers, or write to the organisers and we will talk it through.</p></details>
-        </div>""", alt=True))
-
 pages["partners.html"] = ("Partners & Sponsors", "partners.html",
     page_head("Partners", "Partners &amp; sponsors", "Put your work in front of the room",
               "Sponsors and exhibitors reach researchers and faculty, students, industry practitioners, startups and investors over two days on campus.")
@@ -983,8 +919,17 @@ pages["organisers.html"] = ("Organisers", "organisers.html",
         </div>
         <div class="org-group">
           <h3>Volunteers</h3>
-          <div class="org-list">
-            <div class="org"><b>Joining us soon</b><span>Want to help run the workshop? Write to the organisers.</span></div>
+          <div class="org-grid">
+            <article class="org-card organiser-card">
+              <div class="org-card-photo">
+                <img src="photos/saurav-singh.jpg" alt="Saurav Singh" width="76" height="76" loading="lazy">
+              </div>
+              <div class="org-card-info">
+                <h4 class="org-card-name">Saurav Singh</h4>
+                <p class="org-card-role">Software Engineer,</p>
+                <p class="org-card-affil">MISN Lab, IIT Delhi</p>
+              </div>
+            </article>
           </div>
         </div>""")
     + "\n\n" + band("Contact", "Reach the organisers",
