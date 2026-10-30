@@ -202,10 +202,23 @@ img {
 }
 
 .head-in {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-left: clamp(40px, 3.5vw, 55px);
+  padding-right: clamp(40px, 3.5vw, 55px);
   display: flex;
   align-items: center;
-  gap: clamp(8px, 2vw, 18px);
+  justify-content: space-between;
   min-height: 76px;
+  box-sizing: border-box;
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 1.6vw, 24px);
+  flex-shrink: 0;
 }
 
 .mark {
@@ -214,10 +227,9 @@ img {
   align-items: center;
   gap: 14px;
   text-decoration: none;
-  margin-right: auto;
   padding-block: 4px;
   min-width: 0;
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .mark-divider {
@@ -338,23 +350,41 @@ img {
     height: 22px;
     max-width: 300px;
   }
+
   .mark {
     gap: 12px;
   }
+
   .mark-divider {
     height: 32px;
   }
 }
 
 @media (max-width: 1000px) {
+  .head-in {
+    padding-left: clamp(14px, 3vw, 24px);
+    padding-right: clamp(14px, 3vw, 24px);
+    min-height: 68px;
+  }
+
+  .nav-group {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
   .crest,
   .site-head .crest {
     width: 44px;
     height: 44px;
   }
+
   .mark-divider {
     height: 30px;
   }
+
   .scai-logo {
     height: 21px;
     max-width: 290px;
@@ -363,26 +393,42 @@ img {
 
 @media (max-width: 620px) {
   .head-in {
-    min-height: 64px;
+    min-height: 62px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .crest,
   .site-head .crest {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
   }
 
   .mark-divider {
-    height: 26px;
+    height: 24px;
   }
 
   .scai-logo {
-    height: 18px;
-    max-width: 246px;
+    height: 15px;
+    max-width: min(200px, 46vw);
+    width: auto;
+    object-fit: contain;
   }
 
   .mark {
-    gap: 10px;
+    gap: 8px;
+    min-width: 0;
+    flex: 0 1 auto;
+  }
+
+  .nav-group {
+    gap: 6px;
+  }
+
+  .menu-btn {
+    padding: 7px 10px;
+    min-height: 36px;
+    gap: 6px;
   }
 
   .mark b {
@@ -400,13 +446,15 @@ img {
 
 @media (max-width: 480px) {
   .head-in {
-    min-height: 60px;
+    min-height: 58px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .crest,
   .site-head .crest {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .mark-divider {
@@ -414,19 +462,35 @@ img {
   }
 
   .scai-logo {
-    height: 15px;
-    max-width: 205px;
+    height: 14px;
+    max-width: min(180px, 44vw);
   }
 
   .mark {
     gap: 8px;
+  }
+
+  .menu-btn {
+    padding: 6px 9px;
+    min-height: 34px;
+  }
+
+  .menu-btn .menu-btn-text {
+    font-size: 11.5px;
+  }
+
+  .theme-btn {
+    width: 34px;
+    height: 34px;
   }
 }
 
 @media (max-width: 360px) {
   .head-in {
     gap: 6px;
-    min-height: 56px;
+    min-height: 54px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .crest,
@@ -435,22 +499,28 @@ img {
     height: 30px;
   }
 
-  .site-head .crest {
-    width: 30px;
-    height: 30px;
-  }
-
   .mark-divider {
-    height: 19px;
+    height: 18px;
   }
 
   .scai-logo {
-    height: 13px;
-    max-width: 178px;
+    height: 12px;
+    max-width: min(140px, 38vw);
   }
 
   .mark {
     gap: 6px;
+  }
+
+  .menu-btn {
+    padding: 5px 7px;
+    min-height: 32px;
+    gap: 5px;
+  }
+
+  .theme-btn {
+    width: 32px;
+    height: 32px;
   }
 
   .mark-text {
@@ -504,7 +574,7 @@ img {
 .nav {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 1.25vw, 18px);
+  gap: clamp(14px, 1.35vw, 22px);
 }
 
 .nav>a {
@@ -1125,6 +1195,7 @@ img {
 }
 
 @media (max-width: 480px) {
+
   .hero-copy h1,
   .hero h1 {
     font-size: clamp(30px, 8.4vw, 40px);
@@ -1358,24 +1429,24 @@ img {
 
 /* ---------- Why Agentic AI centered content block ---------- */
 #why .band-grid,
-.page-head + .band:has(.prose) .band-grid {
+.page-head+.band:has(.prose) .band-grid {
   display: block;
 }
 
 #why .band-head,
-.page-head + .band:has(.prose) .band-head {
+.page-head+.band:has(.prose) .band-head {
   display: none;
 }
 
 #why .prose,
-.page-head + .band:has(.prose) .prose {
+.page-head+.band:has(.prose) .prose {
   max-width: 800px;
   margin-inline: auto;
   text-align: left;
 }
 
 #why .prose p,
-.page-head + .band:has(.prose) .prose p {
+.page-head+.band:has(.prose) .prose p {
   max-width: 100%;
   text-align: left;
 }
@@ -2387,6 +2458,7 @@ img {
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .org-card:hover,
   .organiser-card:hover {
     transform: translateY(-2px);
@@ -2532,6 +2604,7 @@ img {
 
 /* Small mobile (max-width: 360px) */
 @media (max-width: 360px) {
+
   .org-card,
   .organiser-card {
     padding: 8px 10px;
@@ -2959,7 +3032,7 @@ img {
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background-image: url("photos/iitd-campus.webp");
+  background-image: url("photos/iitd-campus-wide.webp");
   background-size: cover;
   background-position: 56% 0%;
   filter: saturate(1.05) contrast(1.02) brightness(.94);
