@@ -15,7 +15,7 @@ NAV = [
     ("organisers.html", "Organisers"),
 ]
 
-EARLY_THEME = '<script>try{var t=localStorage.getItem("aaiw-theme");if(t){document.documentElement.classList.add("t-"+t);}}catch(e){}</script>'
+EARLY_THEME = '<script>try{localStorage.removeItem("aaiw-theme");}catch(e){}document.documentElement.setAttribute("data-theme","dark");</script>'
 
 FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -40,10 +40,6 @@ def header(current):
       <nav class="nav" id="nav" aria-label="Pages">
 %s
       </nav>
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme">
-        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
-      </button>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Toggle navigation menu">
         <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="menu-btn-text">Menu</span>
@@ -959,17 +955,17 @@ pages["organisers.html"] = ("Organisers", "organisers.html",
 def write_page(fname, title, current, body):
     head_html = header(current)
     if fname == "index.html":
-        doc = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+        doc = ('<!doctype html>\n<html lang="en" data-theme="dark">\n<head>\n<meta charset="utf-8">\n'
                '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                '<meta name="claude:viewport-fit-sides" content="cover">\n'
                '<title>%s</title>\n%s\n'
-               '<link rel="stylesheet" href="styles.css?v=2">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
+               '<link rel="stylesheet" href="styles.css?v=6">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
                % (title, FONTS, EARLY_THEME, head_html, body, FOOTER))
     else:
-        doc = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+        doc = ('<!doctype html>\n<html lang="en" data-theme="dark">\n<head>\n<meta charset="utf-8">\n'
                '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                '<title>%s &middot; Agentic AI Workshop 2026</title>\n%s\n'
-               '<link rel="stylesheet" href="styles.css?v=2">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
+               '<link rel="stylesheet" href="styles.css?v=6">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
                % (title, FONTS, EARLY_THEME, head_html, body, FOOTER))
     io.open(os.path.join(OUT, fname), "w", encoding="utf-8").write(doc)
     return len(doc)

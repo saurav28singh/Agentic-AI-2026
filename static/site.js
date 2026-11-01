@@ -130,26 +130,12 @@
   });
 })();
 
-/* theme toggle — our own class, so the host's attribute cannot override it */
+/* permanent dark theme */
 (function () {
-  var btn = document.getElementById('themeBtn');
-  if (!btn) return;
-  var root = document.documentElement;
-  function current() {
-    if (root.classList.contains('t-dark')) return 'dark';
-    if (root.classList.contains('t-light')) return 'light';
-    var attr = root.getAttribute('data-theme');
-    if (attr === 'dark' || attr === 'light') return attr;
-    try {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    } catch (e) { return 'light'; }
-  }
-  btn.addEventListener('click', function () {
-    var next = current() === 'dark' ? 'light' : 'dark';
-    root.classList.remove('t-dark', 't-light');
-    root.classList.add('t-' + next);
-    try { localStorage.setItem('aaiw-theme', next); } catch (e) { }
-  });
+  try { localStorage.removeItem('aaiw-theme'); } catch (e) { }
+  document.documentElement.setAttribute('data-theme', 'dark');
+  document.documentElement.classList.remove('t-light');
+  document.documentElement.classList.add('t-dark');
 })();
 
 /* the illustrative run on the home page */
