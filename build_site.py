@@ -104,6 +104,7 @@ SPEAKERS = [
     ("raghu", "Prof. Raghunathan Rengaswamy"), ("deepak", "Dr. Deepak N. Subramani"),
     ("ashutosh", "Prof. Ashutosh Modi"), ("aparna", "Aparna Taneja"),
     ("dinesh", "Dinesh Raghu"), ("nitendra", "Nitendra Rajput"),
+    ("vaibhav", "Vaibhav Ranjan"),
 ]
 
 
@@ -600,7 +601,7 @@ pages["programme.html"] = ("Programme", "programme.html",
 
 pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
     page_head("Speakers", "Speakers", "Distinguished Speakers",
-              "Fourteen researchers, practitioners and founders building agentic AI across universities, corporate research labs, hospitals and startups.")
+              "Fifteen researchers, practitioners and founders building agentic AI across universities, corporate research labs, hospitals and startups.")
     + "\n\n" + band("Profiles", "Who is speaking",
                     "Each profile fills in as speakers send their talk titles and biographies.",
                     '''        <div class="bios">
@@ -728,6 +729,16 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Associate Professor of Applied Physics</p>
               <p class="org">Stanford University</p>
               <p class="bio-copy">Bridges theoretical physics, neuroscience, and machine learning at Stanford. His research investigates the mathematical foundations of deep neural networks, neural dynamics, and scaling laws to understand biological and artificial intelligence.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <!-- Speaker: Vaibhav Ranjan (Dr. Vaibhav Rajan) · Google DeepMind · https://www.linkedin.com/in/vaibhavrajan -->
+            <div class="bio-photo"><img src="photos/vaibhav.webp" alt="Vaibhav Ranjan" data-name="Vaibhav Rajan" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Vaibhav Ranjan</h3>
+              <p class="role">Senior Research Scientist</p>
+              <p class="org">Google DeepMind</p>
+              <p class="bio-copy">Senior Research Scientist at Google DeepMind and former Assistant Professor at the National University of Singapore. His research focuses on machine learning, algorithm design, and artificial intelligence for healthcare and biomedical discovery.</p>
             </div>
           </article>
         </div>''')
