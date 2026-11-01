@@ -959,13 +959,13 @@ def write_page(fname, title, current, body):
                '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                '<meta name="claude:viewport-fit-sides" content="cover">\n'
                '<title>%s</title>\n%s\n'
-               '<link rel="stylesheet" href="styles.css?v=6">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
+               '<link rel="stylesheet" href="styles.css?v=7">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
                % (title, FONTS, EARLY_THEME, head_html, body, FOOTER))
     else:
         doc = ('<!doctype html>\n<html lang="en" data-theme="dark">\n<head>\n<meta charset="utf-8">\n'
                '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                '<title>%s &middot; Agentic AI Workshop 2026</title>\n%s\n'
-               '<link rel="stylesheet" href="styles.css?v=6">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
+               '<link rel="stylesheet" href="styles.css?v=7">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
                % (title, FONTS, EARLY_THEME, head_html, body, FOOTER))
     io.open(os.path.join(OUT, fname), "w", encoding="utf-8").write(doc)
     return len(doc)

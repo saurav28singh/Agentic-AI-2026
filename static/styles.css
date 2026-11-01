@@ -171,108 +171,56 @@ img {
   color: var(--accent-2);
 }
 
-/* ---------- header ---------- */
+/* ---------- header & branding ---------- */
 .site-head {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 50;
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: saturate(140%) blur(8px);
+  background: rgba(13, 17, 18, 0.94);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
   border-bottom: 1px solid var(--rule);
+  width: 100%;
 }
 
 .head-in {
   width: 100%;
   max-width: none;
   margin-inline: 0;
-  padding-left: clamp(40px, 3.5vw, 55px);
-  padding-right: clamp(40px, 3.5vw, 55px);
+  padding-left: clamp(32px, 2.5vw, 40px);
+  padding-right: clamp(32px, 2.5vw, 40px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 76px;
+  min-height: 80px;
+  height: 80px;
   box-sizing: border-box;
+  gap: 24px;
 }
 
-.nav-group {
-  display: flex;
-  align-items: center;
-  gap: clamp(16px, 1.6vw, 24px);
-  flex-shrink: 0;
-}
-
+/* Branding: Emblem, Divider, ScAI Logo */
 .mark {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   text-decoration: none;
-  padding-block: 4px;
-  min-width: 0;
-  flex-shrink: 1;
-}
-
-.mark-divider {
-  width: 1px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.3);
-  flex-shrink: 0;
-  display: block;
-}
-
-
-
-.scai-logo {
-  height: 25px;
-  width: auto;
-  max-width: 345px;
-  object-fit: contain;
-  display: block;
-  flex-shrink: 0;
-  transition: opacity .18s ease;
-}
-
-.mark:hover .scai-logo {
-  opacity: .88;
-}
-
-
-
-.mark-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-  text-transform: none;
-  letter-spacing: normal;
-  color: var(--ink);
-  border-left: 2px solid var(--accent);
-  padding-left: clamp(10px, 1.5vw, 14px);
   padding-block: 2px;
-}
-
-.mark-text span {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  transition: color .18s;
-}
-
-.crest {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  flex: 0 0 auto;
-  transition: transform .4s ease;
+  min-width: 0;
+  flex-shrink: 0;
 }
 
 .site-head .crest {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  transition: transform .35s ease;
 }
 
 .mark:hover .crest {
-  transform: rotate(18deg);
+  transform: rotate(12deg);
 }
 
 .crest-white {
@@ -281,6 +229,28 @@ img {
 
 .crest-red {
   display: none !important;
+}
+
+.mark-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+  display: block;
+}
+
+.scai-logo {
+  height: 25px;
+  width: auto;
+  max-width: 320px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  transition: opacity .18s ease;
+}
+
+.mark:hover .scai-logo {
+  opacity: .88;
 }
 
 .foot-crest {
@@ -293,208 +263,83 @@ img {
   transform: none;
 }
 
-@media (max-width: 1100px) {
-  .scai-logo {
-    height: 22px;
-    max-width: 300px;
-  }
-
-  .mark {
-    gap: 12px;
-  }
-
-  .mark-divider {
-    height: 32px;
-  }
+/* Navigation Group & Desktop Links */
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
-@media (max-width: 1000px) {
-  .head-in {
-    padding-left: clamp(14px, 3vw, 24px);
-    padding-right: clamp(14px, 3vw, 24px);
-    min-height: 68px;
-  }
-
-  .nav-group {
-    position: static;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-
-  .crest,
-  .site-head .crest {
-    width: 44px;
-    height: 44px;
-  }
-
-  .mark-divider {
-    height: 30px;
-  }
-
-  .scai-logo {
-    height: 21px;
-    max-width: 290px;
-  }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 1.4vw, 22px);
+  margin: 0;
+  padding: 0;
 }
 
-@media (max-width: 620px) {
-  .head-in {
-    min-height: 62px;
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .crest,
-  .site-head .crest {
-    width: 34px;
-    height: 34px;
-  }
-
-  .mark-divider {
-    height: 24px;
-  }
-
-  .scai-logo {
-    height: 15px;
-    max-width: min(200px, 46vw);
-    width: auto;
-    object-fit: contain;
-  }
-
-  .mark {
-    gap: 8px;
-    min-width: 0;
-    flex: 0 1 auto;
-  }
-
-  .nav-group {
-    gap: 6px;
-  }
-
-  .menu-btn {
-    padding: 7px 10px;
-    min-height: 36px;
-    gap: 6px;
-  }
-
-  .mark b {
-    font-size: clamp(14px, 4.2vw, 17px);
-  }
-
-  .mark-text {
-    padding-left: 10px;
-  }
-
-  .mark-text span:last-child {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .head-in {
-    min-height: 58px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .crest,
-  .site-head .crest {
-    width: 32px;
-    height: 32px;
-  }
-
-  .mark-divider {
-    height: 22px;
-  }
-
-  .scai-logo {
-    height: 14px;
-    max-width: min(180px, 44vw);
-  }
-
-  .mark {
-    gap: 8px;
-  }
-
-  .menu-btn {
-    padding: 6px 9px;
-    min-height: 34px;
-  }
-
-  .menu-btn .menu-btn-text {
-    font-size: 11.5px;
-  }
-}
-
-.theme-btn {
-  display: none !important;
-}
-
-.btn {
+.nav > a {
+  position: relative;
+  font-family: var(--body);
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none !important;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  padding: 8px 0;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font: 500 14px/1 var(--body);
-  text-decoration: none;
-  text-align: center;
-  padding: 11px 18px;
-  border: 1px solid var(--accent);
+  transition: color .2s ease;
+}
+
+.nav > a:hover {
+  color: var(--accent);
+}
+
+.nav > a[aria-current="page"] {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.nav > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  height: 2px;
   background: var(--accent);
-  color: #151214;
-  transition: opacity .15s;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .22s cubic-bezier(.16, 1, .3, 1), opacity .22s ease;
+  border-radius: 1px;
+  opacity: 0;
 }
 
-.btn {
-  transition: opacity .18s, transform .18s, background .18s, color .18s, box-shadow .18s;
+.nav > a:hover::after {
+  transform: scaleX(0.7);
+  opacity: 0.7;
 }
 
-.btn:hover {
-  opacity: .9;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 28%, transparent);
-}
-
-.btn:active {
-  transform: translateY(0);
-}
-
-.btn-ghost {
-  background: color-mix(in srgb, var(--paper) 74%, transparent);
-  backdrop-filter: blur(5px);
-  color: var(--ink);
-  border-color: var(--ink-soft);
-}
-
-.btn-ghost:hover {
-  background: var(--ink);
-  color: var(--paper);
-  border-color: var(--ink);
+.nav > a[aria-current="page"]::after {
+  transform: scaleX(1);
   opacity: 1;
 }
 
-.btn-sm {
-  padding: 9px 14px;
-  font-size: 13px;
-}
-
-.nav-mobile-cta {
-  display: none;
-}
-
+/* Mobile Menu Button */
 .menu-btn {
   display: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--rule);
   color: var(--ink);
-  padding: 8px 12px;
+  padding: 8px 14px;
   font: 500 13px var(--body);
   cursor: pointer;
   align-items: center;
   gap: 8px;
-  border-radius: 4px;
+  border-radius: 6px;
   min-height: 38px;
   min-width: 40px;
   justify-content: center;
@@ -504,6 +349,7 @@ img {
 .menu-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
+  background: rgba(69, 214, 229, 0.08);
 }
 
 .menu-icon {
@@ -542,12 +388,95 @@ img {
   display: none;
 }
 
-@media (max-width: 1000px) {
+.theme-btn {
+  display: none !important;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: 500 14px/1 var(--body);
+  text-decoration: none;
+  text-align: center;
+  padding: 11px 18px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #151214;
+  transition: opacity .18s, transform .18s, background .18s, color .18s, box-shadow .18s;
+}
+
+.btn:hover {
+  opacity: .9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  background: color-mix(in srgb, var(--paper) 74%, transparent);
+  backdrop-filter: blur(5px);
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  opacity: 1;
+}
+
+.btn-sm {
+  padding: 9px 14px;
+  font-size: 13px;
+}
+
+/* ---------- Responsive Navigation (Tablets & Mobile) ---------- */
+@media (max-width: 1024px) {
+  .site-head {
+    min-height: 72px;
+  }
+
+  .head-in {
+    min-height: 72px;
+    height: 72px;
+    padding-left: clamp(20px, 3vw, 28px);
+    padding-right: clamp(20px, 3vw, 28px);
+  }
+
+  .site-head .crest {
+    width: 42px;
+    height: 42px;
+  }
+
+  .mark-divider {
+    height: 28px;
+  }
+
+  .scai-logo {
+    height: 22px;
+    max-width: 270px;
+  }
+
+  .mark {
+    gap: 12px;
+  }
+
+  .menu-btn {
+    display: inline-flex;
+  }
+
   .nav-backdrop {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(7, 11, 13, 0.72);
+    background: rgba(7, 11, 13, 0.75);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 48;
@@ -570,13 +499,14 @@ img {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--panel);
+    background: #141A1D;
+    border-top: 1px solid var(--rule);
     border-bottom: 2px solid var(--accent);
-    box-shadow: 0 20px 48px rgba(0, 0, 0, .45);
-    padding-left: var(--gut-l);
-    padding-right: var(--gut-r);
-    padding-block: 8px 24px;
-    max-height: calc(100dvh - 74px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, .55);
+    padding-left: clamp(20px, 4vw, 32px);
+    padding-right: clamp(20px, 4vw, 32px);
+    padding-block: 10px 22px;
+    max-height: calc(100dvh - 72px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     z-index: 55;
@@ -592,75 +522,103 @@ img {
       opacity: 0;
       transform: translateY(-8px);
     }
-
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
-  .nav>a {
+  .nav > a {
     padding: 14px 4px;
     border-bottom: 1px solid var(--rule);
-    font-size: 15.5px;
+    font-size: 15px;
     font-weight: 500;
     min-height: 48px;
     display: flex;
     align-items: center;
+    color: var(--ink-soft);
+    text-decoration: none !important;
   }
 
-  .nav>a::after {
+  .nav > a::after {
     display: none;
   }
 
-  .nav>a[aria-current="page"] {
+  .nav > a:hover {
+    color: var(--accent);
+  }
+
+  .nav > a[aria-current="page"] {
     color: var(--accent);
     font-weight: 600;
   }
+}
 
-  .nav-mobile-cta {
-    display: block;
-    margin-top: 16px;
-    padding-top: 4px;
+@media (max-width: 600px) {
+  .site-head {
+    min-height: 64px;
   }
 
-  .nav-mobile-cta .btn {
-    width: 100%;
-    min-height: 48px;
-    font-size: 14.5px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent) !important;
-    color: #FFFFFF !important;
-    border: 1px solid var(--accent);
-    border-radius: 4px;
-    padding: 12px 18px;
-    text-decoration: none;
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 30%, transparent);
+  .head-in {
+    min-height: 64px;
+    height: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .nav-mobile-cta .btn {
-    color: #151214 !important;
+  .site-head .crest {
+    width: 36px;
+    height: 36px;
   }
 
-  .menu-btn {
-    display: inline-flex;
+  .mark-divider {
+    height: 24px;
   }
 
-  .head-cta {
-    display: none;
+  .scai-logo {
+    height: 18px;
+    max-width: min(210px, 50vw);
+  }
+
+  .mark {
+    gap: 10px;
+  }
+
+  .nav {
+    max-height: calc(100dvh - 64px);
   }
 }
 
-@media (max-width: 480px) {
-  .menu-btn {
-    padding: 8px 10px;
+@media (max-width: 380px) {
+  .head-in {
+    min-height: 58px;
+    height: 58px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
-  .menu-btn .menu-btn-text {
-    font-size: 12px;
+  .site-head .crest {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mark-divider {
+    height: 20px;
+  }
+
+  .scai-logo {
+    height: 15px;
+    max-width: min(170px, 44vw);
+  }
+
+  .mark {
+    gap: 8px;
+  }
+
+  .menu-btn {
+    padding: 6px 9px;
+    min-height: 34px;
+    font-size: 11.5px;
   }
 }
 
