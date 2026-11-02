@@ -101,6 +101,7 @@ SPEAKERS = [
     ("ashutosh", "Prof. Ashutosh Modi"), ("aparna", "Aparna Taneja"),
     ("dinesh", "Dinesh Raghu"), ("nitendra", "Nitendra Rajput"),
     ("vaibhav", "Vaibhav Ranjan"),
+    ("srikanth", "Srikanth Ramakrishnan"),
 ]
 
 
@@ -716,6 +717,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Professor, Data Science and AI, and Chemical Engineering</p>
               <p class="org">IIT Madras</p>
               <p class="bio-copy">Marti Mannariah Gurunath Chair Professor at IIT Madras. His research focuses on process systems engineering, fault detection and diagnosis, reinforcement learning, and combining first-principles physical models with data-driven analytics.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/srikanth.webp" alt="Srikanth Ramakrishnan" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Srikanth Ramakrishnan</h3>
+              <p class="role">Head, Commercial Data Science &amp; AI</p>
+              <p class="org">Johnson &amp; Johnson Innovative Medicine</p>
+              <p class="bio-copy">AI and data science leader who has driven enterprise AI transformation across Medical Safety, Discovery, Clinical Operations, Regulatory, and now Pharma Commercial functions. Currently leading Agentic AI platform initiatives to reshape how life sciences organizations work and deliver value to patients.</p>
             </div>
           </article>
           <article class="bio">
