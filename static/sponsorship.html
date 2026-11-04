@@ -72,7 +72,7 @@
             </div>
             <div class="sp-card-footer">
               <a class="sp-tier-btn"
-                href="mailto:agenticai.iitd@gmail.com?subject=Agentic%20AI%20Workshop%202026%20-%20Diamond%20Sponsorship">Inquire
+                href="mailto:agenticai.iitd@gmail.com?subject=Sponsorship%20Inquiry%20%E2%80%93%20Agentic%20AI%20Workshop%202026">Inquire
                 &rarr;</a>
             </div>
           </article>
@@ -87,7 +87,7 @@
             </div>
             <div class="sp-card-footer">
               <a class="sp-tier-btn"
-                href="mailto:agenticai.iitd@gmail.com?subject=Agentic%20AI%20Workshop%202026%20-%20Gold%20Sponsorship">Inquire
+                href="mailto:agenticai.iitd@gmail.com?subject=Sponsorship%20Inquiry%20%E2%80%93%20Agentic%20AI%20Workshop%202026">Inquire
                 &rarr;</a>
             </div>
           </article>
@@ -102,7 +102,7 @@
             </div>
             <div class="sp-card-footer">
               <a class="sp-tier-btn"
-                href="mailto:agenticai.iitd@gmail.com?subject=Agentic%20AI%20Workshop%202026%20-%20Silver%20Sponsorship">Inquire
+                href="mailto:agenticai.iitd@gmail.com?subject=Sponsorship%20Inquiry%20%E2%80%93%20Agentic%20AI%20Workshop%202026">Inquire
                 &rarr;</a>
             </div>
           </article>
@@ -120,7 +120,7 @@
           </div>
           <div class="sp-contact-action">
             <a class="btn"
-              href="mailto:agenticai.iitd@gmail.com?subject=Agentic%20AI%20Workshop%202026%20-%20Sponsorship%20Enquiry">Contact
+              href="mailto:agenticai.iitd@gmail.com?subject=Sponsorship%20Inquiry%20%E2%80%93%20Agentic%20AI%20Workshop%202026">Contact
               the Organisers &rarr;</a>
           </div>
         </div>
@@ -173,7 +173,28 @@
     </div>
   </footer>
   <script src="config.js"></script>
-  <script src="site.js?v=2"></script>
+  <script src="site.js?v=3"></script>
+  <script>
+    (function () {
+      var mailtoUrl = "mailto:agenticai.iitd@gmail.com?subject=Sponsorship%20Inquiry%20%E2%80%93%20Agentic%20AI%20Workshop%202026";
+      function handleMailClick(e) {
+        if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) return;
+        try {
+          if (window.top && window.top !== window) {
+            e.preventDefault();
+            window.top.location.href = mailtoUrl;
+            return;
+          }
+        } catch (err) { }
+        window.location.href = mailtoUrl;
+      }
+      var btns = document.querySelectorAll('.sp-tier-btn, .sp-contact-action .btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].setAttribute('href', mailtoUrl);
+        btns[i].addEventListener('click', handleMailClick);
+      }
+    })();
+  </script>
 </body>
 
 </html>

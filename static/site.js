@@ -58,6 +58,30 @@
         });
       })(formLinks[i]);
     }
+
+    /* reliable mailto link handling on desktop, mobile, and inside Streamlit iframe */
+    var mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
+    for (var j = 0; j < mailtoLinks.length; j++) {
+      (function (btn) {
+        btn.addEventListener('click', function (e) {
+          if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) {
+            return;
+          }
+          var url = btn.getAttribute('href');
+          if (!url || !url.startsWith('mailto:')) {
+            return;
+          }
+          try {
+            if (window.top && window.top !== window) {
+              e.preventDefault();
+              window.top.location.href = url;
+              return;
+            }
+          } catch (err) { }
+          window.location.href = url;
+        });
+      })(mailtoLinks[j]);
+    }
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupExternalLinks);
