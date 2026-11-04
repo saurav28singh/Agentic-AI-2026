@@ -820,6 +820,67 @@ img {
   transform: translateY(0);
 }
 
+/* Compact Deadline Row in Participate Panel */
+.hero-deadline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.hero-deadline-icon {
+  width: 17px;
+  height: 17px;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  display: block;
+}
+
+.hero-deadline-sep {
+  width: 1px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.22);
+  flex-shrink: 0;
+  display: block;
+}
+
+.hero-deadline-text {
+  font-family: var(--body);
+  font-size: clamp(12.5px, 0.95vw, 13.5px);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #FFFFFF;
+  letter-spacing: .01em;
+}
+
+.hero-deadline-date {
+  color: #5FC6D4;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .hero-deadline {
+    gap: 10px;
+    padding-top: 12px;
+    margin-top: 12px;
+  }
+  .hero-deadline-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-deadline {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+  }
+}
+
 @media (max-width: 1140px) {
   .hero-grid {
     grid-template-columns: 1fr;
