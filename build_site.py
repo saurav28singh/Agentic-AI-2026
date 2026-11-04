@@ -13,6 +13,7 @@ NAV = [
     ("tutorials.html", "Tutorials"),
     ("venue.html", "Venue"),
     ("organisers.html", "Organisers"),
+    ("sponsorship.html", "Sponsorship"),
 ]
 
 EARLY_THEME = '<script>try{localStorage.removeItem("aaiw-theme");}catch(e){}document.documentElement.setAttribute("data-theme","dark");</script>'
