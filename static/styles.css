@@ -4220,411 +4220,285 @@ img {
 }
 
 /* ==========================================================================
-   Sponsorship Page Styles
+   Sponsorship Page — Academic / Minimal Redesign
    ========================================================================== */
 
-.sponsor-hero {
-  position: relative;
-  padding-block: clamp(44px, 5.5vw, 68px) clamp(38px, 4.5vw, 56px);
+/* Hero Section */
+.sp-hero {
+  padding-block: clamp(38px, 4.8vw, 58px) clamp(28px, 3.8vw, 44px);
   border-bottom: 1px solid var(--rule);
-  background: radial-gradient(circle at 50% 0%, rgba(69, 214, 229, 0.08) 0%, rgba(13, 17, 18, 0) 65%),
-              linear-gradient(180deg, rgba(22, 29, 32, 0.45) 0%, rgba(13, 17, 18, 0) 100%);
-  overflow: hidden;
 }
 
-.sponsor-hero-inner {
+.sp-hero-inner {
   max-width: 960px;
 }
 
-.sponsor-hero-title {
-  font-family: var(--display);
-  font-size: clamp(38px, 5.5vw, 62px);
-  line-height: 1.05;
-  letter-spacing: -.025em;
-  font-weight: 500;
-  color: #FFFFFF;
-  margin-block: 16px 14px;
+.sp-hero-eyebrow {
+  font: 500 11px/1 var(--mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 14px;
 }
 
-.sponsor-hero-subtitle {
+.sp-hero-title {
+  font-family: var(--display);
+  font-size: clamp(32px, 4.4vw, 48px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  color: #FFFFFF;
+  margin-block: 12px 10px;
+}
+
+.sp-hero-lede {
   font-family: var(--body);
-  font-size: clamp(16px, 1.25vw, 19px);
+  font-size: clamp(15px, 1.15vw, 17px);
   line-height: 1.55;
   color: var(--ink-soft);
   max-width: 58ch;
-  margin-bottom: 26px;
+  margin: 0;
 }
 
-.sponsor-meta-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  margin-bottom: 30px;
-}
-
-.sp-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(22, 29, 32, 0.85);
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: #C0CDD0;
+.sp-hero-meta {
+  font: 400 13px/1.4 var(--mono);
+  color: var(--accent);
   letter-spacing: .02em;
-}
-
-.sp-pill svg {
-  width: 14px;
-  height: 14px;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.sponsor-hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px;
-}
-
-.sponsor-hero-cta .hero-cta-btn {
-  background: var(--accent);
-  color: #0D1112 !important;
-  font-weight: 600;
-  font-size: 14.5px;
-  padding: 12px 24px;
-  border-radius: 4px;
-  border: 1px solid var(--accent);
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-}
-
-.sponsor-hero-cta .hero-cta-btn:hover {
-  background: #6FE3EF;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(69, 214, 229, 0.28);
-}
-
-.sponsor-hero-cta .btn-outline {
-  background: transparent;
-  color: #FFFFFF;
-  border: 1px solid var(--rule);
-  padding: 12px 20px;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: transform .2s ease, border-color .2s ease, color .2s ease;
-}
-
-.sponsor-hero-cta .btn-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
+  margin-top: 14px;
 }
 
 /* Tiers Section */
-.sp-section-head {
-  max-width: 760px;
-  margin-bottom: 40px;
+.sp-tiers-band {
+  padding-block: clamp(42px, 5.5vw, 68px);
 }
 
-.sp-section-head h2 {
-  font-family: var(--display);
-  font-size: clamp(28px, 3.8vw, 42px);
-  font-weight: 500;
-  color: #FFFFFF;
-  letter-spacing: -.02em;
-  margin-top: 10px;
-  margin-bottom: 12px;
-}
-
-.sp-section-desc {
-  font-family: var(--body);
-  font-size: 15.5px;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  max-width: 58ch;
-}
-
-.sp-cards-grid {
+.sp-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  gap: 24px;
+  max-width: 960px;
+  margin-inline: auto;
   align-items: stretch;
 }
 
-.sp-tier-card {
-  position: relative;
-  border-radius: 8px;
-  background: #141A1D;
+.sp-card {
+  background: #12181A;
   border: 1px solid var(--rule);
-  padding: 34px 28px 28px;
+  border-radius: 4px;
+  padding: 30px 24px 24px;
   display: flex;
   flex-direction: column;
-  transition: transform .28s cubic-bezier(.16, 1, .3, 1), box-shadow .28s ease, border-color .28s ease;
-  overflow: hidden;
+  position: relative;
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
 }
 
-.sp-tier-card:hover {
-  transform: translateY(-6px);
+.sp-card:hover {
+  transform: translateY(-2px);
 }
 
-/* Card Top Highlight Line */
-.sp-tier-card::before {
+/* Card Top Border Hairline */
+.sp-card::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  opacity: .85;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 2px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
-/* Diamond Card */
-.tier-diamond {
-  background: linear-gradient(180deg, rgba(69, 214, 229, 0.08) 0%, rgba(20, 26, 29, 0.95) 30%, rgba(13, 17, 18, 0.98) 100%);
-  border-color: rgba(69, 214, 229, 0.38);
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.45), 0 0 24px rgba(69, 214, 229, 0.12);
+/* Diamond Tier */
+.sp-card-diamond {
+  background: #141C1F;
+  border-color: rgba(69, 214, 229, 0.4);
 }
 
-.tier-diamond::before {
-  background: linear-gradient(90deg, #45D6E5 0%, #A6F1F9 50%, #45D6E5 100%);
-  box-shadow: 0 0 14px rgba(69, 214, 229, 0.6);
+.sp-card-diamond::before {
+  background: var(--accent);
 }
 
-.tier-diamond:hover {
-  border-color: #45D6E5;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 32px rgba(69, 214, 229, 0.25);
+.sp-card-diamond:hover {
+  border-color: rgba(69, 214, 229, 0.7);
+  background: #162226;
 }
 
-/* Gold Card */
-.tier-gold {
-  background: linear-gradient(180deg, rgba(224, 168, 92, 0.07) 0%, rgba(20, 26, 29, 0.95) 30%, rgba(13, 17, 18, 0.98) 100%);
-  border-color: rgba(224, 168, 92, 0.32);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+/* Gold Tier */
+.sp-card-gold {
+  border-color: rgba(224, 168, 92, 0.3);
 }
 
-.tier-gold::before {
-  background: linear-gradient(90deg, #C99144 0%, #F5C678 50%, #C99144 100%);
-  box-shadow: 0 0 12px rgba(224, 168, 92, 0.45);
+.sp-card-gold::before {
+  background: #D49A4B;
 }
 
-.tier-gold:hover {
-  border-color: #E0A85C;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 28px rgba(224, 168, 92, 0.22);
+.sp-card-gold:hover {
+  border-color: rgba(224, 168, 92, 0.6);
+  background: #161D1A;
 }
 
-/* Silver Card */
-.tier-silver {
-  background: linear-gradient(180deg, rgba(185, 202, 208, 0.05) 0%, rgba(20, 26, 29, 0.95) 30%, rgba(13, 17, 18, 0.98) 100%);
-  border-color: rgba(185, 202, 208, 0.26);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+/* Silver Tier */
+.sp-card-silver {
+  border-color: rgba(180, 195, 200, 0.25);
 }
 
-.tier-silver::before {
-  background: linear-gradient(90deg, #7A8E94 0%, #D4E0E4 50%, #7A8E94 100%);
-  box-shadow: 0 0 10px rgba(185, 202, 208, 0.35);
+.sp-card-silver::before {
+  background: #8E9FA4;
 }
 
-.tier-silver:hover {
-  border-color: rgba(220, 235, 240, 0.65);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 24px rgba(185, 202, 208, 0.18);
+.sp-card-silver:hover {
+  border-color: rgba(180, 195, 200, 0.55);
+  background: #151A1D;
 }
 
-/* Card Header */
-.sp-tier-header {
-  margin-bottom: 24px;
-}
-
-.sp-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border-radius: 4px;
-  margin-bottom: 16px;
-}
-
-.badge-diamond {
-  background: rgba(69, 214, 229, 0.12);
-  color: #45D6E5;
-  border: 1px solid rgba(69, 214, 229, 0.35);
-}
-
-.badge-gold {
-  background: rgba(224, 168, 92, 0.12);
-  color: #E0A85C;
-  border: 1px solid rgba(224, 168, 92, 0.35);
-}
-
-.badge-silver {
-  background: rgba(185, 202, 208, 0.1);
-  color: #D6E0E2;
-  border: 1px solid rgba(185, 202, 208, 0.28);
+/* Tier Header */
+.sp-card-top {
+  display: flex;
+  flex-direction: column;
 }
 
 .sp-tier-name {
-  font-family: var(--display);
-  font-size: 26px;
-  font-weight: 500;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: #FFFFFF;
   margin: 0;
-  letter-spacing: -.01em;
 }
 
-/* Card Pricing */
-.sp-tier-price-box {
-  padding-block: 16px 20px;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 24px;
+/* Tier Price */
+.sp-card-body {
+  margin-block: 22px 26px;
 }
 
-.sp-tier-price-label {
+.sp-tier-price {
   font-family: var(--mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--ink-soft);
-  margin-bottom: 6px;
-}
-
-.sp-amount {
-  font-family: var(--mono);
-  font-size: clamp(30px, 2.5vw, 36px);
-  font-weight: 600;
+  font-size: clamp(26px, 2.2vw, 30px);
+  font-weight: 500;
   line-height: 1.1;
   color: #FFFFFF;
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
+  letter-spacing: -.02em;
 }
 
-.sp-amount .currency {
-  font-size: .8em;
-  color: var(--ink-soft);
-}
-
-.sp-amount-diamond {
-  color: #FFFFFF;
-  text-shadow: 0 0 18px rgba(69, 214, 229, 0.3);
-}
-
-.sp-amount-diamond .currency {
-  color: #45D6E5;
-}
-
-.sp-amount-gold {
-  color: #FFFFFF;
-  text-shadow: 0 0 16px rgba(224, 168, 92, 0.25);
-}
-
-.sp-amount-gold .currency {
-  color: #E0A85C;
-}
-
-.sp-amount-silver {
-  color: #FFFFFF;
-}
-
-.sp-amount-silver .currency {
-  color: #C0CDD0;
-}
-
-/* Card CTA Button */
-.sp-card-btn {
-  width: 100%;
+/* Tier Card Footer / Action */
+.sp-card-footer {
   margin-top: auto;
-  padding: 12px 14px;
-  border-radius: 4px;
-  font-size: 13.5px;
-  font-weight: 600;
-  text-align: center;
+}
+
+.sp-tier-btn {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
+  width: 100%;
+  padding: 10px 14px;
+  font: 500 13px/1 var(--body);
+  text-decoration: none;
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--ink-soft);
+  transition: color .18s ease, border-color .18s ease, background-color .18s ease;
 }
 
-.btn-diamond {
+.sp-tier-btn:hover {
+  color: #FFFFFF;
+  border-color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sp-card-diamond .sp-tier-btn {
+  border-color: rgba(69, 214, 229, 0.35);
+  color: var(--accent);
+  background: rgba(69, 214, 229, 0.04);
+}
+
+.sp-card-diamond .sp-tier-btn:hover {
+  border-color: var(--accent);
   background: var(--accent);
-  color: #0D1112 !important;
-  border: 1px solid var(--accent);
+  color: #0D1112;
 }
 
-.btn-diamond:hover {
-  background: #6FE3EF;
-  box-shadow: 0 6px 18px rgba(69, 214, 229, 0.35);
-  transform: translateY(-2px);
+/* Contact Section */
+.sp-contact-band {
+  padding-block: clamp(36px, 5vw, 64px);
 }
 
-.btn-gold {
-  background: rgba(224, 168, 92, 0.12);
-  color: #FFD27D !important;
-  border: 1px solid rgba(224, 168, 92, 0.5);
+.sp-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 34px 38px;
+  background: #12181A;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  max-width: 960px;
+  margin-inline: auto;
 }
 
-.btn-gold:hover {
-  background: #E0A85C;
-  color: #0D1112 !important;
-  border-color: #E0A85C;
-  box-shadow: 0 6px 18px rgba(224, 168, 92, 0.3);
-  transform: translateY(-2px);
+.sp-contact-text h2 {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.2vw, 27px);
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: -.015em;
+  margin: 0 0 6px;
 }
 
-.btn-silver {
-  background: rgba(185, 202, 208, 0.08);
-  color: #E2EDF0 !important;
-  border: 1px solid rgba(185, 202, 208, 0.4);
-}
-
-.btn-silver:hover {
-  background: #D4E0E4;
-  color: #0D1112 !important;
-  border-color: #D4E0E4;
-  box-shadow: 0 6px 18px rgba(185, 202, 208, 0.25);
-  transform: translateY(-2px);
-}
-
-.sp-cards-note {
-  margin-top: 36px;
-  padding: 18px 22px;
-  background: rgba(22, 29, 32, 0.55);
-  border: 1px dashed var(--rule);
-  border-radius: 6px;
-  text-align: center;
-}
-
-.sp-cards-note p {
+.sp-contact-text p {
   font-family: var(--body);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 14.5px;
   color: var(--ink-soft);
   margin: 0;
 }
 
-/* Responsiveness for Tiers Grid */
-@media (max-width: 980px) {
-  .sp-cards-grid {
+.sp-contact-action {
+  flex-shrink: 0;
+}
+
+.sp-contact-action .btn {
+  white-space: nowrap;
+  font-size: 13.5px;
+  padding: 11px 20px;
+  border-radius: 3px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 860px) {
+  .sp-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
-    max-width: 580px;
-    margin-inline: auto;
+    gap: 16px;
+    max-width: 500px;
+  }
+
+  .sp-card {
+    padding: 24px 22px 20px;
+  }
+
+  .sp-card-body {
+    margin-block: 16px 20px;
+  }
+
+  .sp-contact {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 26px 20px;
+    gap: 20px;
+    max-width: 500px;
+  }
+
+  .sp-contact-action .btn {
+    width: 100%;
   }
 }
 
-@media (max-width: 560px) {
-  .sp-tier-card {
-    padding: 26px 20px 22px;
+@media (max-width: 480px) {
+  .sp-hero-title {
+    font-size: 28px;
   }
-  .sp-amount {
-    font-size: 30px;
-  }
-  .sp-cards-note {
-    padding: 14px 16px;
+
+  .sp-tier-price {
+    font-size: 24px;
   }
 }
