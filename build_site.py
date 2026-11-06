@@ -103,6 +103,7 @@ SPEAKERS = [
     ("dinesh", "Dinesh Raghu"), ("nitendra", "Nitendra Rajput"),
     ("vaibhav", "Vaibhav Ranjan"),
     ("srikanth", "Srikanth Ramakrishnan"),
+    ("rahul", "Dr. Rahul Mishra"),
 ]
 
 
@@ -730,6 +731,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Professor, Data Science and AI, and Chemical Engineering</p>
               <p class="org">IIT Madras</p>
               <p class="bio-copy">Marti Mannariah Gurunath Chair Professor at IIT Madras. His research focuses on process systems engineering, fault detection and diagnosis, reinforcement learning, and combining first-principles physical models with data-driven analytics.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/rahul.webp" alt="Dr. Rahul Mishra" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Dr. Rahul Mishra</h3>
+              <p class="role">Head of the Data and Security Lab</p>
+              <p class="org">Fujitsu Research India</p>
+              <p class="bio-copy">Dr. Rahul Mishra leads research and development in AI safety, LLM security, and the detection of misinformation and deception. His work focuses on building robust, transparent, and trustworthy AI systems, including harmful prompt detection, hallucination detection, machine unlearning, and explainability of large language models.</p>
             </div>
           </article>
           <article class="bio">
