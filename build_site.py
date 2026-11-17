@@ -104,6 +104,13 @@ SPEAKERS = [
     ("vaibhav", "Vaibhav Ranjan"),
     ("srikanth", "Srikanth Ramakrishnan"),
     ("rahul", "Dr. Rahul Mishra"),
+    ("alpan", "Dr. Alpan Raval"),
+    ("ayush", "Ayush Maheshwari"),
+    ("gaurav", "Gaurav Tripathi"),
+    ("anoop", "Prof. N. M. Anoop Krishnan"),
+    ("santanu", "Prof. Santanu Chaudhury"),
+    ("tanmoy", "Prof. Tanmoy Chakraborty"),
+    ("tarak", "Prof. Tarak Karmakar"),
 ]
 
 
@@ -617,6 +624,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
                     "Each profile fills in as speakers send their talk titles and biographies.",
                     '''        <div class="bios">
           <article class="bio">
+            <div class="bio-photo"><img src="photos/alpan.webp" alt="Dr. Alpan Raval" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Dr. Alpan Raval</h3>
+              <p class="role">Chief Scientist, AI/ML</p>
+              <p class="org">Wadhwani AI</p>
+              <p class="bio-copy">Chief Scientist (AI/ML) at Wadhwani AI. His work focuses on machine learning, responsible AI, multimodal AI, and speech recognition, building and deploying AI-driven solutions for public health, agriculture, and social impact across underserved communities.</p>
+            </div>
+          </article>
+          <article class="bio">
             <div class="bio-photo"><img src="photos/aparna.webp" alt="Aparna Taneja" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
               <h3>Aparna Taneja</h3>
@@ -641,6 +657,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Associate Professor, Computer Science and Engineering</p>
               <p class="org">IIT Kanpur</p>
               <p class="bio-copy">Associate Professor of Computer Science at IIT Kanpur. He specializes in natural language processing, affective computing, multimodal dialogue systems, and legal AI, developing models for machine comprehension and emotion recognition.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/ayush.webp" alt="Ayush Maheshwari" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Ayush Maheshwari</h3>
+              <p class="role">Senior Solutions Architect</p>
+              <p class="org">NVIDIA</p>
+              <p class="bio-copy">Senior Solutions Architect at NVIDIA with the NVAITC India team. His work focuses on artificial intelligence, multilingual and domain-specific foundation models, and AI for Science, collaborating with academic and scientific research institutions.</p>
             </div>
           </article>
           <article class="bio">
@@ -671,6 +696,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
+            <div class="bio-photo"><img src="photos/gaurav.webp" alt="Gaurav Tripathi" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Gaurav Tripathi</h3>
+              <p class="role">Co-Founder &amp; Chief Technology Officer</p>
+              <p class="org">Partex.AI</p>
+              <p class="bio-copy">Co-Founder and Chief Technology Officer at Partex.AI and an IIT Bombay alumnus. He focuses on AI-driven technologies, machine learning, biomedical data, and life-sciences applications to accelerate therapeutic discovery and healthcare innovation.</p>
+            </div>
+          </article>
+          <article class="bio">
             <div class="bio-photo"><img src="photos/kartik.webp" alt="Prof. Karthik Raman" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
               <h3>Prof. Karthik Raman</h3>
@@ -686,6 +720,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Technical Fellow &amp; Corporate Vice President</p>
               <p class="org">Microsoft Research India</p>
               <p class="bio-copy">Technical Fellow at Microsoft Research India and Adjunct Professor at IIT Delhi. He pioneered extreme multi-label classification, developing scalable machine learning algorithms widely deployed in global web search and recommendation systems.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/anoop.webp" alt="Prof. N. M. Anoop Krishnan" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Prof. N. M. Anoop Krishnan</h3>
+              <p class="role">Associate Professor, Civil Engineering &amp; Joint Faculty, ScAI</p>
+              <p class="org">IIT Delhi</p>
+              <p class="bio-copy">Associate Professor in the Department of Civil Engineering and Joint Faculty at the Yardi School of Artificial Intelligence, IIT Delhi, where he leads the Multiphysics and Multiscale Mechanics Research Group. His research focuses on AI for Science, computational mechanics, materials modelling, and data-driven materials discovery.</p>
             </div>
           </article>
           <article class="bio">
@@ -743,6 +786,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
+            <div class="bio-photo"><img src="photos/santanu.webp" alt="Prof. Santanu Chaudhury" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Prof. Santanu Chaudhury</h3>
+              <p class="role">Honorary Professor, Department of Electrical Engineering</p>
+              <p class="org">IIT Delhi</p>
+              <p class="bio-copy">Honorary Professor in the Department of Electrical Engineering at IIT Delhi and former Director of IIT Jodhpur and CSIR-CEERI. His research spans computer vision, artificial intelligence, multimedia systems, and computational intelligence.</p>
+            </div>
+          </article>
+          <article class="bio">
             <div class="bio-photo"><img src="photos/srikanth.webp" alt="Srikanth Ramakrishnan" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
               <h3>Srikanth Ramakrishnan</h3>
@@ -758,6 +810,24 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Associate Professor of Applied Physics</p>
               <p class="org">Stanford University</p>
               <p class="bio-copy">Bridges theoretical physics, neuroscience, and machine learning at Stanford. His research investigates the mathematical foundations of deep neural networks, neural dynamics, and scaling laws to understand biological and artificial intelligence.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/tanmoy.webp" alt="Prof. Tanmoy Chakraborty" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Prof. Tanmoy Chakraborty</h3>
+              <p class="role">Professor, Electrical Engineering &amp; Joint Faculty, ScAI</p>
+              <p class="org">IIT Delhi</p>
+              <p class="bio-copy">Professor in the Department of Electrical Engineering and Joint Faculty at the Yardi School of Artificial Intelligence, IIT Delhi, where he leads the Laboratory for Complex Systems and Social Computing. His research focuses on natural language processing, large language models, computational social science, and responsible AI.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/tarak.webp" alt="Prof. Tarak Karmakar" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Prof. Tarak Karmakar</h3>
+              <p class="role">Associate Professor, Chemistry &amp; Associate Faculty, ScAI</p>
+              <p class="org">IIT Delhi</p>
+              <p class="bio-copy">Associate Professor in the Department of Chemistry and Associate Faculty at the Yardi School of Artificial Intelligence, IIT Delhi. His research focuses on machine learning, AI in chemistry and materials science, advanced simulation methods, molecular dynamics, and machine-learning interatomic potentials.</p>
             </div>
           </article>
           <article class="bio">
