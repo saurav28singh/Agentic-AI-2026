@@ -328,6 +328,180 @@ img {
   opacity: 1;
 }
 
+
+/* ---------- Navbar NEWS Item (Premium 3D Glow & Backlight) ---------- */
+.nav-news {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 13px;
+  margin-right: 2px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  color: #FFFDF8 !important;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(46, 36, 26, 0.95) 0%, rgba(22, 17, 13, 0.98) 100%);
+  border: 1px solid rgba(230, 168, 88, 0.52);
+  border-top-color: rgba(255, 224, 170, 0.85);
+  border-bottom-color: rgba(160, 105, 40, 0.45);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 240, 215, 0.28),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+    0 2px 5px rgba(0, 0, 0, 0.45),
+    0 4px 10px rgba(0, 0, 0, 0.25),
+    0 0 14px rgba(224, 168, 92, 0.35),
+    0 0 28px rgba(224, 168, 92, 0.18);
+  cursor: pointer;
+  user-select: none;
+  isolation: isolate;
+  transition: transform .22s cubic-bezier(.2, .9, .3, 1),
+              box-shadow .24s ease,
+              border-color .22s ease,
+              background .22s ease;
+  line-height: 1;
+}
+
+/* Disable standard text-link underline pseudo-element */
+.nav > a.nav-news::after {
+  display: none !important;
+}
+
+/* Continuously glowing warm backlight behind the pill */
+.nav-news::before {
+  content: "";
+  position: absolute;
+  inset: -3px -6px;
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(224, 168, 92, 0.48) 0%, rgba(224, 168, 92, 0.16) 55%, transparent 75%);
+  filter: blur(6px);
+  z-index: -1;
+  opacity: 0.88;
+  pointer-events: none;
+  animation: newsPulseGlow 3.6s ease-in-out infinite;
+}
+
+/* Subtle moving gradient shimmer layer */
+.nav-news-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 20%, rgba(255, 230, 180, 0.18) 50%, transparent 80%);
+  background-size: 200% 100%;
+  animation: newsShimmer 4.8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Crisp text label with subtle warm text shadow */
+.nav-news-text {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 5.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 0 10px rgba(224, 168, 92, 0.4);
+}
+
+/* Tasteful pulsing amber dot indicator */
+.nav-news-dot {
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: #FFAE42;
+  box-shadow: 0 0 6px #FFAE42, 0 0 10px rgba(255, 174, 66, 0.85);
+  display: inline-block;
+  animation: newsDotBlink 2.4s ease-in-out infinite;
+}
+
+/* Hover state: raised 3D elevation and intensified backlight */
+@media (hover: hover) and (pointer: fine) {
+  .nav-news:hover {
+    transform: translateY(-1.5px);
+    color: #FFFFFF !important;
+    background: linear-gradient(180deg, rgba(58, 45, 32, 0.96) 0%, rgba(28, 21, 16, 0.98) 100%);
+    border-color: rgba(245, 188, 110, 0.8);
+    border-top-color: rgba(255, 240, 200, 0.95);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 245, 225, 0.4),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.65),
+      0 4px 12px rgba(0, 0, 0, 0.55),
+      0 8px 22px rgba(0, 0, 0, 0.32),
+      0 0 20px rgba(224, 168, 92, 0.58),
+      0 0 38px rgba(224, 168, 92, 0.32);
+  }
+
+  .nav-news:hover::before {
+    opacity: 1;
+    inset: -4px -8px;
+    filter: blur(8px);
+    background: radial-gradient(ellipse at 50% 50%, rgba(245, 185, 105, 0.62) 0%, rgba(224, 168, 92, 0.25) 55%, transparent 75%);
+  }
+}
+
+/* Active / pressed state: responsive 3D sink */
+.nav-news:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.75),
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(224, 168, 92, 0.25);
+  transition: transform .06s ease, box-shadow .06s ease;
+}
+
+/* Keyboard accessibility outline */
+.nav-news:focus-visible {
+  outline: 2px solid #E0A85C;
+  outline-offset: 3px;
+}
+
+/* Keyframe Animations */
+@keyframes newsPulseGlow {
+  0%, 100% {
+    opacity: 0.78;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes newsShimmer {
+  0% {
+    background-position: -120% 0;
+  }
+  50%, 100% {
+    background-position: 180% 0;
+  }
+}
+
+@keyframes newsDotBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .nav-news,
+  .nav-news::before,
+  .nav-news-glow,
+  .nav-news-dot {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 /* Mobile Menu Button */
 .menu-btn {
   display: none;
@@ -538,6 +712,34 @@ img {
     align-items: center;
     color: var(--ink-soft);
     text-decoration: none !important;
+  }
+
+  .nav > a.nav-news {
+    margin: 8px 0 12px 0;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 7px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-radius: 9999px;
+    border: 1px solid rgba(230, 168, 88, 0.52);
+    border-top-color: rgba(255, 224, 170, 0.85);
+    border-bottom-color: rgba(160, 105, 40, 0.45);
+    color: #FFFDF8 !important;
+    background: linear-gradient(180deg, rgba(46, 36, 26, 0.95) 0%, rgba(22, 17, 13, 0.98) 100%);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 240, 215, 0.28),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+      0 2px 5px rgba(0, 0, 0, 0.45),
+      0 4px 10px rgba(0, 0, 0, 0.25),
+      0 0 14px rgba(224, 168, 92, 0.35);
+    width: auto;
+    max-width: fit-content;
   }
 
   .nav > a::after {
@@ -4561,5 +4763,19 @@ img {
 
   .sp-tier-price {
     font-size: 24px;
+  }
+}
+
+
+@media (min-width: 1025px) and (max-width: 1240px) {
+  .nav {
+    gap: clamp(8px, 1.05vw, 15px);
+  }
+  .nav > a {
+    font-size: 13.5px;
+  }
+  .nav-news {
+    padding: 5px 11px;
+    font-size: 12.5px;
   }
 }

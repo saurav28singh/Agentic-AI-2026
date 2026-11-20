@@ -25,7 +25,9 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
 
 
 def header(current):
-    links = []
+    links = [
+        '        <a href="https://luma.com/i4g5ktqa" class="nav-news" aria-label="News: Agentic AI Workshop 2026 on Luma"><span class="nav-news-glow" aria-hidden="true"></span><span class="nav-news-text"><span class="nav-news-dot" aria-hidden="true"></span>News</span></a>'
+    ]
     for href, label in NAV:
         cur = ' aria-current="page"' if href == current else ""
         links.append('        <a href="%s"%s>%s</a>' % (href, cur, label))
