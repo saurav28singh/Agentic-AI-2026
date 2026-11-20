@@ -399,6 +399,7 @@ img {
 
 /* Crisp text label with subtle warm text shadow */
 .nav-news-text {
+  pointer-events: none;
   position: relative;
   z-index: 1;
   display: inline-flex;
@@ -409,6 +410,7 @@ img {
 
 /* Tasteful pulsing amber dot indicator */
 .nav-news-dot {
+  pointer-events: none;
   width: 5.5px;
   height: 5.5px;
   border-radius: 50%;
