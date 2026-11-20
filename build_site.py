@@ -100,8 +100,7 @@ SPEAKERS = [
     ("nanda", "Dr. Nanda Kishore Kambhatla"), ("balaji", "Dr. Balaji Vasan Srinivasan"),
     ("prashant", "Dr. Prashant Warier"), ("patra", "Dr. Arijit Patra"),
     ("nitish", "Dr. Nitish Naik"), ("kartik", "Prof. Karthik Raman"),
-    ("raghu", "Prof. Raghunathan Rengaswamy"), ("deepak", "Dr. Deepak N. Subramani"),
-    ("ashutosh", "Prof. Ashutosh Modi"), ("aparna", "Aparna Taneja"),
+    ("raghu", "Prof. Raghunathan Rengaswamy"),     ("ashutosh", "Prof. Ashutosh Modi"), ("aparna", "Aparna Taneja"),
     ("dinesh", "Dinesh Raghu"), ("nitendra", "Nitendra Rajput"),
     ("vaibhav", "Vaibhav Ranjan"),
     ("srikanth", "Srikanth Ramakrishnan"),
@@ -679,15 +678,6 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Principal Scientist</p>
               <p class="org">Adobe Research, India</p>
               <p class="bio-copy">Principal Scientist at Adobe Research India specializing in multimodal artificial intelligence, generative models, and computer vision. His work advances text-to-image synthesis, automated layout generation, and AI-assisted creative workflows.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/deepak.webp" alt="Dr. Deepak N. Subramani" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Dr. Deepak N. Subramani</h3>
-              <p class="role">Associate Professor, Computational and Data Sciences</p>
-              <p class="org">IISc Bangalore</p>
-              <p class="bio-copy">Associate Professor at IISc Bangalore and MIT alumnus leading the QUEST Lab. His research focuses on physics-informed machine learning, autonomous robotic navigation, ocean forecasting, and Bayesian uncertainty quantification.</p>
             </div>
           </article>
           <article class="bio">
