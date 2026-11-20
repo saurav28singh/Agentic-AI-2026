@@ -26,7 +26,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
 
 def header(current):
     links = [
-        '        <a href="https://luma.com/i4g5ktqa" target="_blank" rel="noopener noreferrer" class="nav-news" aria-label="News: Agentic AI Workshop 2026 on Luma"><span class="nav-news-glow" aria-hidden="true"></span><span class="nav-news-text"><span class="nav-news-dot" aria-hidden="true"></span>News</span></a>'
+        '        <a href="https://luma.com/i4g5ktqa" target="_top" rel="noopener noreferrer" class="nav-news" aria-label="News: Agentic AI Workshop 2026 on Luma"><span class="nav-news-glow" aria-hidden="true"></span><span class="nav-news-text"><span class="nav-news-dot" aria-hidden="true"></span>News</span></a>'
     ]
     for href, label in NAV:
         cur = ' aria-current="page"' if href == current else ""
@@ -811,9 +811,9 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             <div class="bio-photo"><img src="photos/souvik.webp" alt="Prof. Souvik Chakraborty" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
               <h3>Prof. Souvik Chakraborty</h3>
-              <p class="role">Assistant Professor, Applied Mechanics &amp; Joint Faculty, ScAI</p>
+              <p class="role">Associate Professor, Applied Mechanics &amp; Joint Faculty, ScAI</p>
               <p class="org">IIT Delhi</p>
-              <p class="bio-copy">Prof. Souvik Chakraborty is an Assistant Professor in the Department of Applied Mechanics and a Joint Faculty Member of the Yardi School of Artificial Intelligence at IIT Delhi. His research focuses on deep learning, digital twins, reliability analysis, design under uncertainty, and multi-scale systems, combining computational methods and artificial intelligence to address complex engineering challenges.</p>
+              <p class="bio-copy">Prof. Souvik Chakraborty is an Associate Professor in the Department of Applied Mechanics and a Joint Faculty Member of the Yardi School of Artificial Intelligence at IIT Delhi. His research focuses on deep learning, digital twins, reliability analysis, design under uncertainty, and multi-scale systems, combining computational methods and artificial intelligence to address complex engineering challenges.</p>
             </div>
           </article>
           <article class="bio">
