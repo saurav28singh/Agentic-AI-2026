@@ -11,7 +11,6 @@ NAV = [
     ("programme.html", "Programme"),
     ("speakers.html", "Speakers"),
     ("tutorials.html", "Tutorials"),
-    ("venue.html", "Venue"),
     ("organisers.html", "Organisers"),
     ("sponsorship.html", "Sponsorship"),
 ]
@@ -25,9 +24,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
 
 
 def header(current):
-    links = [
-        '        <a href="https://luma.com/i4g5ktqa" target="_top" rel="noopener noreferrer" class="nav-news" aria-label="News: Agentic AI Workshop 2026 on Luma"><span class="nav-news-glow" aria-hidden="true"></span><span class="nav-news-text"><span class="nav-news-dot" aria-hidden="true"></span>News</span></a>'
-    ]
+    links = []
     for href, label in NAV:
         cur = ' aria-current="page"' if href == current else ""
         links.append('        <a href="%s"%s>%s</a>' % (href, cur, label))
@@ -74,7 +71,7 @@ FOOTER = """<footer class="foot">
       <div>
         <h4>Visiting</h4>
         <ul>
-          <li><a href="venue.html">Venue &amp; travel</a></li>
+          <li><a href="about.html#venue">Venue &amp; location</a></li>
           <li><a href="organisers.html">Organisers</a></li>
         </ul>
       </div>
@@ -615,7 +612,7 @@ pages["programme.html"] = ("Programme", "programme.html",
         </div>""", bid="kiosks")
     + "\n\n" + band("Plan your visit", "Before you set off", "Everything needed for the trip.",
                     """        <div class="cards">
-          <a href="venue.html"><h4>Venue &amp; travel</h4><p>Maps, directions from the airport and stations, and places to stay.</p></a>
+          <a href="about.html#venue"><h4>Venue &amp; travel</h4><p>Maps, directions from the airport and stations, and places to stay.</p></a>
           <a href="tutorials.html"><h4>Tutorials &amp; demos</h4><p>Levels, prerequisites and materials for the hands-on sessions.</p></a>
           <a href="speakers.html"><h4>Speakers</h4><p>Who is speaking, their talks and the panels.</p></a>
         </div>""", alt=True))
