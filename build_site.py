@@ -6,6 +6,7 @@ import io, os
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 
 NAV = [
+    ("pre-event.html", "Pre-Event"),
     ("index.html", "Home"),
     ("about.html", "About"),
     ("programme.html", "Programme"),
@@ -27,7 +28,8 @@ def header(current):
     links = []
     for href, label in NAV:
         cur = ' aria-current="page"' if href == current else ""
-        links.append('        <a href="%s"%s>%s</a>' % (href, cur, label))
+        cls = ' class="nav-pre-event"' if href == "pre-event.html" else ""
+        links.append('        <a href="%s"%s%s>%s</a>' % (href, cls, cur, label))
     return """<header class="site-head">
   <div class="head-in">
     <a class="mark" href="index.html" aria-label="IIT Delhi &middot; ScAI Home">
@@ -62,6 +64,7 @@ FOOTER = """<footer class="foot">
       <div>
         <h4>Programme</h4>
         <ul>
+          <li><a href="pre-event.html">Pre-event meetup</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="programme.html">Schedule</a></li>
           <li><a href="speakers.html">Speakers</a></li>
