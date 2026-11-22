@@ -525,6 +525,9 @@ img {
   .pre-notice-banner {
     transition: none !important;
   }
+  .hero-pre-btn {
+    transition: none !important;
+  }
 }
 
 /* ---------- Pre-Event Page Components ---------- */
@@ -1051,6 +1054,74 @@ img {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* ---------- Hero Pre-Event Action Button (3D Raised Effect & Cyan Glow) ---------- */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.hero-pre-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  min-height: 42px;
+  background: linear-gradient(180deg, #51D8E7 0%, #30B4C4 100%);
+  color: #0A1315 !important;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 2px solid #1c828e;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 2px 5px rgba(0, 0, 0, 0.4),
+    0 4px 16px rgba(69, 214, 229, 0.28),
+    0 0 20px rgba(69, 214, 229, 0.12);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.2s ease,
+              background 0.2s ease,
+              border-color 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-pre-btn:hover {
+    background: linear-gradient(180deg, #6ae0ee 0%, #40bed0 100%);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: #1c828e;
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.65),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+      0 4px 10px rgba(0, 0, 0, 0.45),
+      0 6px 22px rgba(69, 214, 229, 0.48),
+      0 0 28px rgba(69, 214, 229, 0.25);
+    color: #050c0d !important;
+  }
+}
+
+.hero-pre-btn:active {
+  transform: translateY(1px);
+  border-bottom-width: 1px;
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(69, 214, 229, 0.22);
+}
+
+.hero-pre-btn:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 3px;
+}
+
 /* Right Column Participate Panel */
 .hero-panel {
   background: rgba(9, 15, 18, 0.88);
@@ -1253,6 +1324,16 @@ img {
     transform: none !important;
     perspective: none !important;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-actions {
+    margin-top: 18px;
+  }
+
+  .hero-pre-btn {
+    min-height: 44px;
+    padding: 11px 20px;
+    font-size: 13.5px;
   }
 
   .hero-panel {
