@@ -640,19 +640,22 @@
   startTimer();
 })();
 
-/* 3D Companion Robot pulling Pre-Event CTA button into place */
+/* 3D Companion Robot pulling Pre-Event CTA button into place (Matching Reference Image) */
 (function () {
-  var heroActions = document.querySelector('.hero-actions');
-  var btn = document.querySelector('.hero-pre-btn');
-  var robotStage = document.getElementById('heroRobotStage');
-  var robot = document.getElementById('heroRobot');
+  var heroActions = document.getElementById('heroActions');
+  var btn = document.getElementById('heroPreBtn');
+  var coils = document.getElementById('heroBtnCoils');
+  var actor = document.getElementById('heroRobotActor');
+  var figure = document.getElementById('heroRobotFigure');
+  var shadow = document.getElementById('heroRobotShadow');
+  var ropeCanvas = document.getElementById('heroRopeCanvas');
   var ropePath = document.getElementById('heroRopePath');
-  var ropeSvg = document.getElementById('heroRopeSvg');
-  var eyesNormal = document.getElementById('eyesNormal');
-  var eyesHappy = document.getElementById('eyesHappy');
-  var rightArm = document.getElementById('robotRightArm');
+  var armFront = document.getElementById('robotArmFront');
+  var armBack = document.getElementById('robotArmBack');
+  var legFront = document.getElementById('robotLegFront');
+  var legBack = document.getElementById('robotLegBack');
 
-  if (!heroActions || !btn || !robotStage || !robot || !ropePath || !ropeSvg) return;
+  if (!heroActions || !btn || !actor || !figure || !shadow || !ropeCanvas || !ropePath) return;
 
   var reduced = false;
   try {
@@ -662,170 +665,216 @@
   if (reduced) {
     btn.style.transform = 'none';
     btn.style.opacity = '1';
-    robot.classList.add('hero-robot-idle');
-    ropeSvg.style.display = 'none';
+    actor.style.display = 'none';
+    if (coils) coils.style.display = 'none';
     return;
   }
 
   var animationTriggered = false;
 
-  function initRobotAnimation() {
+  function initRobotSequence() {
     if (animationTriggered) return;
     animationTriggered = true;
 
     var isMobile = window.innerWidth <= 768;
-    var haulDist = isMobile ? Math.min(110, Math.max(70, window.innerWidth * 0.28)) : 180;
-    var haulY = isMobile ? 12 : 20;
-    var robotLead = isMobile ? 50 : 72;
+    var haulDist = isMobile ? Math.min(105, Math.max(65, window.innerWidth * 0.26)) : 175;
+    var haulY = isMobile ? 8 : 14;
+    var robotLead = isMobile ? 65 : 95;
+
+    // Dimensions
+    var figW = isMobile ? 70 : 86;
+    var figH = isMobile ? 78 : 94;
 
     // Initial off-stage positions
-    btn.style.transform = 'translate3d(' + haulDist + 'px, ' + haulY + 'px, 0) rotate(2deg)';
+    btn.style.transform = 'translate3d(' + haulDist + 'px, ' + haulY + 'px, 0) rotate(1.8deg)';
     btn.style.opacity = '0';
-    robot.style.transform = 'translate3d(' + (haulDist + robotLead) + 'px, ' + (haulY - 6) + 'px, 0) rotate(-8deg)';
-    ropeSvg.style.opacity = '1';
-    ropeSvg.style.display = 'block';
+    if (coils) coils.style.opacity = '1';
+
+    var startRobX = haulDist + robotLead;
+    var startRobY = haulY - 6;
+    figure.style.transform = 'translate3d(' + startRobX + 'px, ' + startRobY + 'px, 0) rotate(-14deg)';
+    shadow.style.transform = 'translate3d(' + (startRobX + 6) + 'px, ' + (startRobY + figH - 18) + 'px, 0)';
+
+    ropeCanvas.style.opacity = '1';
+    ropeCanvas.style.display = 'block';
 
     var startTime = null;
-    var haulDuration = 1650;
-    var bounceDuration = 450;
-    var celebrationDuration = 950;
-    var totalDuration = haulDuration + bounceDuration + celebrationDuration;
+    var haulDuration = 1800; // Phase 1: Enter & Pull
+    var setDuration = 600;   // Phase 2: Set Button & Wave
+    var walkDuration = 1400; // Phase 3: Robot Leaves
+    var totalDuration = haulDuration + setDuration + walkDuration; // ~3.8s
 
     function easeOutCubic(t) {
       return 1 - Math.pow(1 - t, 3);
     }
 
-    function renderRope(curBtnX, curBtnY, curRobX, curRobY, sag) {
+    function easeInQuad(t) {
+      return t * t;
+    }
+
+    function renderRopeLine(btnAnchorX, btnAnchorY, robotHandX, robotHandY, sag) {
       try {
-        var btnWidth = btn.offsetWidth || 340;
-        var btnHeight = btn.offsetHeight || 48;
-        var stageWidth = robotStage.offsetWidth || 58;
-        var stageHeight = robotStage.offsetHeight || 64;
-        var stageLeft = robotStage.offsetLeft || (btn.offsetLeft + btnWidth + 16);
-        var stageTop = robotStage.offsetTop || btn.offsetTop;
-
-        var startX = btn.offsetLeft + btnWidth + curBtnX - 4;
-        var startY = btn.offsetTop + btnHeight / 2 + curBtnY;
-        var endX = stageLeft + (stageWidth * 0.22) + curRobX;
-        var endY = stageTop + (stageHeight * 0.74) + curRobY;
-        var midX = (startX + endX) / 2;
-        var midY = (startY + endY) / 2 + sag;
-
-        ropePath.setAttribute('d', 'M ' + startX.toFixed(1) + ' ' + startY.toFixed(1) +
+        var midX = (btnAnchorX + robotHandX) / 2;
+        var midY = (btnAnchorY + robotHandY) / 2 + sag;
+        ropePath.setAttribute('d', 'M ' + btnAnchorX.toFixed(1) + ' ' + btnAnchorY.toFixed(1) +
           ' Q ' + midX.toFixed(1) + ' ' + midY.toFixed(1) +
-          ' ' + endX.toFixed(1) + ' ' + endY.toFixed(1));
+          ' ' + robotHandX.toFixed(1) + ' ' + robotHandY.toFixed(1));
       } catch (e) {}
     }
 
-    function step(timestamp) {
+    function frame(timestamp) {
       if (!startTime) startTime = timestamp;
       var elapsed = timestamp - startTime;
 
       if (elapsed < haulDuration) {
-        // Phase 1: Smooth haul from right
+        // ========== Phase 1: Enter & Pull ==========
         var p = Math.min(1, elapsed / haulDuration);
         var eased = easeOutCubic(p);
 
-        var opacity = Math.min(1, elapsed / 200);
+        // Button moves from right to (0, 0)
+        var opacity = Math.min(1, elapsed / 220);
         btn.style.opacity = opacity.toFixed(2);
 
         var curBtnX = (1 - eased) * haulDist;
         var curBtnY = (1 - eased) * haulY;
-        var curBtnRot = (1 - eased) * 2;
+        var curBtnRot = (1 - eased) * 1.8;
         btn.style.transform = 'translate3d(' + curBtnX.toFixed(1) + 'px, ' + curBtnY.toFixed(1) + 'px, 0) rotate(' + curBtnRot.toFixed(1) + 'deg)';
 
-        var curRobX = (1 - eased) * (haulDist + robotLead);
-        var curRobY = (1 - eased) * (haulY - 6) + Math.sin(p * Math.PI * 4) * 2.5;
-        var curRobRot = (1 - eased) * -8;
-        robot.style.transform = 'translate3d(' + curRobX.toFixed(1) + 'px, ' + curRobY.toFixed(1) + 'px, 0) rotate(' + curRobRot.toFixed(1) + 'deg)';
+        // Robot leans backward (-14deg) and steps backward
+        var curRobX = (1 - eased) * (haulDist + robotLead) + (isMobile ? 120 : 175) * eased;
+        var curRobY = (1 - eased) * (haulY - 6) + (isMobile ? 0 : 2);
+        var leanAngle = -14 + Math.sin(p * Math.PI * 6) * 1.5;
 
-        renderRope(curBtnX, curBtnY, curRobX, curRobY, -2);
-        requestAnimationFrame(step);
+        figure.style.transform = 'translate3d(' + curRobX.toFixed(1) + 'px, ' + curRobY.toFixed(1) + 'px, 0) rotate(' + leanAngle.toFixed(1) + 'deg)';
+        shadow.style.transform = 'translate3d(' + (curRobX + 6).toFixed(1) + 'px, ' + (curRobY + figH - 18).toFixed(1) + 'px, 0)';
 
-      } else if (elapsed < haulDuration + bounceDuration) {
-        // Phase 2: Settling bounce & rope slack
-        var bp = (elapsed - haulDuration) / bounceDuration;
-        var bounceX = -6 * Math.sin(bp * Math.PI * 2.5) * Math.exp(-bp * 3.5);
-        var bounceY = 1.2 * Math.sin(bp * Math.PI * 2.5) * Math.exp(-bp * 3.5);
-        var bounceRot = -0.6 * Math.sin(bp * Math.PI * 2.5) * Math.exp(-bp * 3.5);
+        // Walking / pulling leg cadence
+        var pullStep = Math.sin(p * Math.PI * 8);
+        if (legFront) legFront.style.transform = 'rotate(' + (pullStep * 16).toFixed(1) + 'deg)';
+        if (legBack) legBack.style.transform = 'rotate(' + (-pullStep * 16).toFixed(1) + 'deg)';
 
+        // Calculate rope endpoints
+        var btnWidth = btn.offsetWidth || 340;
+        var btnHeight = btn.offsetHeight || 48;
+        var bX = btn.offsetLeft + btnWidth + curBtnX - 3;
+        var bY = btn.offsetTop + btnHeight / 2 + curBtnY;
+
+        var rX = curRobX + (18 / 120) * figW;
+        var rY = curRobY + (72 / 130) * figH;
+
+        renderRopeLine(bX, bY, rX, rY, -2);
+        requestAnimationFrame(frame);
+
+      } else if (elapsed < haulDuration + setDuration) {
+        // ========== Phase 2: Set the Button & Celebrate ==========
+        var sp = (elapsed - haulDuration) / setDuration;
+
+        // Button settling bounce
+        var bounceX = -5.5 * Math.sin(sp * Math.PI * 2) * Math.exp(-sp * 3.5);
+        var bounceRot = -0.5 * Math.sin(sp * Math.PI * 2) * Math.exp(-sp * 3.5);
         btn.style.opacity = '1';
-        btn.style.transform = 'translate3d(' + bounceX.toFixed(1) + 'px, ' + bounceY.toFixed(1) + 'px, 0) rotate(' + bounceRot.toFixed(1) + 'deg)';
-        robot.style.transform = 'translate3d(0, 0, 0) rotate(0deg)';
+        btn.style.transform = 'translate3d(' + bounceX.toFixed(1) + 'px, 0, 0) rotate(' + bounceRot.toFixed(1) + 'deg)';
 
-        if (bp < 0.6) {
+        if (sp < 0.6) {
           btn.classList.add('hero-btn-settle-glow');
         } else {
           btn.classList.remove('hero-btn-settle-glow');
         }
 
-        var ropeFade = Math.max(0, 1 - bp * 2.2);
-        ropeSvg.style.opacity = ropeFade.toFixed(2);
-        if (ropeFade > 0.02) {
-          renderRope(bounceX, bounceY, 0, 0, 14 * bp);
-        } else {
-          ropeSvg.style.display = 'none';
+        // Rope coils dissolve
+        if (coils) {
+          var coilOpacity = Math.max(0, 1 - sp * 2.5);
+          coils.style.opacity = coilOpacity.toFixed(2);
         }
 
-        requestAnimationFrame(step);
+        // Rope slacks & fades out
+        var ropeOpacity = Math.max(0, 1 - sp * 2.2);
+        ropeCanvas.style.opacity = ropeOpacity.toFixed(2);
+
+        var restRobX = isMobile ? 120 : 175;
+        var restRobY = isMobile ? 0 : 2;
+
+        // Final tug then stands upright
+        var robTilt = sp < 0.3 ? -16 * (1 - sp / 0.3) : 0;
+        var robHop = (sp >= 0.3 && sp < 0.8) ? -8 * Math.sin((sp - 0.3) / 0.5 * Math.PI) : 0;
+
+        figure.style.transform = 'translate3d(' + restRobX + 'px, ' + (restRobY + robHop).toFixed(1) + 'px, 0) rotate(' + robTilt.toFixed(1) + 'deg)';
+        shadow.style.transform = 'translate3d(' + (restRobX + 6) + 'px, ' + (restRobY + figH - 18).toFixed(1) + 'px, 0)';
+
+        // Legs neutral
+        if (legFront) legFront.style.transform = 'rotate(0deg)';
+        if (legBack) legBack.style.transform = 'rotate(0deg)';
+
+        // Waving arm celebration
+        if (armFront && sp >= 0.25) {
+          var waveProgress = (sp - 0.25) / 0.75;
+          var waveAngle = -48 + Math.sin(waveProgress * Math.PI * 4) * 26;
+          armFront.style.transform = 'rotate(' + waveAngle.toFixed(1) + 'deg)';
+        }
+
+        requestAnimationFrame(frame);
 
       } else if (elapsed < totalDuration) {
-        // Phase 3: Celebration wave & happy eyes
-        btn.style.transform = 'none';
+        // ========== Phase 3: Robot Turns Around and Leaves Screen ==========
+        btn.style.transform = '';
         btn.classList.remove('hero-btn-settle-glow');
-        ropeSvg.style.display = 'none';
+        if (coils) coils.style.display = 'none';
+        ropeCanvas.style.display = 'none';
 
-        var cp = (elapsed - (haulDuration + bounceDuration)) / celebrationDuration;
+        var wp = (elapsed - (haulDuration + setDuration)) / walkDuration;
+        var walkProgress = easeInQuad(wp);
 
-        if (eyesNormal && eyesHappy) {
-          eyesNormal.style.opacity = '0';
-          eyesHappy.style.opacity = '1';
-        }
+        var startWalkX = isMobile ? 120 : 175;
+        var exitX = isMobile ? (window.innerWidth + 80) : 580;
+        var curWalkX = startWalkX + (exitX - startWalkX) * walkProgress;
+        var curWalkY = (isMobile ? 0 : 2) + Math.abs(Math.sin(wp * Math.PI * 7)) * -3.5;
 
-        var hop = -8 * Math.sin(Math.min(1, cp * 2.2) * Math.PI);
-        robot.style.transform = 'translate3d(0, ' + hop.toFixed(1) + 'px, 0)';
+        // Robot flips horizontally to walk right: scaleX(-1)
+        var robFade = wp > 0.75 ? Math.max(0, (1 - wp) / 0.25) : 1;
+        figure.style.opacity = robFade.toFixed(2);
+        shadow.style.opacity = robFade.toFixed(2);
 
-        if (rightArm) {
-          var waveAngle = -48 + Math.sin(cp * Math.PI * 6) * 24;
-          rightArm.style.transform = 'rotate(' + waveAngle.toFixed(1) + 'deg)';
-        }
+        figure.style.transform = 'translate3d(' + curWalkX.toFixed(1) + 'px, ' + curWalkY.toFixed(1) + 'px, 0) scaleX(-1)';
+        shadow.style.transform = 'translate3d(' + (curWalkX - 6).toFixed(1) + 'px, ' + (curWalkY + figH - 18).toFixed(1) + 'px, 0)';
 
-        requestAnimationFrame(step);
+        // Walking leg cycle
+        var walkLegCycle = Math.sin(wp * Math.PI * 14);
+        if (legFront) legFront.style.transform = 'rotate(' + (walkLegCycle * 22).toFixed(1) + 'deg)';
+        if (legBack) legBack.style.transform = 'rotate(' + (-walkLegCycle * 22).toFixed(1) + 'deg)';
+
+        // Arm swing
+        if (armFront) armFront.style.transform = 'rotate(' + (-walkLegCycle * 18).toFixed(1) + 'deg)';
+        if (armBack) armBack.style.transform = 'rotate(' + (walkLegCycle * 18).toFixed(1) + 'deg)';
+
+        requestAnimationFrame(frame);
 
       } else {
-        // Phase 4: Settle into subtle idle animation
+        // ========== Sequence Complete: Robot Gone Completely ==========
         btn.style.transform = '';
         btn.style.opacity = '';
         btn.classList.remove('hero-btn-settle-glow');
-        ropeSvg.style.display = 'none';
+        if (coils) coils.style.display = 'none';
+        ropeCanvas.style.display = 'none';
 
-        if (eyesNormal && eyesHappy) {
-          eyesNormal.style.opacity = '1';
-          eyesHappy.style.opacity = '0';
-        }
-        if (rightArm) {
-          rightArm.style.transform = '';
-        }
-
-        robot.style.transform = '';
-        robot.classList.add('hero-robot-idle');
+        // Robot actor is completely removed/hidden
+        actor.style.display = 'none';
       }
     }
 
-    requestAnimationFrame(step);
+    requestAnimationFrame(frame);
   }
 
-  // Trigger once when hero is visible
+  // Trigger once when hero actions element is visible
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) {
         observer.disconnect();
-        initRobotAnimation();
+        initRobotSequence();
       }
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     observer.observe(heroActions);
   } else {
-    setTimeout(initRobotAnimation, 120);
+    setTimeout(initRobotSequence, 120);
   }
 })();
 

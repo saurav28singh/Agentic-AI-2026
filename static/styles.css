@@ -1262,25 +1262,46 @@ img {
   align-items: center;
   margin-top: 26px;
   position: relative;
-  gap: 16px;
 }
 
-/* ---------- 3D Companion Robot & Rope ---------- */
-.hero-robot-stage {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 58px;
-  height: 64px;
-  flex-shrink: 0;
-  pointer-events: auto;
-  user-select: none;
-  z-index: 2;
+/* ---------- 3D Companion Robot & Rope (Reference Image Match) ---------- */
+.hero-robot-actor {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+
+.hero-robot-shadow-pool {
+  position: absolute;
+  width: 76px;
+  height: 22px;
+  left: 0;
+  bottom: 6px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(69, 214, 229, 0.5) 0%, rgba(69, 214, 229, 0.18) 45%, transparent 72%);
+  filter: blur(2px);
+  pointer-events: none;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.hero-robot-figure {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 86px;
+  height: 94px;
+  transform-origin: 50% 85%;
+  pointer-events: none;
   will-change: transform;
 }
 
-.hero-rope-svg {
+.hero-rope-canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -1288,172 +1309,102 @@ img {
   height: 100%;
   pointer-events: none;
   overflow: visible;
-  z-index: 1;
-  opacity: 0;
+  z-index: 2;
+  opacity: 1;
   transition: opacity 0.25s ease;
 }
 
-.hero-rope-path {
-  stroke: #CBD5E1;
-  stroke-width: 2.2;
+.hero-rope-line {
+  stroke: #FFFFFF;
+  stroke-width: 3;
   stroke-linecap: round;
-  stroke-dasharray: 6 1.5;
   fill: none;
-  filter: drop-shadow(0 0 3px rgba(69, 214, 229, 0.65));
+  filter: drop-shadow(0 0 4px rgba(69, 214, 229, 0.75));
 }
 
-.hero-robot {
-  width: 58px;
-  height: 64px;
-  display: block;
-  transform-origin: 50% 80%;
-  cursor: pointer;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
-  transition: filter 0.3s ease;
-  will-change: transform;
+/* Button Rope Coils (3 white loops on the right cap, matching reference) */
+.hero-btn-coils {
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  bottom: -3px;
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 4;
 }
 
-.hero-robot:hover {
-  filter: drop-shadow(0 0 14px rgba(69, 214, 229, 0.55));
+.rope-coil {
+  width: 5px;
+  height: calc(100% + 4px);
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 45%, #94A3B8 100%);
+  border-radius: 9999px;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.45),
+    0 0 4px rgba(255, 255, 255, 0.7);
+}
+
+/* 3 Cyan Energy Sparks above Button (matching reference image) */
+.hero-btn-sparks {
+  position: absolute;
+  top: -16px;
+  left: -8px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 5px #45D6E5);
+  animation: btnSparksPulse 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes btnSparksPulse {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 /* Settle bounce glow highlight */
 .hero-btn-settle-glow {
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
     inset 0 -1px 0 rgba(0, 0, 0, 0.15),
     0 2px 6px rgba(0, 0, 0, 0.4),
-    0 8px 30px rgba(69, 214, 229, 0.75),
-    0 0 45px rgba(69, 214, 229, 0.5) !important;
-}
-
-/* Idle floating animation */
-.hero-robot-idle {
-  animation: robotIdleHover 3.2s ease-in-out infinite alternate;
-}
-
-@keyframes robotIdleHover {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(0, -6px, 0) rotate(1.2deg);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-}
-
-/* Thruster plasma flare */
-.robot-thruster {
-  animation: thrusterPulse 1.8s ease-in-out infinite alternate;
-  transform-origin: 50px 100px;
-}
-
-@keyframes thrusterPulse {
-  0% {
-    opacity: 0.65;
-    transform: scale(0.9, 0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.15, 1.25);
-  }
-}
-
-/* Eye blink animation during idle */
-.robot-eyes .eyes-normal {
-  transform-origin: 50px 36px;
-  animation: robotBlink 4.5s infinite;
-}
-
-@keyframes robotBlink {
-  0%, 94%, 98%, 100% {
-    transform: scaleY(1);
-  }
-  96% {
-    transform: scaleY(0.1);
-  }
-}
-
-/* Antenna orb pulse */
-.robot-antenna-orb {
-  animation: antennaPulse 2.4s ease-in-out infinite alternate;
-}
-
-@keyframes antennaPulse {
-  0% {
-    opacity: 0.75;
-    filter: drop-shadow(0 0 3px #45D6E5);
-  }
-  100% {
-    opacity: 1;
-    filter: drop-shadow(0 0 8px #45D6E5);
-  }
-}
-
-/* Interactive reaction when hovering button or robot */
-.hero-pre-btn:hover ~ .hero-robot-stage .hero-robot,
-.hero-robot:hover {
-  animation: robotAlert 1.6s ease-in-out infinite alternate;
-}
-
-@keyframes robotAlert {
-  0% {
-    transform: translate3d(0, -2px, 0) rotate(-3deg);
-  }
-  50% {
-    transform: translate3d(0, -8px, 0) rotate(3deg);
-  }
-  100% {
-    transform: translate3d(0, -2px, 0) rotate(-3deg);
-  }
-}
-
-.hero-pre-btn:hover ~ .hero-robot-stage .robot-arm-right,
-.hero-robot:hover .robot-arm-right {
-  animation: robotMiniWave 0.75s ease-in-out infinite alternate;
-}
-
-@keyframes robotMiniWave {
-  0% {
-    transform: rotate(-15deg);
-  }
-  100% {
-    transform: rotate(-48deg);
-  }
+    0 8px 32px rgba(69, 214, 229, 0.85),
+    0 0 55px rgba(69, 214, 229, 0.65) !important;
 }
 
 /* Reduced Motion Fallback */
 @media (prefers-reduced-motion: reduce) {
   .hero-pre-btn,
-  .hero-robot-stage,
-  .hero-robot,
-  .hero-robot * {
+  .hero-robot-actor,
+  .hero-robot-actor * {
     animation: none !important;
     transition: none !important;
     transform: none !important;
   }
-  .hero-rope-svg {
+  .hero-robot-actor,
+  .hero-btn-coils {
     display: none !important;
   }
 }
 
 /* Mobile & Tablet Adjustments */
 @media (max-width: 768px) {
-  .hero-actions {
-    flex-wrap: wrap;
-    gap: 12px;
+  .hero-robot-figure {
+    width: 70px;
+    height: 78px;
   }
-
-  .hero-robot-stage {
-    width: 48px;
-    height: 53px;
-  }
-
-  .hero-robot {
-    width: 48px;
-    height: 53px;
+  .hero-robot-shadow-pool {
+    width: 60px;
+    height: 18px;
   }
 }
 
