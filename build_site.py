@@ -97,7 +97,7 @@ FOOTER = """<footer class="foot">
 
 SPEAKERS = [
     ("ganguli", "Prof. Surya Ganguli"), ("manik", "Prof. Manik Varma"),
-    ("nanda", "Dr. Nanda Kishore Kambhatla"), ("balaji", "Dr. Balaji Vasan Srinivasan"),
+    ("balaji", "Dr. Balaji Vasan Srinivasan"),
     ("prashant", "Dr. Prashant Warier"), ("patra", "Dr. Arijit Patra"),
     ("nitish", "Dr. Nitish Naik"), ("kartik", "Prof. Karthik Raman"),
     ("raghu", "Prof. Raghunathan Rengaswamy"),     ("ashutosh", "Prof. Ashutosh Modi"), ("aparna", "Aparna Taneja"),
@@ -736,15 +736,6 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Associate Professor, Civil Engineering &amp; Joint Faculty, ScAI</p>
               <p class="org">IIT Delhi</p>
               <p class="bio-copy">Associate Professor in the Department of Civil Engineering and Joint Faculty at the Yardi School of Artificial Intelligence, IIT Delhi, where he leads the Multiphysics and Multiscale Mechanics Research Group. His research focuses on AI for Science, computational mechanics, materials modelling, and data-driven materials discovery.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/nanda.webp" alt="Dr. Nanda Kishore Kambhatla" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Dr. Nanda Kishore Kambhatla</h3>
-              <p class="role">Head of Adobe Research Lab</p>
-              <p class="org">Adobe Research, India</p>
-              <p class="bio-copy">Heads Adobe Research India, driving research in natural language processing, conversational AI, and content intelligence. He previously led machine learning and dialogue systems initiatives at IBM Research for IBM Watson.</p>
             </div>
           </article>
           <article class="bio">
