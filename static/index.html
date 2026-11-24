@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=11">
   <script>try { localStorage.removeItem("aaiw-theme"); } catch (e) { } document.documentElement.setAttribute("data-theme", "dark");</script>
 </head>
 
@@ -58,167 +58,115 @@
             Healthcare, Enterprise AI, and AI for Science.</p>
           <div class="hero-actions" id="heroActions">
             <a class="hero-pre-btn" id="heroPreBtn" href="pre-event.html">
-              <span class="hero-btn-sparks" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <line x1="3" y1="5" x2="8" y2="9" stroke="#45D6E5" stroke-width="2.5" stroke-linecap="round" />
-                  <line x1="12" y1="2" x2="12" y2="8" stroke="#45D6E5" stroke-width="2.5" stroke-linecap="round" />
-                  <line x1="21" y1="5" x2="16" y2="9" stroke="#45D6E5" stroke-width="2.5" stroke-linecap="round" />
-                </svg>
-              </span>
               <span class="hero-btn-text">vLLM Inference Meetup &ndash; Delhi | 14 Dec 2026 &rarr;</span>
-              <span class="hero-btn-coils" id="heroBtnCoils" aria-hidden="true">
-                <span class="rope-coil"></span>
-                <span class="rope-coil"></span>
-                <span class="rope-coil"></span>
-              </span>
             </a>
 
-            <!-- Animated Robot Actor & Rope (Matching Reference Image) -->
-            <div class="hero-robot-actor" id="heroRobotActor" aria-hidden="true">
-              <svg class="hero-rope-canvas" id="heroRopeCanvas">
-                <path id="heroRopePath" class="hero-rope-line" d="" />
+            <!-- Cinematic Tech Robot & Micro-Tether -->
+            <div class="hero-cinematic-stage" id="heroCinematicStage" aria-hidden="true">
+              <svg class="hero-tether-canvas" id="heroTetherCanvas">
+                <path id="heroTetherPath" class="hero-tether-line" d="" />
               </svg>
-              <div class="hero-robot-shadow-pool" id="heroRobotShadow"></div>
-              <div class="hero-robot-figure" id="heroRobotFigure">
-                <svg class="robot-svg" viewBox="0 0 120 130" width="100%" height="100%"
-                  xmlns="http://www.w3.org/2000/svg">
+              <div class="hero-tech-bot" id="heroTechBot">
+                <svg class="hero-tech-bot-svg" viewBox="0 0 100 110" width="68" height="75" xmlns="http://www.w3.org/2000/svg">
                   <defs>
-                    <filter id="refCyanGlow" x="-40%" y="-40%" width="180%" height="180%">
-                      <feGaussianBlur stdDeviation="3.2" result="blur" />
+                    <filter id="techCyanGlow" x="-30%" y="-30%" width="160%" height="160%">
+                      <feGaussianBlur stdDeviation="2.2" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
                         <feMergeNode in="SourceGraphic" />
                       </feMerge>
                     </filter>
-                    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#02070A" flood-opacity="0.5" />
-                    </filter>
-                    <linearGradient id="refHeadGrad" x1="25%" y1="0%" x2="80%" y2="100%">
+                    <linearGradient id="ceramicArmor" x1="25%" y1="0%" x2="75%" y2="100%">
                       <stop offset="0%" stop-color="#FFFFFF" />
-                      <stop offset="30%" stop-color="#F8FAFC" />
-                      <stop offset="70%" stop-color="#E2E8F0" />
+                      <stop offset="45%" stop-color="#F1F5F9" />
+                      <stop offset="85%" stop-color="#CBD5E1" />
                       <stop offset="100%" stop-color="#94A3B8" />
                     </linearGradient>
-                    <linearGradient id="refBodyGrad" x1="20%" y1="0%" x2="80%" y2="100%">
-                      <stop offset="0%" stop-color="#FFFFFF" />
-                      <stop offset="40%" stop-color="#F1F5F9" />
-                      <stop offset="80%" stop-color="#CBD5E1" />
-                      <stop offset="100%" stop-color="#64748B" />
+                    <linearGradient id="titaniumSkeleton" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#475569" />
+                      <stop offset="50%" stop-color="#334155" />
+                      <stop offset="100%" stop-color="#1E293B" />
                     </linearGradient>
-                    <linearGradient id="refVisorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <linearGradient id="obsidianVisor" x1="0%" y1="0%" x2="0%" y2="100%">
                       <stop offset="0%" stop-color="#0F172A" />
                       <stop offset="100%" stop-color="#020617" />
                     </linearGradient>
-                    <linearGradient id="refLimbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#FFFFFF" />
-                      <stop offset="50%" stop-color="#E2E8F0" />
-                      <stop offset="100%" stop-color="#94A3B8" />
-                    </linearGradient>
-                    <radialGradient id="refEarGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="#E0F2FE" />
-                      <stop offset="50%" stop-color="#38BDF8" />
-                      <stop offset="100%" stop-color="#0284C7" />
+                    <radialGradient id="botFloorShadow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="rgba(2, 6, 23, 0.65)" />
+                      <stop offset="60%" stop-color="rgba(2, 6, 23, 0.25)" />
+                      <stop offset="100%" stop-color="rgba(2, 6, 23, 0)" />
                     </radialGradient>
                   </defs>
-                  <g filter="url(#softShadow)" class="robot-character" id="robotCharGroup">
-                    <!-- Backpack -->
-                    <rect class="robot-backpack" x="66" y="58" width="16" height="26" rx="5" fill="#1E293B"
-                      stroke="#475569" stroke-width="1.5" />
-                    <rect x="70" y="62" width="10" height="18" rx="3" fill="#0F172A" />
 
-                    <!-- Back Leg (Right) -->
-                    <g class="robot-leg-back" id="robotLegBack" transform-origin="60 88">
-                      <path d="M 57 85 L 62 108 L 73 118 L 86 118 C 88 118 89 116 88 114 L 84 109 L 69 98 L 65 85 Z"
-                        fill="url(#refLimbGrad)" />
-                      <circle cx="63" cy="95" r="4.5" fill="#334155" />
-                      <path d="M 68 118 L 87 118" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
+                  <!-- Ambient Contact Shadow on Ground -->
+                  <ellipse id="botFloorShadowEl" cx="50" cy="102" rx="28" ry="6" fill="url(#botFloorShadow)" />
+
+                  <g id="botRootGroup">
+                    <!-- Back Leg (Left) -->
+                    <g class="bot-leg-l" id="botLegL" transform-origin="42 62">
+                      <rect x="39" y="60" width="6" height="15" rx="3" fill="url(#ceramicArmor)" />
+                      <circle cx="42" cy="74" r="3.5" fill="url(#titaniumSkeleton)" />
+                      <rect x="39" y="74" width="5.5" height="16" rx="2.5" fill="url(#ceramicArmor)" />
+                      <path d="M 36 89 L 48 89 C 49 89 50 90 49 91 L 48 94 L 34 94 Z" fill="url(#titaniumSkeleton)" />
+                      <rect x="34" y="94" width="15" height="2" rx="1" fill="#0F172A" />
                     </g>
 
-                    <!-- Front Leg (Left) -->
-                    <g class="robot-leg-front" id="robotLegFront" transform-origin="45 88">
-                      <path d="M 43 85 L 36 104 L 23 118 L 38 118 C 41 118 43 116 43 113 L 45 106 L 51 98 L 51 85 Z"
-                        fill="url(#refLimbGrad)" />
-                      <circle cx="41" cy="96" r="4.5" fill="#334155" />
-                      <path d="M 22 118 L 41 118" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
+                    <!-- Back Arm (Left) -->
+                    <g class="bot-arm-l" id="botArmL" transform-origin="40 42">
+                      <circle cx="40" cy="42" r="4.5" fill="url(#ceramicArmor)" />
+                      <path d="M 38 43 L 30 53 L 34 55 L 41 46 Z" fill="url(#ceramicArmor)" />
+                      <circle cx="32" cy="54" r="3" fill="url(#titaniumSkeleton)" />
+                      <path d="M 32 54 L 18 58 L 20 62 L 33 57 Z" fill="url(#ceramicArmor)" />
+                      <circle cx="18" cy="60" r="3.2" fill="url(#titaniumSkeleton)" />
+                      <circle cx="18" cy="60" r="1.5" fill="#45D6E5" filter="url(#techCyanGlow)" />
                     </g>
 
-                    <!-- Torso with ScAI emblem -->
-                    <g class="robot-torso">
-                      <path
-                        d="M 38 56 C 38 52 45 49 55 49 C 65 49 72 52 72 56 C 73 68 70 88 55 88 C 40 88 37 68 38 56 Z"
-                        fill="url(#refBodyGrad)" />
-                      <path d="M 42 56 C 44 52 49 51 55 51 C 61 51 66 52 68 56 C 64 54 46 54 42 56 Z" fill="#FFFFFF"
-                        opacity="0.75" />
-                      <rect x="47" y="62" width="16" height="8" rx="2.5" fill="#0F172A" stroke="rgba(69,214,229,0.5)"
-                        stroke-width="0.8" />
-                      <text x="55" y="68" fill="#45D6E5"
-                        font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="5.2"
-                        font-weight="900" text-anchor="middle" letter-spacing="0.4">ScAI</text>
+                    <!-- Torso Chassis -->
+                    <g class="bot-torso" id="botTorso">
+                      <path d="M 37 40 C 37 36 43 33 52 33 C 61 33 67 36 67 40 C 68 51 65 64 52 64 C 39 64 37 51 37 40 Z" fill="url(#ceramicArmor)" />
+                      <path d="M 41 39 C 43 36 48 35 52 35 C 56 35 61 36 63 39 C 59 37 45 37 41 39 Z" fill="#FFFFFF" opacity="0.8" />
+                      <rect x="46" y="44" width="13" height="7.5" rx="2" fill="url(#titaniumSkeleton)" />
+                      <text x="52.5" y="49.5" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="4" font-weight="700" text-anchor="middle" letter-spacing="0.3">ScAI</text>
+                      <circle cx="52.5" cy="57" r="1.2" fill="#45D6E5" filter="url(#techCyanGlow)" />
                     </g>
 
-                    <!-- Back Arm (holds rope) -->
-                    <g class="robot-arm-back" id="robotArmBack" transform-origin="60 60">
-                      <path d="M 60 58 C 50 60 38 67 27 70 C 23 71 21 76 25 78 C 29 79 32 77 37 74 L 56 66 Z"
-                        fill="url(#refLimbGrad)" />
-                      <circle cx="26" cy="74" r="4.5" fill="#334155" />
-                      <circle cx="26" cy="74" r="3" fill="#64748B" />
+                    <!-- Front Leg (Right) -->
+                    <g class="bot-leg-r" id="botLegR" transform-origin="56 62">
+                      <rect x="53" y="60" width="6" height="15" rx="3" fill="url(#ceramicArmor)" />
+                      <circle cx="56" cy="74" r="3.5" fill="url(#titaniumSkeleton)" />
+                      <rect x="53" y="74" width="5.5" height="16" rx="2.5" fill="url(#ceramicArmor)" />
+                      <path d="M 51 89 L 63 89 C 64 89 65 90 64 91 L 63 94 L 49 94 Z" fill="url(#titaniumSkeleton)" />
+                      <rect x="49" y="94" width="15" height="2" rx="1" fill="#0F172A" />
                     </g>
 
-                    <!-- Front Arm (pulls rope & waves) -->
-                    <g class="robot-arm-front" id="robotArmFront" transform-origin="48 60">
-                      <path class="robot-arm-front-path"
-                        d="M 48 58 C 40 60 30 66 18 69 C 14 70 12 75 16 77 C 20 78 24 76 28 73 L 45 65 Z"
-                        fill="url(#refLimbGrad)" />
-                      <circle cx="16" cy="73" r="5" fill="#334155" />
-                      <circle cx="16" cy="73" r="3.2" fill="#64748B" />
+                    <!-- Front Arm (Right) -->
+                    <g class="bot-arm-r" id="botArmR" transform-origin="58 42">
+                      <circle cx="58" cy="42" r="4.5" fill="url(#ceramicArmor)" />
+                      <path d="M 56 43 L 46 53 L 50 55 L 59 46 Z" fill="url(#ceramicArmor)" />
+                      <circle cx="48" cy="54" r="3" fill="url(#titaniumSkeleton)" />
+                      <path d="M 48 54 L 24 59 L 25 63 L 49 57 Z" fill="url(#ceramicArmor)" />
+                      <circle cx="24" cy="61" r="3.5" fill="url(#titaniumSkeleton)" />
+                      <circle cx="24" cy="61" r="1.5" fill="#45D6E5" filter="url(#techCyanGlow)" />
                     </g>
 
-                    <!-- Neck Ring -->
-                    <rect x="48" y="45" width="14" height="5" rx="2" fill="#1E293B" />
-
-                    <!-- Head -->
-                    <g class="robot-head-group" id="robotHeadGroup" transform-origin="55 30">
-                      <!-- 3 Cyan energy spark lines above head (matching reference image!) -->
-                      <g class="robot-head-sparks" filter="url(#refCyanGlow)">
-                        <line x1="55" y1="4" x2="55" y2="9" stroke="#45D6E5" stroke-width="2" stroke-linecap="round" />
-                        <line x1="44" y1="6" x2="47" y2="10" stroke="#45D6E5" stroke-width="2" stroke-linecap="round" />
-                        <line x1="66" y1="6" x2="63" y2="10" stroke="#45D6E5" stroke-width="2" stroke-linecap="round" />
-                      </g>
-
-                      <!-- Ear Pod Left -->
-                      <rect x="23" y="24" width="7" height="18" rx="3.5" fill="#334155" />
-                      <circle cx="26" cy="33" r="4" fill="url(#refEarGlow)" filter="url(#refCyanGlow)" />
-                      <circle cx="26" cy="33" r="1.8" fill="#FFFFFF" />
-
-                      <!-- Head Dome -->
-                      <rect x="28" y="10" width="54" height="42" rx="21" fill="url(#refHeadGrad)" />
-                      <ellipse cx="55" cy="16" rx="18" ry="4.5" fill="#FFFFFF" opacity="0.8" />
-
-                      <!-- Visor Faceplate -->
-                      <rect x="33" y="18" width="44" height="26" rx="13" fill="url(#refVisorGrad)"
-                        stroke="rgba(69,214,229,0.4)" stroke-width="1.2" />
-                      <path d="M 38 23 C 46 20 62 20 72 23" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"
-                        stroke-linecap="round" />
-
-                      <!-- Glowing Cyan Happy Arc Eyes (^ ^) - exact reference match! -->
-                      <g class="robot-eyes-happy" id="robotEyesHappy" filter="url(#refCyanGlow)">
-                        <path d="M 40 33 Q 45 25 50 33" fill="none" stroke="#38BDF8" stroke-width="3.5"
-                          stroke-linecap="round" />
-                        <path d="M 41 33 Q 45 27 49 33" fill="none" stroke="#E0F2FE" stroke-width="1.5"
-                          stroke-linecap="round" />
-                        <path d="M 57 33 Q 62 25 67 33" fill="none" stroke="#38BDF8" stroke-width="3.5"
-                          stroke-linecap="round" />
-                        <path d="M 58 33 Q 62 27 66 33" fill="none" stroke="#E0F2FE" stroke-width="1.5"
-                          stroke-linecap="round" />
-                      </g>
-
-                      <!-- Ear Pod Right (with bright cyan glowing donut ring) -->
-                      <g class="robot-ear-right">
-                        <rect x="80" y="22" width="9" height="22" rx="4.5" fill="#334155" />
-                        <rect x="83" y="24" width="6" height="18" rx="3" fill="#1E293B" />
-                        <ellipse cx="86" cy="33" rx="4.5" ry="6.5" fill="none" stroke="#38BDF8" stroke-width="3"
-                          filter="url(#refCyanGlow)" />
-                        <ellipse cx="86" cy="33" rx="4.5" ry="6.5" fill="none" stroke="#E0F2FE" stroke-width="1.2" />
+                    <!-- Head Assembly -->
+                    <g class="bot-head-assembly" id="botHeadAssembly" transform-origin="52 28">
+                      <rect x="48" y="31" width="8" height="4" rx="1.5" fill="url(#titaniumSkeleton)" />
+                      <!-- Dome -->
+                      <rect x="33" y="11" width="38" height="24" rx="12" fill="url(#ceramicArmor)" />
+                      <ellipse cx="52" cy="15" rx="12" ry="3" fill="#FFFFFF" opacity="0.85" />
+                      <!-- Ears -->
+                      <circle cx="33" cy="23" r="4.5" fill="url(#titaniumSkeleton)" />
+                      <circle cx="33" cy="23" r="2.2" fill="#45D6E5" filter="url(#techCyanGlow)" />
+                      <circle cx="71" cy="23" r="4.5" fill="url(#titaniumSkeleton)" />
+                      <circle cx="71" cy="23" r="2.2" fill="#45D6E5" filter="url(#techCyanGlow)" />
+                      <!-- Obsidian Visor Screen -->
+                      <rect x="37" y="16.5" width="30" height="13" rx="6.5" fill="url(#obsidianVisor)" stroke="rgba(69,214,229,0.3)" stroke-width="0.8" />
+                      <path d="M 40 19 C 46 17.5 58 17.5 64 19" stroke="rgba(255,255,255,0.35)" stroke-width="0.8" stroke-linecap="round" />
+                      <!-- Minimalist Cyan LED Sensors -->
+                      <g class="bot-optical-sensors" filter="url(#techCyanGlow)">
+                        <rect x="43" y="21.5" width="7" height="2.2" rx="1.1" fill="#45D6E5" />
+                        <rect x="54" y="21.5" width="7" height="2.2" rx="1.1" fill="#45D6E5" />
                       </g>
                     </g>
                   </g>
@@ -722,7 +670,7 @@
     </div>
   </footer>
   <script src="config.js"></script>
-  <script src="site.js?v=4"></script>
+  <script src="site.js?v=6"></script>
 </body>
 
 </html>
