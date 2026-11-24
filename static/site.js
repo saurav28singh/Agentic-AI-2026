@@ -640,3 +640,193 @@
   startTimer();
 })();
 
+/* 3D Companion Robot pulling Pre-Event CTA button into place */
+(function () {
+  var heroActions = document.querySelector('.hero-actions');
+  var btn = document.querySelector('.hero-pre-btn');
+  var robotStage = document.getElementById('heroRobotStage');
+  var robot = document.getElementById('heroRobot');
+  var ropePath = document.getElementById('heroRopePath');
+  var ropeSvg = document.getElementById('heroRopeSvg');
+  var eyesNormal = document.getElementById('eyesNormal');
+  var eyesHappy = document.getElementById('eyesHappy');
+  var rightArm = document.getElementById('robotRightArm');
+
+  if (!heroActions || !btn || !robotStage || !robot || !ropePath || !ropeSvg) return;
+
+  var reduced = false;
+  try {
+    reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (e) {}
+
+  if (reduced) {
+    btn.style.transform = 'none';
+    btn.style.opacity = '1';
+    robot.classList.add('hero-robot-idle');
+    ropeSvg.style.display = 'none';
+    return;
+  }
+
+  var animationTriggered = false;
+
+  function initRobotAnimation() {
+    if (animationTriggered) return;
+    animationTriggered = true;
+
+    var isMobile = window.innerWidth <= 768;
+    var haulDist = isMobile ? Math.min(110, Math.max(70, window.innerWidth * 0.28)) : 180;
+    var haulY = isMobile ? 12 : 20;
+    var robotLead = isMobile ? 50 : 72;
+
+    // Initial off-stage positions
+    btn.style.transform = 'translate3d(' + haulDist + 'px, ' + haulY + 'px, 0) rotate(2deg)';
+    btn.style.opacity = '0';
+    robot.style.transform = 'translate3d(' + (haulDist + robotLead) + 'px, ' + (haulY - 6) + 'px, 0) rotate(-8deg)';
+    ropeSvg.style.opacity = '1';
+    ropeSvg.style.display = 'block';
+
+    var startTime = null;
+    var haulDuration = 1650;
+    var bounceDuration = 450;
+    var celebrationDuration = 950;
+    var totalDuration = haulDuration + bounceDuration + celebrationDuration;
+
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function renderRope(curBtnX, curBtnY, curRobX, curRobY, sag) {
+      try {
+        var btnWidth = btn.offsetWidth || 340;
+        var btnHeight = btn.offsetHeight || 48;
+        var stageWidth = robotStage.offsetWidth || 58;
+        var stageHeight = robotStage.offsetHeight || 64;
+        var stageLeft = robotStage.offsetLeft || (btn.offsetLeft + btnWidth + 16);
+        var stageTop = robotStage.offsetTop || btn.offsetTop;
+
+        var startX = btn.offsetLeft + btnWidth + curBtnX - 4;
+        var startY = btn.offsetTop + btnHeight / 2 + curBtnY;
+        var endX = stageLeft + (stageWidth * 0.22) + curRobX;
+        var endY = stageTop + (stageHeight * 0.74) + curRobY;
+        var midX = (startX + endX) / 2;
+        var midY = (startY + endY) / 2 + sag;
+
+        ropePath.setAttribute('d', 'M ' + startX.toFixed(1) + ' ' + startY.toFixed(1) +
+          ' Q ' + midX.toFixed(1) + ' ' + midY.toFixed(1) +
+          ' ' + endX.toFixed(1) + ' ' + endY.toFixed(1));
+      } catch (e) {}
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+
+      if (elapsed < haulDuration) {
+        // Phase 1: Smooth haul from right
+        var p = Math.min(1, elapsed / haulDuration);
+        var eased = easeOutCubic(p);
+
+        var opacity = Math.min(1, elapsed / 200);
+        btn.style.opacity = opacity.toFixed(2);
+
+        var curBtnX = (1 - eased) * haulDist;
+        var curBtnY = (1 - eased) * haulY;
+        var curBtnRot = (1 - eased) * 2;
+        btn.style.transform = 'translate3d(' + curBtnX.toFixed(1) + 'px, ' + curBtnY.toFixed(1) + 'px, 0) rotate(' + curBtnRot.toFixed(1) + 'deg)';
+
+        var curRobX = (1 - eased) * (haulDist + robotLead);
+        var curRobY = (1 - eased) * (haulY - 6) + Math.sin(p * Math.PI * 4) * 2.5;
+        var curRobRot = (1 - eased) * -8;
+        robot.style.transform = 'translate3d(' + curRobX.toFixed(1) + 'px, ' + curRobY.toFixed(1) + 'px, 0) rotate(' + curRobRot.toFixed(1) + 'deg)';
+
+        renderRope(curBtnX, curBtnY, curRobX, curRobY, -2);
+        requestAnimationFrame(step);
+
+      } else if (elapsed < haulDuration + bounceDuration) {
+        // Phase 2: Settling bounce & rope slack
+        var bp = (elapsed - haulDuration) / bounceDuration;
+        var bounceX = -6 * Math.sin(bp * Math.PI * 2.5) * Math.exp(-bp * 3.5);
+        var bounceY = 1.2 * Math.sin(bp * Math.PI * 2.5) * Math.exp(-bp * 3.5);
+        var bounceRot = -0.6 * Math.sin(bp * Math.PI * 2.5) * Math.exp(-bp * 3.5);
+
+        btn.style.opacity = '1';
+        btn.style.transform = 'translate3d(' + bounceX.toFixed(1) + 'px, ' + bounceY.toFixed(1) + 'px, 0) rotate(' + bounceRot.toFixed(1) + 'deg)';
+        robot.style.transform = 'translate3d(0, 0, 0) rotate(0deg)';
+
+        if (bp < 0.6) {
+          btn.classList.add('hero-btn-settle-glow');
+        } else {
+          btn.classList.remove('hero-btn-settle-glow');
+        }
+
+        var ropeFade = Math.max(0, 1 - bp * 2.2);
+        ropeSvg.style.opacity = ropeFade.toFixed(2);
+        if (ropeFade > 0.02) {
+          renderRope(bounceX, bounceY, 0, 0, 14 * bp);
+        } else {
+          ropeSvg.style.display = 'none';
+        }
+
+        requestAnimationFrame(step);
+
+      } else if (elapsed < totalDuration) {
+        // Phase 3: Celebration wave & happy eyes
+        btn.style.transform = 'none';
+        btn.classList.remove('hero-btn-settle-glow');
+        ropeSvg.style.display = 'none';
+
+        var cp = (elapsed - (haulDuration + bounceDuration)) / celebrationDuration;
+
+        if (eyesNormal && eyesHappy) {
+          eyesNormal.style.opacity = '0';
+          eyesHappy.style.opacity = '1';
+        }
+
+        var hop = -8 * Math.sin(Math.min(1, cp * 2.2) * Math.PI);
+        robot.style.transform = 'translate3d(0, ' + hop.toFixed(1) + 'px, 0)';
+
+        if (rightArm) {
+          var waveAngle = -48 + Math.sin(cp * Math.PI * 6) * 24;
+          rightArm.style.transform = 'rotate(' + waveAngle.toFixed(1) + 'deg)';
+        }
+
+        requestAnimationFrame(step);
+
+      } else {
+        // Phase 4: Settle into subtle idle animation
+        btn.style.transform = '';
+        btn.style.opacity = '';
+        btn.classList.remove('hero-btn-settle-glow');
+        ropeSvg.style.display = 'none';
+
+        if (eyesNormal && eyesHappy) {
+          eyesNormal.style.opacity = '1';
+          eyesHappy.style.opacity = '0';
+        }
+        if (rightArm) {
+          rightArm.style.transform = '';
+        }
+
+        robot.style.transform = '';
+        robot.classList.add('hero-robot-idle');
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // Trigger once when hero is visible
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        observer.disconnect();
+        initRobotAnimation();
+      }
+    }, { threshold: 0.15 });
+    observer.observe(heroActions);
+  } else {
+    setTimeout(initRobotAnimation, 120);
+  }
+})();
+
+

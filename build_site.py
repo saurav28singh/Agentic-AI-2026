@@ -482,7 +482,100 @@ pages["index.html"] = ("Agentic AI Workshop 2026", None, """  <section class="he
         <p class="hero-meta"><strong>15&ndash;16 December 2026</strong> <span class="hero-sep">|</span> <strong>Venue: IIT Delhi, Hauz Khas, New Delhi 110016</strong></p>
         <p class="hero-desc">Bringing together Academia and Industry leaders to explore Agentic AI innovations in Healthcare, Enterprise AI, and AI for Science.</p>
         <div class="hero-actions">
+          <svg class="hero-rope-svg" id="heroRopeSvg" aria-hidden="true">
+            <path id="heroRopePath" class="hero-rope-path" d="" />
+          </svg>
           <a class="hero-pre-btn" href="pre-event.html">vLLM Inference Meetup &ndash; Delhi | 14 Dec 2026 &rarr;</a>
+          <div class="hero-robot-stage" id="heroRobotStage" aria-hidden="true">
+            <div class="hero-robot" id="heroRobot" aria-label="3D AI Companion Robot">
+              <svg class="robot-svg" viewBox="0 0 100 110" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="robotGlow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <linearGradient id="bodyGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="45%" stop-color="#F1F5F9" />
+                    <stop offset="85%" stop-color="#CBD5E1" />
+                    <stop offset="100%" stop-color="#94A3B8" />
+                  </linearGradient>
+                  <linearGradient id="headGrad" x1="25%" y1="0%" x2="75%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="40%" stop-color="#F1F6F9" />
+                    <stop offset="80%" stop-color="#CBD5E1" />
+                    <stop offset="100%" stop-color="#94A3B8" />
+                  </linearGradient>
+                  <linearGradient id="visorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0F172A" />
+                    <stop offset="100%" stop-color="#020617" />
+                  </linearGradient>
+                  <linearGradient id="armGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="60%" stop-color="#E2E8F0" />
+                    <stop offset="100%" stop-color="#94A3B8" />
+                  </linearGradient>
+                  <radialGradient id="thrusterGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#45D6E5" stop-opacity="0.95" />
+                    <stop offset="45%" stop-color="#2DD4BF" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#2DD4BF" stop-opacity="0" />
+                  </radialGradient>
+                  <radialGradient id="coreGlow" cx="45%" cy="40%" r="55%">
+                    <stop offset="0%" stop-color="#E0F2FE" />
+                    <stop offset="40%" stop-color="#38BDF8" />
+                    <stop offset="100%" stop-color="#0284C7" />
+                  </radialGradient>
+                </defs>
+                <g class="robot-all">
+                  <ellipse class="robot-thruster" cx="50" cy="99" rx="14" ry="5.5" fill="url(#thrusterGlow)" filter="url(#robotGlow)" />
+                  <g class="robot-arm-left" transform-origin="34 70">
+                    <path d="M 33 69 C 23 71 17 78 18 86 C 19 89 24 89 25 86 C 25 81 29 76 35 73 Z" fill="url(#armGrad)" />
+                    <circle cx="20" cy="87" r="4" fill="#334155" />
+                    <circle cx="20" cy="87" r="2.2" fill="#45D6E5" filter="url(#robotGlow)" />
+                  </g>
+                  <g class="robot-body">
+                    <path d="M 32 64 C 32 59 38 56 50 56 C 62 56 68 59 68 64 C 69 76 67 93 50 93 C 33 93 31 76 32 64 Z" fill="url(#bodyGrad)" />
+                    <path d="M 36 64 C 38 60 44 58 50 58 C 56 58 62 60 64 64 C 60 61 40 61 36 64 Z" fill="#FFFFFF" opacity="0.65" />
+                    <rect x="44" y="69" width="12" height="12" rx="4" fill="#0B131A" />
+                    <circle class="robot-core-pulse" cx="50" cy="75" r="3.5" fill="url(#coreGlow)" filter="url(#robotGlow)" />
+                  </g>
+                  <g class="robot-arm-right" id="robotRightArm" transform-origin="66 70">
+                    <path d="M 67 69 C 77 71 83 78 82 86 C 81 89 76 89 75 86 C 75 81 71 76 65 73 Z" fill="url(#armGrad)" />
+                    <circle cx="80" cy="87" r="4" fill="#334155" />
+                    <circle cx="80" cy="87" r="2" fill="#94A3B8" />
+                  </g>
+                  <rect x="44" y="52" width="12" height="5" rx="2" fill="#1E293B" />
+                  <g class="robot-head" id="robotHead" transform-origin="50 36">
+                    <line x1="50" y1="18" x2="50" y2="8" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" />
+                    <circle class="robot-antenna-orb" cx="50" cy="7" r="4" fill="#45D6E5" filter="url(#robotGlow)" />
+                    <rect x="19" y="29" width="6" height="14" rx="3" fill="#334155" />
+                    <rect x="20" y="32" width="2" height="8" rx="1" fill="#45D6E5" filter="url(#robotGlow)" />
+                    <rect x="75" y="29" width="6" height="14" rx="3" fill="#334155" />
+                    <rect x="78" y="32" width="2" height="8" rx="1" fill="#45D6E5" filter="url(#robotGlow)" />
+                    <rect x="23" y="16" width="54" height="39" rx="18" fill="url(#headGrad)" />
+                    <ellipse cx="50" cy="22" rx="18" ry="4.5" fill="#FFFFFF" opacity="0.65" />
+                    <rect x="28" y="24" width="44" height="24" rx="10" fill="url(#visorGrad)" stroke="rgba(69,214,229,0.3)" stroke-width="1" />
+                    <path d="M 32 28 C 40 26 58 26 68 29" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" stroke-linecap="round" />
+                    <g class="robot-eyes" id="robotEyes">
+                      <g class="eyes-normal" id="eyesNormal">
+                        <ellipse cx="41" cy="35.5" rx="4.5" ry="5.5" fill="#38BDF8" filter="url(#robotGlow)" />
+                        <ellipse cx="41" cy="34.5" rx="1.8" ry="2.2" fill="#FFFFFF" />
+                        <ellipse cx="59" cy="35.5" rx="4.5" ry="5.5" fill="#38BDF8" filter="url(#robotGlow)" />
+                        <ellipse cx="59" cy="34.5" rx="1.8" ry="2.2" fill="#FFFFFF" />
+                      </g>
+                      <g class="eyes-happy" id="eyesHappy" style="opacity: 0;">
+                        <path d="M 36 38 Q 41 31 46 38" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" filter="url(#robotGlow)" />
+                        <path d="M 54 38 Q 59 31 64 38" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" filter="url(#robotGlow)" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
       <div class="hero-panel">
