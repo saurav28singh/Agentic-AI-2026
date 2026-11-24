@@ -1264,37 +1264,44 @@ img {
   position: relative;
 }
 
-/* ---------- Cinematic Tech Robot & Micro-Tether ---------- */
-.hero-cinematic-stage {
+/* ---------- 3D Companion Robot & Rope (Reference Image Match) ---------- */
+.hero-robot-actor {
   position: absolute;
-  top: -16px;
+  top: -24px;
   left: 0;
   width: 100%;
-  height: 90px;
+  height: 120px;
   pointer-events: none;
-  overflow: visible;
   z-index: 3;
+  overflow: visible;
 }
 
-.hero-tech-bot {
+.hero-robot-shadow-pool {
   position: absolute;
-  top: 0;
+  width: 76px;
+  height: 22px;
   left: 0;
-  width: 68px;
-  height: 75px;
+  bottom: 6px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(69, 214, 229, 0.5) 0%, rgba(69, 214, 229, 0.18) 45%, transparent 72%);
+  filter: blur(2px);
   pointer-events: none;
-  transform-origin: 50% 85%;
+  transform-origin: center center;
   will-change: transform, opacity;
 }
 
-.hero-tech-bot-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: visible;
+.hero-robot-figure {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 86px;
+  height: 94px;
+  transform-origin: 50% 85%;
+  pointer-events: none;
+  will-change: transform;
 }
 
-.hero-tether-canvas {
+.hero-rope-canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -1304,33 +1311,104 @@ img {
   overflow: visible;
   z-index: 2;
   opacity: 1;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
 }
 
-.hero-tether-line {
-  stroke: rgba(226, 232, 240, 0.9);
-  stroke-width: 1.5;
+.hero-rope-line {
+  stroke: #FFFFFF;
+  stroke-width: 3;
   stroke-linecap: round;
   fill: none;
-  filter: drop-shadow(0 0 3px rgba(69, 214, 229, 0.7));
+  filter: drop-shadow(0 0 4px rgba(69, 214, 229, 0.75));
 }
 
-/* Refined Cyan Settlement Glow */
+/* Button Rope Coils (3 white loops on the right cap, matching reference) */
+.hero-btn-coils {
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  bottom: -3px;
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+}
+
+.rope-coil {
+  width: 5px;
+  height: calc(100% + 4px);
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 45%, #94A3B8 100%);
+  border-radius: 9999px;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.45),
+    0 0 4px rgba(255, 255, 255, 0.7);
+}
+
+/* 3 Cyan Energy Sparks above Button (matching reference image) */
+.hero-btn-sparks {
+  position: absolute;
+  top: -16px;
+  left: -8px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 5px #45D6E5);
+  animation: btnSparksPulse 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes btnSparksPulse {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Settle bounce glow highlight */
 .hero-btn-settle-glow {
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
     inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-    0 2px 8px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(69, 214, 229, 0.4),
-    0 0 45px rgba(69, 214, 229, 0.22) !important;
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(69, 214, 229, 0.85),
+    0 0 55px rgba(69, 214, 229, 0.65) !important;
 }
 
 /* Reduced Motion Fallback */
 @media (prefers-reduced-motion: reduce) {
-  .hero-cinematic-stage {
+  .hero-pre-btn,
+  .hero-robot-actor,
+  .hero-robot-actor * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  .hero-robot-actor,
+  .hero-btn-coils {
     display: none !important;
   }
-  .hero-pre-btn {
+}
+
+/* Mobile & Tablet Adjustments */
+@media (max-width: 768px) {
+  .hero-robot-figure {
+    width: 70px;
+    height: 78px;
+  }
+  .hero-robot-shadow-pool {
+    width: 60px;
+    height: 18px;
+  }
+}
+
+.hero-pre-btn {
     transform: none !important;
     opacity: 1 !important;
     transition: none !important;
