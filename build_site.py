@@ -114,6 +114,7 @@ SPEAKERS = [
     ("tarak", "Prof. Tarak Karmakar"),
     ("sandeep", "Prof. Sandeep Kumar"),
     ("souvik", "Prof. Souvik Chakraborty"),
+    ("haribhaskar", "Dr. Hari Bhaskar"),
 ]
 
 
@@ -699,6 +700,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Co-Founder &amp; Chief Technology Officer</p>
               <p class="org">Partex.AI</p>
               <p class="bio-copy">Co-Founder and Chief Technology Officer at Partex.AI and an IIT Bombay alumnus. He focuses on AI-driven technologies, machine learning, biomedical data, and life-sciences applications to accelerate therapeutic discovery and healthcare innovation.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/haribhaskar.webp" alt="Dr. Hari Bhaskar" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Dr. Hari Bhaskar</h3>
+              <p class="role">Engineering Lead</p>
+              <p class="org">Google</p>
+              <p class="bio-copy">Dr. Hari Bhaskar is an engineering leader at Google with experience spanning technology, research, and product innovation. His professional interests include AI systems, engineering innovation, and the application of emerging technologies to real-world challenges. He has also contributed to discussions and initiatives around AI innovation and cloud technologies.</p>
             </div>
           </article>
           <article class="bio">
