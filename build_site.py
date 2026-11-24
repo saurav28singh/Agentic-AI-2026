@@ -99,15 +99,15 @@ SPEAKERS = [
     ("ganguli", "Prof. Surya Ganguli"), ("manik", "Prof. Manik Varma"),
     ("balaji", "Dr. Balaji Vasan Srinivasan"),
     ("prashant", "Dr. Prashant Warier"), ("patra", "Dr. Arijit Patra"),
-    ("nitish", "Dr. Nitish Naik"), ("kartik", "Prof. Karthik Raman"),
-    ("raghu", "Prof. Raghunathan Rengaswamy"),     ("ashutosh", "Prof. Ashutosh Modi"), ("aparna", "Aparna Taneja"),
-    ("dinesh", "Dinesh Raghu"), ("nitendra", "Nitendra Rajput"),
-    ("vaibhav", "Vaibhav Ranjan"),
-    ("srikanth", "Srikanth Ramakrishnan"),
+    ("nitish", "Prof. Nitish Naik"), ("kartik", "Prof. Karthik Raman"),
+    ("raghu", "Prof. Raghunathan Rengaswamy"),     ("ashutosh", "Prof. Ashutosh Modi"), ("aparna", "Dr. Aparna Taneja"),
+    ("dinesh", "Dr. Dinesh Raghu"), ("nitendra", "Dr. Nitendra Rajput"),
+    ("vaibhav", "Dr. Vaibhav Rajan"),
+    ("srikanth", "Mr. Srikanth Ramakrishnan"),
     ("rahul", "Dr. Rahul Mishra"),
     ("alpan", "Dr. Alpan Raval"),
-    ("ayush", "Ayush Maheshwari"),
-    ("gaurav", "Gaurav Tripathi"),
+    ("ayush", "Dr.Ayush Maheshwari"),
+    ("gaurav", "Mr. Gaurav Tripathi"),
     ("anoop", "Prof. N. M. Anoop Krishnan"),
     ("santanu", "Prof. Santanu Chaudhury"),
     ("tanmoy", "Prof. Tanmoy Chakraborty"),
@@ -640,9 +640,9 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/aparna.webp" alt="Aparna Taneja" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/aparna.webp" alt="Dr. Aparna Taneja" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Aparna Taneja</h3>
+              <h3>Dr. Aparna Taneja</h3>
               <p class="role">Senior Research Scientist</p>
               <p class="org">Google DeepMind</p>
               <p class="bio-copy">Senior Research Scientist at Google DeepMind India. She leads research in artificial intelligence for social impact, developing restless multi-armed bandits and predictive machine learning models to improve maternal and public health.</p>
@@ -667,9 +667,9 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/ayush.webp" alt="Ayush Maheshwari" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/ayush.webp" alt="Dr.Ayush Maheshwari" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Ayush Maheshwari</h3>
+              <h3>Dr.Ayush Maheshwari</h3>
               <p class="role">Senior Solutions Architect</p>
               <p class="org">NVIDIA</p>
               <p class="bio-copy">Senior Solutions Architect at NVIDIA with the NVAITC India team. His work focuses on artificial intelligence, multilingual and domain-specific foundation models, and AI for Science, collaborating with academic and scientific research institutions.</p>
@@ -685,18 +685,18 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/dinesh.webp" alt="Dinesh Raghu" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/dinesh.webp" alt="Dr. Dinesh Raghu" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Dinesh Raghu</h3>
+              <h3>Dr. Dinesh Raghu</h3>
               <p class="role">Senior Researcher and Manager, Agentic AI</p>
               <p class="org">IBM</p>
               <p class="bio-copy">Senior Researcher and Manager in Agentic AI at IBM Research India. He leads research on autonomous agents, function calling in IBM Granite foundation models, multi-turn reasoning, and task-oriented conversational workflows.</p>
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/gaurav.webp" alt="Gaurav Tripathi" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/gaurav.webp" alt="Mr. Gaurav Tripathi" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Gaurav Tripathi</h3>
+              <h3>Mr. Gaurav Tripathi</h3>
               <p class="role">Co-Founder &amp; Chief Technology Officer</p>
               <p class="org">Partex.AI</p>
               <p class="bio-copy">Co-Founder and Chief Technology Officer at Partex.AI and an IIT Bombay alumnus. He focuses on AI-driven technologies, machine learning, biomedical data, and life-sciences applications to accelerate therapeutic discovery and healthcare innovation.</p>
@@ -739,9 +739,9 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/nitendra.webp" alt="Nitendra Rajput" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/nitendra.webp" alt="Dr. Nitendra Rajput" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Nitendra Rajput</h3>
+              <h3>Dr. Nitendra Rajput</h3>
               <p class="role">Vice President and Head of AI Garage Center</p>
               <p class="org">Mastercard</p>
               <p class="bio-copy">Vice President and Head of the AI Garage at Mastercard, and ACM Distinguished Scientist. He directs global AI research and deployment in financial security, fraud prevention, risk mitigation, and emerging agentic commerce.</p>
@@ -811,9 +811,9 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/srikanth.webp" alt="Srikanth Ramakrishnan" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/srikanth.webp" alt="Mr. Srikanth Ramakrishnan" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Srikanth Ramakrishnan</h3>
+              <h3>Mr. Srikanth Ramakrishnan</h3>
               <p class="role">Head, Commercial Data Science &amp; AI</p>
               <p class="org">Johnson &amp; Johnson Innovative Medicine</p>
               <p class="bio-copy">AI and data science leader who has driven enterprise AI transformation across Medical Safety, Discovery, Clinical Operations, Regulatory, and now Pharma Commercial functions. Currently leading Agentic AI platform initiatives to reshape how life sciences organizations work and deliver value to patients.</p>
