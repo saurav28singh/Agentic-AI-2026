@@ -1409,14 +1409,6 @@ img {
 }
 
 .hero-pre-btn {
-    transform: none !important;
-    opacity: 1 !important;
-    transition: none !important;
-    animation: none !important;
-  }
-}
-
-.hero-pre-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;

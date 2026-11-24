@@ -640,7 +640,7 @@
   startTimer();
 })();
 
-/* 3D Companion Robot pulling Pre-Event CTA button from LEFT to RIGHT & Exiting (Matching Reference Image) */
+/* 3D Companion Robot pulling Pre-Event CTA button into place (Matching Reference Image) */
 (function () {
   var heroActions = document.getElementById('heroActions');
   var btn = document.getElementById('heroPreBtn');
@@ -654,7 +654,6 @@
   var armBack = document.getElementById('robotArmBack');
   var legFront = document.getElementById('robotLegFront');
   var legBack = document.getElementById('robotLegBack');
-  var headGroup = document.getElementById('robotHeadGroup');
 
   if (!heroActions || !btn || !actor || !figure || !shadow || !ropeCanvas || !ropePath) return;
 
@@ -668,57 +667,55 @@
     btn.style.opacity = '1';
     actor.style.display = 'none';
     if (coils) coils.style.display = 'none';
-    btn.classList.add('hero-btn-settle-glow');
     return;
   }
 
   var animationTriggered = false;
 
-  function initReferenceRobotSequence() {
+  function initRobotSequence() {
     if (animationTriggered) return;
     animationTriggered = true;
 
     var isMobile = window.innerWidth <= 768;
-    var btnWidth = btn.offsetWidth || (isMobile ? 290 : 380);
-    var btnHeight = btn.offsetHeight || 48;
+    var haulDist = isMobile ? Math.min(105, Math.max(65, window.innerWidth * 0.26)) : 175;
+    var haulY = isMobile ? 8 : 14;
+    var robotLead = isMobile ? 65 : 95;
+
+    // Dimensions
     var figW = isMobile ? 70 : 86;
     var figH = isMobile ? 78 : 94;
 
-    // LEFT TO RIGHT GEOMETRY
-    // Button enters from left off-screen/margin
-    var btnStartX = isMobile ? -Math.min(220, window.innerWidth * 0.55) : -(btnWidth + 40);
-    var robotLead = isMobile ? (btnWidth + 12) : (btnWidth + 24);
-    var robotStartX = btnStartX + robotLead;
-    var robotRestX = robotLead;
-    var curRobY = isMobile ? 0 : 2;
-
     // Initial off-stage positions
-    btn.style.transform = 'translate3d(' + btnStartX.toFixed(1) + 'px, 0, 0)';
+    btn.style.transform = 'translate3d(' + haulDist + 'px, ' + haulY + 'px, 0) rotate(1.8deg)';
     btn.style.opacity = '0';
     if (coils) coils.style.opacity = '1';
 
-    figure.style.transform = 'translate3d(' + robotStartX.toFixed(1) + 'px, ' + curRobY + 'px, 0) rotate(-14deg)';
-    shadow.style.transform = 'translate3d(' + (robotStartX + 6).toFixed(1) + 'px, ' + (curRobY + figH - 18) + 'px, 0)';
-    figure.style.opacity = '1';
-    shadow.style.opacity = '1';
+    var startRobX = haulDist + robotLead;
+    var startRobY = haulY - 6;
+    figure.style.transform = 'translate3d(' + startRobX + 'px, ' + startRobY + 'px, 0) rotate(-14deg)';
+    shadow.style.transform = 'translate3d(' + (startRobX + 6) + 'px, ' + (startRobY + figH - 18) + 'px, 0)';
 
     ropeCanvas.style.opacity = '1';
     ropeCanvas.style.display = 'block';
 
     var startTime = null;
-    var haulDuration = 2000; // Phase 1: Enter from Left & Pull toward Right (0 - 2.0s)
-    var setDuration = 900;   // Phase 2: Place Button, Release Rope & Cute Wave (2.0s - 2.9s)
-    var walkDuration = 1300; // Phase 3: Walk toward Right edge & Exit (2.9s - 4.2s)
-    var totalDuration = haulDuration + setDuration + walkDuration; // ~4.2s
+    var haulDuration = 1800; // Phase 1: Enter & Pull
+    var setDuration = 600;   // Phase 2: Set Button & Wave
+    var walkDuration = 1400; // Phase 3: Robot Leaves
+    var totalDuration = haulDuration + setDuration + walkDuration; // ~3.8s
 
     function easeOutCubic(t) {
       return 1 - Math.pow(1 - t, 3);
     }
 
+    function easeInQuad(t) {
+      return t * t;
+    }
+
     function renderRopeLine(btnAnchorX, btnAnchorY, robotHandX, robotHandY, sag) {
       try {
-        var midX = (btnAnchorX + robotHandX) * 0.5;
-        var midY = (btnAnchorY + robotHandY) * 0.5 + sag;
+        var midX = (btnAnchorX + robotHandX) / 2;
+        var midY = (btnAnchorY + robotHandY) / 2 + sag;
         ropePath.setAttribute('d', 'M ' + btnAnchorX.toFixed(1) + ' ' + btnAnchorY.toFixed(1) +
           ' Q ' + midX.toFixed(1) + ' ' + midY.toFixed(1) +
           ' ' + robotHandX.toFixed(1) + ' ' + robotHandY.toFixed(1));
@@ -730,31 +727,38 @@
       var elapsed = timestamp - startTime;
 
       if (elapsed < haulDuration) {
-        // ========== Phase 1: Enter from Left & Pull toward Right ==========
+        // ========== Phase 1: Enter & Pull ==========
         var p = Math.min(1, elapsed / haulDuration);
         var eased = easeOutCubic(p);
 
-        // Button moves from left into position
-        var curBtnX = (1 - eased) * btnStartX;
-        var btnFade = Math.min(1, elapsed / 220);
-        btn.style.opacity = btnFade.toFixed(2);
-        btn.style.transform = 'translate3d(' + curBtnX.toFixed(1) + 'px, 0, 0)';
+        // Button moves from right to (0, 0)
+        var opacity = Math.min(1, elapsed / 220);
+        btn.style.opacity = opacity.toFixed(2);
 
-        // Robot leans backward (-14deg) and steps forward to the right
-        var curRobX = (1 - eased) * robotStartX + eased * robotRestX;
+        var curBtnX = (1 - eased) * haulDist;
+        var curBtnY = (1 - eased) * haulY;
+        var curBtnRot = (1 - eased) * 1.8;
+        btn.style.transform = 'translate3d(' + curBtnX.toFixed(1) + 'px, ' + curBtnY.toFixed(1) + 'px, 0) rotate(' + curBtnRot.toFixed(1) + 'deg)';
+
+        // Robot leans backward (-14deg) and steps backward
+        var curRobX = (1 - eased) * (haulDist + robotLead) + (isMobile ? 120 : 175) * eased;
+        var curRobY = (1 - eased) * (haulY - 6) + (isMobile ? 0 : 2);
         var leanAngle = -14 + Math.sin(p * Math.PI * 6) * 1.5;
 
-        figure.style.transform = 'translate3d(' + curRobX.toFixed(1) + 'px, ' + curRobY + 'px, 0) rotate(' + leanAngle.toFixed(1) + 'deg)';
+        figure.style.transform = 'translate3d(' + curRobX.toFixed(1) + 'px, ' + curRobY.toFixed(1) + 'px, 0) rotate(' + leanAngle.toFixed(1) + 'deg)';
         shadow.style.transform = 'translate3d(' + (curRobX + 6).toFixed(1) + 'px, ' + (curRobY + figH - 18).toFixed(1) + 'px, 0)';
 
-        // Bipedal pulling stride cadence
+        // Walking / pulling leg cadence
         var pullStep = Math.sin(p * Math.PI * 8);
         if (legFront) legFront.style.transform = 'rotate(' + (pullStep * 16).toFixed(1) + 'deg)';
         if (legBack) legBack.style.transform = 'rotate(' + (-pullStep * 16).toFixed(1) + 'deg)';
 
-        // Rope endpoints
-        var bX = curBtnX + btnWidth - 3;
-        var bY = btnHeight * 0.5;
+        // Calculate rope endpoints
+        var btnWidth = btn.offsetWidth || 340;
+        var btnHeight = btn.offsetHeight || 48;
+        var bX = btn.offsetLeft + btnWidth + curBtnX - 3;
+        var bY = btn.offsetTop + btnHeight / 2 + curBtnY;
+
         var rX = curRobX + (18 / 120) * figW;
         var rY = curRobY + (72 / 130) * figH;
 
@@ -762,87 +766,97 @@
         requestAnimationFrame(frame);
 
       } else if (elapsed < haulDuration + setDuration) {
-        // ========== Phase 2: Place Button, Release Rope & Cute Wave ==========
+        // ========== Phase 2: Set the Button & Celebrate ==========
         var sp = (elapsed - haulDuration) / setDuration;
 
-        // Button settling micro-bounce in exact place
-        var bounceX = -4.5 * Math.sin(sp * Math.PI * 2) * Math.exp(-sp * 3.5);
+        // Button settling bounce
+        var bounceX = -5.5 * Math.sin(sp * Math.PI * 2) * Math.exp(-sp * 3.5);
+        var bounceRot = -0.5 * Math.sin(sp * Math.PI * 2) * Math.exp(-sp * 3.5);
         btn.style.opacity = '1';
-        btn.style.transform = 'translate3d(' + bounceX.toFixed(1) + 'px, 0, 0)';
-        btn.classList.add('hero-btn-settle-glow');
+        btn.style.transform = 'translate3d(' + bounceX.toFixed(1) + 'px, 0, 0) rotate(' + bounceRot.toFixed(1) + 'deg)';
+
+        if (sp < 0.6) {
+          btn.classList.add('hero-btn-settle-glow');
+        } else {
+          btn.classList.remove('hero-btn-settle-glow');
+        }
 
         // Rope coils dissolve
         if (coils) {
-          var coilOpacity = Math.max(0, 1 - sp * 2.8);
+          var coilOpacity = Math.max(0, 1 - sp * 2.5);
           coils.style.opacity = coilOpacity.toFixed(2);
         }
 
         // Rope slacks & fades out
-        var ropeOpacity = Math.max(0, 1 - sp * 2.5);
+        var ropeOpacity = Math.max(0, 1 - sp * 2.2);
         ropeCanvas.style.opacity = ropeOpacity.toFixed(2);
 
-        // Robot straightens up from lean
-        var robTilt = sp < 0.25 ? -14 * (1 - sp / 0.25) : 0;
-        figure.style.transform = 'translate3d(' + robotRestX.toFixed(1) + 'px, ' + curRobY + 'px, 0) rotate(' + robTilt.toFixed(1) + 'deg)';
-        shadow.style.transform = 'translate3d(' + (robotRestX + 6).toFixed(1) + 'px, ' + (curRobY + figH - 18).toFixed(1) + 'px, 0)';
+        var restRobX = isMobile ? 120 : 175;
+        var restRobY = isMobile ? 0 : 2;
 
+        // Final tug then stands upright
+        var robTilt = sp < 0.3 ? -16 * (1 - sp / 0.3) : 0;
+        var robHop = (sp >= 0.3 && sp < 0.8) ? -8 * Math.sin((sp - 0.3) / 0.5 * Math.PI) : 0;
+
+        figure.style.transform = 'translate3d(' + restRobX + 'px, ' + (restRobY + robHop).toFixed(1) + 'px, 0) rotate(' + robTilt.toFixed(1) + 'deg)';
+        shadow.style.transform = 'translate3d(' + (restRobX + 6) + 'px, ' + (restRobY + figH - 18).toFixed(1) + 'px, 0)';
+
+        // Legs neutral
         if (legFront) legFront.style.transform = 'rotate(0deg)';
         if (legBack) legBack.style.transform = 'rotate(0deg)';
 
-        // Cute Little Celebration Wave!
-        if (armFront && sp >= 0.2) {
-          var waveProgress = (sp - 0.2) / 0.8;
+        // Waving arm celebration
+        if (armFront && sp >= 0.25) {
+          var waveProgress = (sp - 0.25) / 0.75;
           var waveAngle = -48 + Math.sin(waveProgress * Math.PI * 4) * 26;
           armFront.style.transform = 'rotate(' + waveAngle.toFixed(1) + 'deg)';
-        }
-        if (headGroup && sp >= 0.2) {
-          var waveProgress = (sp - 0.2) / 0.8;
-          var headTilt = -4 * Math.sin(waveProgress * Math.PI * 2);
-          headGroup.style.transform = 'rotate(' + headTilt.toFixed(1) + 'deg)';
         }
 
         requestAnimationFrame(frame);
 
       } else if (elapsed < totalDuration) {
-        // ========== Phase 3: Robot Walks toward Right Edge & Exits ==========
+        // ========== Phase 3: Robot Turns Around and Leaves Screen ==========
         btn.style.transform = '';
+        btn.classList.remove('hero-btn-settle-glow');
         if (coils) coils.style.display = 'none';
         ropeCanvas.style.display = 'none';
 
         var wp = (elapsed - (haulDuration + setDuration)) / walkDuration;
+        var walkProgress = easeInQuad(wp);
 
-        var exitX = Math.max(window.innerWidth * 0.85, 700);
-        var curWalkX = robotRestX + (exitX - robotRestX) * (wp * wp * (3 - 2 * wp));
-        var curWalkY = curRobY + Math.abs(Math.sin(wp * Math.PI * 7)) * -3;
+        var startWalkX = isMobile ? 120 : 175;
+        var exitX = isMobile ? (window.innerWidth + 80) : 580;
+        var curWalkX = startWalkX + (exitX - startWalkX) * walkProgress;
+        var curWalkY = (isMobile ? 0 : 2) + Math.abs(Math.sin(wp * Math.PI * 7)) * -3.5;
 
-        // Robot turns right: scaleX(-1)
-        var robFade = wp > 0.7 ? Math.max(0, (1 - wp) / 0.3) : 1;
+        // Robot flips horizontally to walk right: scaleX(-1)
+        var robFade = wp > 0.75 ? Math.max(0, (1 - wp) / 0.25) : 1;
         figure.style.opacity = robFade.toFixed(2);
         shadow.style.opacity = robFade.toFixed(2);
 
         figure.style.transform = 'translate3d(' + curWalkX.toFixed(1) + 'px, ' + curWalkY.toFixed(1) + 'px, 0) scaleX(-1)';
         shadow.style.transform = 'translate3d(' + (curWalkX - 6).toFixed(1) + 'px, ' + (curWalkY + figH - 18).toFixed(1) + 'px, 0)';
 
-        // Natural walking stride
-        var walkLegCycle = Math.sin(wp * Math.PI * 12);
+        // Walking leg cycle
+        var walkLegCycle = Math.sin(wp * Math.PI * 14);
         if (legFront) legFront.style.transform = 'rotate(' + (walkLegCycle * 22).toFixed(1) + 'deg)';
         if (legBack) legBack.style.transform = 'rotate(' + (-walkLegCycle * 22).toFixed(1) + 'deg)';
 
+        // Arm swing
         if (armFront) armFront.style.transform = 'rotate(' + (-walkLegCycle * 18).toFixed(1) + 'deg)';
         if (armBack) armBack.style.transform = 'rotate(' + (walkLegCycle * 18).toFixed(1) + 'deg)';
-        if (headGroup) headGroup.style.transform = 'rotate(0deg)';
 
         requestAnimationFrame(frame);
 
       } else {
-        // ========== Phase 4: Sequence Complete — Clean Resting State ==========
+        // ========== Sequence Complete: Robot Gone Completely ==========
         btn.style.transform = '';
         btn.style.opacity = '';
-        btn.classList.add('hero-btn-settle-glow');
+        btn.classList.remove('hero-btn-settle-glow');
         if (coils) coils.style.display = 'none';
         ropeCanvas.style.display = 'none';
 
-        // Robot actor is completely removed/hidden: No permanent robot beside button
+        // Robot actor is completely removed/hidden
         actor.style.display = 'none';
       }
     }
@@ -855,11 +869,13 @@
     var observer = new IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) {
         observer.disconnect();
-        initReferenceRobotSequence();
+        initRobotSequence();
       }
     }, { threshold: 0.1 });
     observer.observe(heroActions);
   } else {
-    setTimeout(initReferenceRobotSequence, 120);
+    setTimeout(initRobotSequence, 120);
   }
 })();
+
+

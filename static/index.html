@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=9">
   <script>try { localStorage.removeItem("aaiw-theme"); } catch (e) { } document.documentElement.setAttribute("data-theme", "dark");</script>
 </head>
 
@@ -80,7 +80,8 @@
               </svg>
               <div class="hero-robot-shadow-pool" id="heroRobotShadow"></div>
               <div class="hero-robot-figure" id="heroRobotFigure">
-                <svg class="robot-svg" viewBox="0 0 120 130" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <svg class="robot-svg" viewBox="0 0 120 130" width="100%" height="100%"
+                  xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <filter id="refCyanGlow" x="-40%" y="-40%" width="180%" height="180%">
                       <feGaussianBlur stdDeviation="3.2" result="blur" />
@@ -121,41 +122,53 @@
                   </defs>
                   <g filter="url(#softShadow)" class="robot-character" id="robotCharGroup">
                     <!-- Backpack -->
-                    <rect class="robot-backpack" x="66" y="58" width="16" height="26" rx="5" fill="#1E293B" stroke="#475569" stroke-width="1.5" />
+                    <rect class="robot-backpack" x="66" y="58" width="16" height="26" rx="5" fill="#1E293B"
+                      stroke="#475569" stroke-width="1.5" />
                     <rect x="70" y="62" width="10" height="18" rx="3" fill="#0F172A" />
 
                     <!-- Back Leg (Right) -->
                     <g class="robot-leg-back" id="robotLegBack" transform-origin="60 88">
-                      <path d="M 57 85 L 62 108 L 73 118 L 86 118 C 88 118 89 116 88 114 L 84 109 L 69 98 L 65 85 Z" fill="url(#refLimbGrad)" />
+                      <path d="M 57 85 L 62 108 L 73 118 L 86 118 C 88 118 89 116 88 114 L 84 109 L 69 98 L 65 85 Z"
+                        fill="url(#refLimbGrad)" />
                       <circle cx="63" cy="95" r="4.5" fill="#334155" />
                       <path d="M 68 118 L 87 118" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
                     </g>
 
                     <!-- Front Leg (Left) -->
                     <g class="robot-leg-front" id="robotLegFront" transform-origin="45 88">
-                      <path d="M 43 85 L 36 104 L 23 118 L 38 118 C 41 118 43 116 43 113 L 45 106 L 51 98 L 51 85 Z" fill="url(#refLimbGrad)" />
+                      <path d="M 43 85 L 36 104 L 23 118 L 38 118 C 41 118 43 116 43 113 L 45 106 L 51 98 L 51 85 Z"
+                        fill="url(#refLimbGrad)" />
                       <circle cx="41" cy="96" r="4.5" fill="#334155" />
                       <path d="M 22 118 L 41 118" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
                     </g>
 
                     <!-- Torso with ScAI emblem -->
                     <g class="robot-torso">
-                      <path d="M 38 56 C 38 52 45 49 55 49 C 65 49 72 52 72 56 C 73 68 70 88 55 88 C 40 88 37 68 38 56 Z" fill="url(#refBodyGrad)" />
-                      <path d="M 42 56 C 44 52 49 51 55 51 C 61 51 66 52 68 56 C 64 54 46 54 42 56 Z" fill="#FFFFFF" opacity="0.75" />
-                      <rect x="47" y="62" width="16" height="8" rx="2.5" fill="#0F172A" stroke="rgba(69,214,229,0.5)" stroke-width="0.8" />
-                      <text x="55" y="68" fill="#45D6E5" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="5.2" font-weight="900" text-anchor="middle" letter-spacing="0.4">ScAI</text>
+                      <path
+                        d="M 38 56 C 38 52 45 49 55 49 C 65 49 72 52 72 56 C 73 68 70 88 55 88 C 40 88 37 68 38 56 Z"
+                        fill="url(#refBodyGrad)" />
+                      <path d="M 42 56 C 44 52 49 51 55 51 C 61 51 66 52 68 56 C 64 54 46 54 42 56 Z" fill="#FFFFFF"
+                        opacity="0.75" />
+                      <rect x="47" y="62" width="16" height="8" rx="2.5" fill="#0F172A" stroke="rgba(69,214,229,0.5)"
+                        stroke-width="0.8" />
+                      <text x="55" y="68" fill="#45D6E5"
+                        font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="5.2"
+                        font-weight="900" text-anchor="middle" letter-spacing="0.4">ScAI</text>
                     </g>
 
                     <!-- Back Arm (holds rope) -->
                     <g class="robot-arm-back" id="robotArmBack" transform-origin="60 60">
-                      <path d="M 60 58 C 50 60 38 67 27 70 C 23 71 21 76 25 78 C 29 79 32 77 37 74 L 56 66 Z" fill="url(#refLimbGrad)" />
+                      <path d="M 60 58 C 50 60 38 67 27 70 C 23 71 21 76 25 78 C 29 79 32 77 37 74 L 56 66 Z"
+                        fill="url(#refLimbGrad)" />
                       <circle cx="26" cy="74" r="4.5" fill="#334155" />
                       <circle cx="26" cy="74" r="3" fill="#64748B" />
                     </g>
 
                     <!-- Front Arm (pulls rope & waves) -->
                     <g class="robot-arm-front" id="robotArmFront" transform-origin="48 60">
-                      <path class="robot-arm-front-path" d="M 48 58 C 40 60 30 66 18 69 C 14 70 12 75 16 77 C 20 78 24 76 28 73 L 45 65 Z" fill="url(#refLimbGrad)" />
+                      <path class="robot-arm-front-path"
+                        d="M 48 58 C 40 60 30 66 18 69 C 14 70 12 75 16 77 C 20 78 24 76 28 73 L 45 65 Z"
+                        fill="url(#refLimbGrad)" />
                       <circle cx="16" cy="73" r="5" fill="#334155" />
                       <circle cx="16" cy="73" r="3.2" fill="#64748B" />
                     </g>
@@ -182,22 +195,29 @@
                       <ellipse cx="55" cy="16" rx="18" ry="4.5" fill="#FFFFFF" opacity="0.8" />
 
                       <!-- Visor Faceplate -->
-                      <rect x="33" y="18" width="44" height="26" rx="13" fill="url(#refVisorGrad)" stroke="rgba(69,214,229,0.4)" stroke-width="1.2" />
-                      <path d="M 38 23 C 46 20 62 20 72 23" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-linecap="round" />
+                      <rect x="33" y="18" width="44" height="26" rx="13" fill="url(#refVisorGrad)"
+                        stroke="rgba(69,214,229,0.4)" stroke-width="1.2" />
+                      <path d="M 38 23 C 46 20 62 20 72 23" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"
+                        stroke-linecap="round" />
 
                       <!-- Glowing Cyan Happy Arc Eyes (^ ^) - exact reference match! -->
                       <g class="robot-eyes-happy" id="robotEyesHappy" filter="url(#refCyanGlow)">
-                        <path d="M 40 33 Q 45 25 50 33" fill="none" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round" />
-                        <path d="M 41 33 Q 45 27 49 33" fill="none" stroke="#E0F2FE" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M 57 33 Q 62 25 67 33" fill="none" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round" />
-                        <path d="M 58 33 Q 62 27 66 33" fill="none" stroke="#E0F2FE" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M 40 33 Q 45 25 50 33" fill="none" stroke="#38BDF8" stroke-width="3.5"
+                          stroke-linecap="round" />
+                        <path d="M 41 33 Q 45 27 49 33" fill="none" stroke="#E0F2FE" stroke-width="1.5"
+                          stroke-linecap="round" />
+                        <path d="M 57 33 Q 62 25 67 33" fill="none" stroke="#38BDF8" stroke-width="3.5"
+                          stroke-linecap="round" />
+                        <path d="M 58 33 Q 62 27 66 33" fill="none" stroke="#E0F2FE" stroke-width="1.5"
+                          stroke-linecap="round" />
                       </g>
 
                       <!-- Ear Pod Right (with bright cyan glowing donut ring) -->
                       <g class="robot-ear-right">
                         <rect x="80" y="22" width="9" height="22" rx="4.5" fill="#334155" />
                         <rect x="83" y="24" width="6" height="18" rx="3" fill="#1E293B" />
-                        <ellipse cx="86" cy="33" rx="4.5" ry="6.5" fill="none" stroke="#38BDF8" stroke-width="3" filter="url(#refCyanGlow)" />
+                        <ellipse cx="86" cy="33" rx="4.5" ry="6.5" fill="none" stroke="#38BDF8" stroke-width="3"
+                          filter="url(#refCyanGlow)" />
                         <ellipse cx="86" cy="33" rx="4.5" ry="6.5" fill="none" stroke="#E0F2FE" stroke-width="1.2" />
                       </g>
                     </g>
@@ -702,7 +722,7 @@
     </div>
   </footer>
   <script src="config.js"></script>
-  <script src="site.js?v=7"></script>
+  <script src="site.js?v=4"></script>
 </body>
 
 </html>
