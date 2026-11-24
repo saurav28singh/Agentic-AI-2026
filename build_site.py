@@ -481,7 +481,7 @@ pages["index.html"] = ("Agentic AI Workshop 2026", None, """  <section class="he
         <p class="hero-meta"><strong>15&ndash;16 December 2026</strong> <span class="hero-sep">|</span> <strong>Venue: IIT Delhi, Hauz Khas, New Delhi 110016</strong></p>
         <p class="hero-desc">Bringing together Academia and Industry leaders to explore Agentic AI innovations in Healthcare, Enterprise AI, and AI for Science.</p>
         <div class="hero-actions">
-          <a class="hero-pre-btn" href="pre-event.html">Explore Pre-Event &rarr;</a>
+          <a class="hero-pre-btn" href="pre-event.html">vLLM Inference Meetup &ndash; Delhi | 14 Dec 2026 &rarr;</a>
         </div>
       </div>
       <div class="hero-panel">
