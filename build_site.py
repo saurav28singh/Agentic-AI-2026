@@ -92,7 +92,7 @@ FOOTER = """<footer class="foot">
   </div>
 </footer>
 <script src="config.js"></script>
-<script src="site.js?v=2"></script>"""
+<script src="site.js?v=8"></script>"""
 
 
 SPEAKERS = [
@@ -106,7 +106,7 @@ SPEAKERS = [
     ("srikanth", "Mr. Srikanth Ramakrishnan"),
     ("rahul", "Dr. Rahul Mishra"),
     ("alpan", "Dr. Alpan Raval"),
-    ("ayush", "Dr.Ayush Maheshwari"),
+    ("ayush", "Dr. Ayush Maheshwari"),
     ("gaurav", "Mr. Gaurav Tripathi"),
     ("anoop", "Prof. N. M. Anoop Krishnan"),
     ("santanu", "Prof. Santanu Chaudhury"),
@@ -814,9 +814,9 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/ayush.webp" alt="Dr.Ayush Maheshwari" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/ayush.webp" alt="Dr. Ayush Maheshwari" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Dr.Ayush Maheshwari</h3>
+              <h3>Dr. Ayush Maheshwari</h3>
               <p class="role">Senior Solutions Architect</p>
               <p class="org">NVIDIA</p>
               <p class="bio-copy">Senior Solutions Architect at NVIDIA with the NVAITC India team. His work focuses on artificial intelligence, multilingual and domain-specific foundation models, and AI for Science, collaborating with academic and scientific research institutions.</p>
@@ -1225,13 +1225,13 @@ def write_page(fname, title, current, body):
                '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                '<meta name="claude:viewport-fit-sides" content="cover">\n'
                '<title>%s</title>\n%s\n'
-               '<link rel="stylesheet" href="styles.css?v=7">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
+               '<link rel="stylesheet" href="styles.css?v=13">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
                % (title, FONTS, EARLY_THEME, head_html, body, FOOTER))
     else:
         doc = ('<!doctype html>\n<html lang="en" data-theme="dark">\n<head>\n<meta charset="utf-8">\n'
                '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                '<title>%s &middot; Agentic AI Workshop 2026</title>\n%s\n'
-               '<link rel="stylesheet" href="styles.css?v=7">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
+               '<link rel="stylesheet" href="styles.css?v=13">\n%s\n</head>\n<body>\n\n%s\n\n<main>\n%s\n</main>\n\n%s\n</body>\n</html>\n'
                % (title, FONTS, EARLY_THEME, head_html, body, FOOTER))
     io.open(os.path.join(OUT, fname), "w", encoding="utf-8").write(doc)
     return len(doc)
