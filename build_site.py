@@ -106,7 +106,7 @@ SPEAKERS = [
     ("srikanth", "Mr. Srikanth Ramakrishnan"),
     ("rahul", "Dr. Rahul Mishra"),
     ("alpan", "Dr. Alpan Raval"),
-    ("ayush", "Dr.Ayush Maheshwari"),
+    ("ayush", "Dr. Ayush Maheshwari"),
     ("gaurav", "Mr. Gaurav Tripathi"),
     ("anoop", "Prof. N. M. Anoop Krishnan"),
     ("santanu", "Prof. Santanu Chaudhury"),
@@ -669,9 +669,9 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
             </div>
           </article>
           <article class="bio">
-            <div class="bio-photo"><img src="photos/ayush.webp" alt="Dr.Ayush Maheshwari" width="520" height="520" loading="lazy"></div>
+            <div class="bio-photo"><img src="photos/ayush.webp" alt="Dr. Ayush Maheshwari" width="520" height="520" loading="lazy"></div>
             <div class="bio-text">
-              <h3>Dr.Ayush Maheshwari</h3>
+              <h3>Dr. Ayush Maheshwari</h3>
               <p class="role">Senior Solutions Architect</p>
               <p class="org">NVIDIA</p>
               <p class="bio-copy">Senior Solutions Architect at NVIDIA with the NVAITC India team. His work focuses on artificial intelligence, multilingual and domain-specific foundation models, and AI for Science, collaborating with academic and scientific research institutions.</p>

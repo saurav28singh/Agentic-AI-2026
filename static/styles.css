@@ -2144,6 +2144,10 @@ img {
   width: 100%;
   padding-block: 14px;
   margin-block: -14px;
+  /* Small side bleed (smaller than the card gap) so a scaled/hovered edge card
+     is never clipped, while the next card still stays fully hidden. */
+  padding-inline: 8px;
+  margin-inline: -8px;
   position: relative;
   touch-action: pan-y;
   cursor: grab;
@@ -2244,7 +2248,10 @@ img {
   font-size: 16.5px;
   font-weight: 500;
   line-height: 1.24;
-  letter-spacing: -.015em;
+  /* Same fix as .bio-text h3: no negative tracking, a clear gap after
+     "Dr." / "Prof." / "Mr." and initials like "N. M." */
+  letter-spacing: normal;
+  word-spacing: .14em;
   color: #FFFFFF !important;
   margin: 0 0 5px;
 }
@@ -4643,7 +4650,10 @@ img {
   font-family: var(--display);
   font-size: clamp(22px, 2.6vw, 28px);
   font-weight: 500;
-  letter-spacing: -.015em;
+  /* Normal tracking plus a little extra word gap so "Dr." / "Prof." / "Mr."
+     never looks glued to the name in the Newsreader display face. */
+  letter-spacing: normal;
+  word-spacing: .14em;
   text-align: center;
   margin: 0;
   color: #FFFFFF !important;

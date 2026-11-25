@@ -373,6 +373,9 @@
   var isFocused = false;
 
   function getVisibleCount() {
+    // Read the same --visible-cards value the CSS uses so JS and CSS never disagree.
+    var css = parseInt(window.getComputedStyle(carousel).getPropertyValue('--visible-cards'), 10);
+    if (css > 0) return css;
     var w = window.innerWidth;
     if (w <= 560) return 1;
     if (w <= 768) return 2;
@@ -444,9 +447,14 @@
 
   function getStep() {
     if (!cards[0]) return 0;
-    var cardRect = cards[0].getBoundingClientRect();
-    var gap = parseFloat(window.getComputedStyle(track).gap) || 16;
-    return cardRect.width + gap;
+    // Use the layout width, not getBoundingClientRect(): cards carry
+    // scale(0.985)/scale(1.02), which shrinks/grows the rect and made every
+    // click stop part-way through a card.
+    var cardWidth = parseFloat(window.getComputedStyle(cards[0]).width) || cards[0].offsetWidth;
+    var trackStyle = window.getComputedStyle(track);
+    var gap = parseFloat(trackStyle.columnGap || trackStyle.gap);
+    if (isNaN(gap)) gap = 16;
+    return cardWidth + gap;
   }
 
   function updateTransform(animate) {
