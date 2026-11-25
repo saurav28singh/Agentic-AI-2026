@@ -2235,6 +2235,12 @@ img {
   transition: transform .48s cubic-bezier(.22, 1, .36, 1), filter .35s ease;
 }
 
+/* Photos whose face sits low in the frame (e.g. Gaurav Tripathi): keep chin visible */
+.spk-card-photo img.spk-photo-low {
+  object-position: center bottom;
+  transform-origin: center bottom;
+}
+
 /* Compact, legible card content */
 .spk-card-info {
   padding: 13px 14px 15px;
