@@ -115,6 +115,7 @@ SPEAKERS = [
     ("sandeep", "Prof. Sandeep Kumar"),
     ("souvik", "Prof. Souvik Chakraborty"),
     ("haribhaskar", "Dr. Hari Bhaskar"),
+    ("mausam", "Prof. Mausam"),
 ]
 
 
@@ -729,6 +730,15 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Technical Fellow &amp; Corporate Vice President</p>
               <p class="org">Microsoft Research India</p>
               <p class="bio-copy">Technical Fellow at Microsoft Research India and Adjunct Professor at IIT Delhi. He pioneered extreme multi-label classification, developing scalable machine learning algorithms widely deployed in global web search and recommendation systems.</p>
+            </div>
+          </article>
+          <article class="bio">
+            <div class="bio-photo"><img src="photos/mausam.webp" alt="Prof. Mausam" width="520" height="520" loading="lazy"></div>
+            <div class="bio-text">
+              <h3>Prof. Mausam</h3>
+              <p class="role">Professor of Computer Science &amp; Joint Faculty, Yardi ScAI</p>
+              <p class="org">IIT Delhi</p>
+              <p class="bio-copy">Professor of Computer Science at IIT Delhi, Affiliate Professor at the University of Washington, and founding head of the Yardi School of Artificial Intelligence (ScAI). His research focuses on artificial intelligence, including neuro-symbolic machine learning, large language models, natural language processing, and intelligent information systems. He was elected an AAAI Fellow in 2024 and an INAE Fellow for his sustained contributions to AI.</p>
             </div>
           </article>
           <article class="bio">
