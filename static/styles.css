@@ -5390,3 +5390,249 @@ img {
     font-size: 24px;
   }
 }
+
+/* ============================================================
+   HOST SECTION (Featured Host Card on Speakers Page)
+   ============================================================ */
+.host-section-band {
+  padding-top: clamp(28px, 4vw, 44px);
+  padding-bottom: clamp(16px, 2.5vw, 24px);
+}
+
+.host-section-top {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.host-section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  color: #00e5ff;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 999px;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.12);
+}
+
+.host-card-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.host-card {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+  max-width: 980px;
+  width: 100%;
+  padding: clamp(24px, 3.5vw, 36px);
+  background: linear-gradient(145deg, rgba(16, 26, 34, 0.9) 0%, rgba(10, 16, 21, 0.96) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.38);
+  border-radius: 18px;
+  box-shadow: 0 0 35px rgba(0, 229, 255, 0.08), 0 12px 36px rgba(0, 0, 0, 0.5);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.host-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.8), transparent);
+  opacity: 0.7;
+}
+
+.host-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 229, 255, 0.6);
+  box-shadow: 0 0 50px rgba(0, 229, 255, 0.15), 0 16px 44px rgba(0, 0, 0, 0.6);
+}
+
+.host-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.host-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.host-card:hover .host-photo img {
+  transform: scale(1.03);
+}
+
+.host-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.host-badge-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.host-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #00e5ff;
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.45);
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.15);
+}
+
+.host-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00e5ff;
+  box-shadow: 0 0 6px #00e5ff;
+  display: inline-block;
+}
+
+.host-name {
+  font-family: var(--display);
+  font-size: clamp(26px, 2.8vw, 34px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #FFFFFF !important;
+  margin: 0 0 6px;
+  letter-spacing: normal;
+  word-spacing: .12em;
+}
+
+.host-role {
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #00e5ff !important;
+  margin: 0 0 4px;
+}
+
+.host-affil {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #B0BEC5 !important;
+  margin: 0 0 14px;
+}
+
+.host-bio {
+  font-family: var(--body);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Horizontal Divider */
+.host-divider-wrap {
+  width: 100%;
+  max-width: 1060px;
+  margin: clamp(38px, 5vw, 54px) auto clamp(28px, 4vw, 40px);
+  padding-inline: 16px;
+}
+
+.host-divider {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4) 20%, var(--rule) 50%, rgba(0, 229, 255, 0.4) 80%, transparent);
+}
+
+/* Speakers Heading */
+.speakers-section-head {
+  text-align: center;
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+}
+
+.speakers-section-title {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 500;
+  letter-spacing: .14em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.speakers-section-title::before,
+.speakers-section-title::after {
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+}
+
+.speakers-section-title::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.5));
+}
+
+.speakers-section-title::after {
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.5), transparent);
+}
+
+.speakers-list-band {
+  padding-top: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .host-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .host-photo {
+    max-width: 220px;
+    margin-inline: auto;
+  }
+
+  .host-badge-wrapper {
+    justify-content: center;
+  }
+
+  .host-role,
+  .host-affil {
+    margin-inline: auto;
+  }
+
+  .host-bio {
+    text-align: left;
+  }
+}

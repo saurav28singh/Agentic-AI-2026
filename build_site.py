@@ -112,7 +112,6 @@ SPEAKERS = [
     ("santanu", "Prof. Santanu Chaudhury"),
     ("tanmoy", "Prof. Tanmoy Chakraborty"),
     ("tarak", "Prof. Tarak Karmakar"),
-    ("sandeep", "Prof. Sandeep Kumar"),
     ("souvik", "Prof. Souvik Chakraborty"),
     ("haribhaskar", "Dr. Hari Bhaskar"),
     ("mausam", "Prof. Mausam"),
@@ -630,6 +629,41 @@ pages["programme.html"] = ("Programme", "programme.html",
 pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
     page_head("Speakers", "Speakers", "Distinguished Speakers",
               "Fifteen researchers, practitioners and founders building agentic AI across universities, corporate research labs, hospitals and startups.")
+    + "\n\n" + """    <!-- DEDICATED HOST SECTION -->
+    <section class="band host-section-band">
+      <div class="wrap">
+        <div class="host-section-top">
+          <span class="host-section-label">HOST</span>
+        </div>
+
+        <div class="host-card-container">
+          <article class="host-card">
+            <div class="host-photo">
+              <img src="photos/sandeep.webp" alt="Sandeep Kumar" width="520" height="520" loading="eager">
+            </div>
+            <div class="host-info">
+              <div class="host-badge-wrapper">
+                <span class="host-badge"><span class="host-badge-dot"></span> HOST</span>
+              </div>
+              <h2 class="host-name">Sandeep Kumar</h2>
+              <p class="host-role">Associate Professor</p>
+              <p class="host-affil">Department of Electrical Engineering and Yardi School of Artificial Intelligence, IIT Delhi</p>
+              <p class="host-bio">Associate Professor in the Department of Electrical Engineering and Joint Faculty at the Yardi School of Artificial Intelligence (ScAI), IIT Delhi. His research focuses on optimization, signal processing, machine learning, and graphical models, with applications in developing methods for complex data-driven problems.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- HORIZONTAL DIVIDER -->
+        <div class="host-divider-wrap">
+          <hr class="host-divider">
+        </div>
+
+        <!-- SPEAKERS HEADING -->
+        <div class="speakers-section-head">
+          <h2 class="speakers-section-title">SPEAKERS</h2>
+        </div>
+      </div>
+    </section>"""
     + "\n\n" + band("Profiles", "Who is speaking",
                     "Each profile fills in as speakers send their talk titles and biographies.",
                     '''        <div class="bios">
@@ -793,15 +827,6 @@ pages["speakers.html"] = ("Speakers & Panels", "speakers.html",
               <p class="role">Head of the Data and Security Lab</p>
               <p class="org">Fujitsu Research India</p>
               <p class="bio-copy">Dr. Rahul Mishra leads research and development in AI safety, LLM security, and the detection of misinformation and deception. His work focuses on building robust, transparent, and trustworthy AI systems, including harmful prompt detection, hallucination detection, machine unlearning, and explainability of large language models.</p>
-            </div>
-          </article>
-          <article class="bio">
-            <div class="bio-photo"><img src="photos/sandeep.webp" alt="Prof. Sandeep Kumar" width="520" height="520" loading="lazy"></div>
-            <div class="bio-text">
-              <h3>Prof. Sandeep Kumar</h3>
-              <p class="role">Associate Professor, Electrical Engineering &amp; Joint Faculty, ScAI</p>
-              <p class="org">IIT Delhi</p>
-              <p class="bio-copy">Prof. Sandeep Kumar is an Associate Professor in the Department of Electrical Engineering and a Joint Faculty Member of the Yardi School of Artificial Intelligence at IIT Delhi. His research focuses on optimization, signal processing, machine learning, and graphical models, with applications in developing methods for complex data-driven problems.</p>
             </div>
           </article>
           <article class="bio">
