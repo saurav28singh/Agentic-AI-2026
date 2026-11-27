@@ -647,3 +647,99 @@
   goTo(0, false);
   startTimer();
 })();
+
+/* collapsible volunteer grid with "View all volunteers" toggle */
+(function () {
+  var grid = document.getElementById('volunteer-grid');
+  if (!grid) return;
+  var wrap = grid.parentNode.querySelector('.org-more');
+  var btn = wrap ? wrap.querySelector('.org-more-btn') : null;
+  var section = document.getElementById('volunteers') || grid;
+  var limit = parseInt(grid.getAttribute('data-collapse-after'), 10) || 6;
+  // every direct child <article> is a card, so adding/removing cards needs no JS change
+  var cards = [].slice.call(grid.children).filter(function (el) { return el.tagName === 'ARTICLE'; });
+  var total = cards.length;
+  if (!btn || total <= limit) {
+    if (wrap) wrap.hidden = true;
+    return;
+  }
+
+  var expanded = false;
+  var busy = false;
+  var reduced = false;
+  try { reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { }
+
+  function setHidden(hide) {
+    for (var i = limit; i < total; i++) {
+      cards[i].classList.toggle('is-collapsed-hidden', hide);
+    }
+  }
+
+  function setLabel() {
+    btn.textContent = expanded ? 'Show less ↑' : 'View all volunteers ↓';
+    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  }
+
+  function animateHeight(from, to, done) {
+    if (reduced || from === to) { done(); return; }
+    grid.classList.add('is-collapsible');
+    grid.style.height = from + 'px';
+    grid.offsetHeight; // force reflow
+    grid.style.height = to + 'px';
+    var finished = false;
+    function end(e) {
+      if (finished || (e && (e.target !== grid || e.propertyName !== 'height'))) return;
+      finished = true;
+      grid.removeEventListener('transitionend', end);
+      grid.style.height = '';
+      grid.classList.remove('is-collapsible');
+      done();
+    }
+    grid.addEventListener('transitionend', end);
+    setTimeout(end, 700);
+  }
+
+  function scrollToSection() {
+    var head = document.querySelector('.site-head');
+    var offset = head ? head.getBoundingClientRect().height : 0;
+    var top = section.getBoundingClientRect().top + window.pageYOffset - offset - 12;
+    window.scrollTo({ top: Math.max(0, top), behavior: reduced ? 'auto' : 'smooth' });
+  }
+
+  function expand() {
+    var from = grid.offsetHeight;
+    setHidden(false);
+    for (var i = limit; i < total; i++) cards[i].classList.add('is-revealing');
+    var to = grid.scrollHeight;
+    expanded = true;
+    setLabel();
+    animateHeight(from, to, function () {
+      for (var i = limit; i < total; i++) cards[i].classList.remove('is-revealing');
+      busy = false;
+    });
+  }
+
+  function collapse() {
+    var from = grid.offsetHeight;
+    setHidden(true);
+    var to = grid.offsetHeight;
+    setHidden(false);
+    expanded = false;
+    setLabel();
+    scrollToSection();
+    animateHeight(from, to, function () {
+      setHidden(true);
+      busy = false;
+    });
+  }
+
+  btn.addEventListener('click', function () {
+    if (busy) return;
+    busy = true;
+    if (expanded) collapse(); else expand();
+  });
+
+  setHidden(true);
+  setLabel();
+  wrap.hidden = false;
+})();

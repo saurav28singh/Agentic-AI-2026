@@ -2918,6 +2918,179 @@ img {
   text-align: left;
 }
 
+/* ---------- Volunteers: collapsible grid + "View all" button ---------- */
+.org-grid.is-collapsible {
+  overflow: hidden;
+  transition: height .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.org-grid .org-card.is-collapsed-hidden {
+  display: none !important;
+}
+
+.org-grid .org-card.is-revealing {
+  animation: orgCardReveal .4s ease both;
+}
+
+@keyframes orgCardReveal {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.org-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.org-more[hidden] {
+  display: none;
+}
+
+.org-more-btn {
+  cursor: pointer;
+}
+
+.org-more-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .org-grid.is-collapsible {
+    transition: none;
+  }
+
+  .org-grid .org-card.is-revealing {
+    animation: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .org-more-btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Volunteers: compact centred cards (separate from organiser cards) ---------- */
+.volunteer-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 1fr; /* every card the same height */
+  gap: 10px;
+}
+
+.volunteer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 12px 8px;
+  min-width: 0;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .volunteer-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.volunteer-photo {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  filter: saturate(.96) contrast(1.02);
+}
+
+.volunteer-name {
+  font-family: var(--body);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere; /* long names wrap, never cut */
+}
+
+.volunteer-inst {
+  font-family: var(--body);
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.volunteer-grid.is-collapsible {
+  overflow: hidden;
+  transition: height .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.volunteer-grid .volunteer-card.is-collapsed-hidden {
+  display: none;
+}
+
+.volunteer-grid .volunteer-card.is-revealing {
+  animation: orgCardReveal .4s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .volunteer-grid.is-collapsible {
+    transition: none;
+  }
+
+  .volunteer-grid .volunteer-card.is-revealing {
+    animation: none;
+  }
+}
+
+/* Tablet: 4 per row */
+@media (max-width: 900px) {
+  .volunteer-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: 3 per row */
+@media (max-width: 580px) {
+  .volunteer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .volunteer-card {
+    padding: 10px 6px;
+  }
+
+  .volunteer-photo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .volunteer-name {
+    font-size: 12px;
+  }
+
+  .volunteer-inst {
+    font-size: 10.5px;
+  }
+}
+
 /* Tablet (max-width: 768px) */
 @media (max-width: 768px) {
   .org-grid {

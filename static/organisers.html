@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=15">
   <script>try { localStorage.removeItem("aaiw-theme"); } catch (e) { } document.documentElement.setAttribute("data-theme", "dark");</script>
 </head>
 
@@ -164,19 +164,127 @@
               </article>
             </div>
           </div>
-          <div class="org-group">
-            <h3>Volunteers</h3>
-            <div class="org-grid">
-              <article class="org-card organiser-card">
-                <div class="org-card-photo">
-                  <img src="photos/saurav-singh.jpg" alt="Saurav Singh" width="76" height="76" loading="lazy">
-                </div>
-                <div class="org-card-info">
-                  <h4 class="org-card-name">Saurav Singh</h4>
-                  <p class="org-card-role">Software Engineer</p>
-                  <p class="org-card-affil">MISN Lab, IIT Delhi</p>
-                </div>
+          <!--
+            VOLUNTEERS: how to add a new volunteer
+            1. Copy the template card below (from <article ...> to </article>).
+            2. Paste it at the END of the list, just before the closing </div> of #volunteer-grid.
+            3. Change the name (in alt and volunteer-name), institution and photo path
+               (photo goes in static/photos/; no photo yet? keep photos/volunteer-placeholder.svg).
+            data-role / data-department are kept for reference but not shown on the card.
+            No CSS/JS edits needed: first 6 cards show, "View all" appears automatically if there are more.
+
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/volunteer-placeholder.svg" alt="Full Name" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Full Name</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
               </article>
+          -->
+          <div class="org-group" id="volunteers">
+            <h3>Volunteers</h3>
+            <div class="volunteer-grid" id="volunteer-grid" data-collapse-after="6">
+              <article class="volunteer-card" data-role="Software Engineer" data-department="MISN Lab">
+                <img class="volunteer-photo" src="photos/saurav-singh.jpg" alt="Saurav Singh" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Saurav Singh</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/vishvajeet-volunteer.jpg" alt="Vishvajeet Sinha" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Vishvajeet Sinha</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="MS (Research) Scholar" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/neha-volunteer.jpg" alt="Neha Upadhyay" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Neha Upadhyay</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="MS (Research) Scholar" data-department="Data Science">
+                <img class="volunteer-photo" src="photos/gagandeep-singh.jpg" alt="Gagandeep Singh" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Gagandeep Singh</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="B.Tech" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/dhruv-bhardwaj.jpg" alt="Dhruv Bhardwaj" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Dhruv Bhardwaj</h4>
+                <p class="volunteer-inst">BITS Pilani</p>
+              </article>
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/dibyajyoti-jena.jpg" alt="Dibyajyoti Jena" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Dibyajyoti Jena</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="B.Tech" data-department="Information Technology">
+                <img class="volunteer-photo" src="photos/isha-jain.jpg" alt="Isha Jain" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Isha Jain</h4>
+                <p class="volunteer-inst">Fidelity International</p>
+              </article>
+              <article class="volunteer-card" data-role="B.Tech" data-department="Materials Science and Engineering">
+                <img class="volunteer-photo" src="photos/lakshay-garg.jpg" alt="Lakshay Garg" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Lakshay Garg</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/prashant-singh.jpg" alt="Prashant Singh" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Prashant Singh</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/priyam-arora.jpg" alt="Priyam Arora" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Priyam Arora</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="M.Tech" data-department="Bharti School of Telecommunication Technology and Management">
+                <img class="volunteer-photo" src="photos/ruchi.jpg" alt="Ruchi" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Ruchi</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="B.Tech" data-department="Data Science">
+                <img class="volunteer-photo" src="photos/sanskriti-raj.jpg" alt="Sanskriti Raj" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Sanskriti Raj</h4>
+                <p class="volunteer-inst">IIT Madras</p>
+              </article>
+              <article class="volunteer-card" data-role="M.Tech" data-department="Yardi School of AI">
+                <img class="volunteer-photo" src="photos/suraj-reddy.jpg" alt="Suraj Reddy" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Suraj Reddy</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="M.Tech" data-department="Yardi School of AI">
+                <img class="volunteer-photo" src="photos/vaibhav-sagar.jpg" alt="Vaibhav Sagar" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Vaibhav Sagar</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/volunteer-placeholder.svg" alt="Arghodeep Nandi" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Arghodeep Nandi</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="M.Tech" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/volunteer-placeholder.svg" alt="Bisma Zahoor" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Bisma Zahoor</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="B.Tech" data-department="Biomedical Sciences">
+                <img class="volunteer-photo" src="photos/volunteer-placeholder.svg" alt="Prarthana Sharma" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Prarthana Sharma</h4>
+                <p class="volunteer-inst">Galgotias University</p>
+              </article>
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Centre for Applied Research in Electronics">
+                <img class="volunteer-photo" src="photos/volunteer-placeholder.svg" alt="Ramniwas Meena" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Ramniwas Meena</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Mathematics">
+                <img class="volunteer-photo" src="photos/volunteer-placeholder.svg" alt="Sita Bissu" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Sita Bissu</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+              <article class="volunteer-card" data-role="PhD Scholar" data-department="Electrical Engineering">
+                <img class="volunteer-photo" src="photos/volunteer-placeholder.svg" alt="Subhanu Halder" width="60" height="60" loading="lazy">
+                <h4 class="volunteer-name">Subhanu Halder</h4>
+                <p class="volunteer-inst">IIT Delhi</p>
+              </article>
+            </div>
+            <div class="org-more" hidden>
+              <button type="button" class="btn btn-ghost org-more-btn" aria-controls="volunteer-grid" aria-expanded="false">View all volunteers ↓</button>
             </div>
           </div>
         </div>
@@ -250,7 +358,7 @@
     </div>
   </footer>
   <script src="config.js"></script>
-  <script src="site.js?v=8"></script>
+  <script src="site.js?v=11"></script>
 </body>
 
 </html>
